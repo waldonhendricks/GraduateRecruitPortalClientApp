@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    --dark-text: #292929;
+    --light-text: #ffffff;
+    --main: #008DB8;
+    --secondary: #012952;
+    --backgroud: #ffffff;
+    --orange: #F27400;
+    --green: #11D600;
+}
+
+.grad-cput-btn{
+    display: block;
+    color: var(--light-text);
+    background-color: var(--main);
+    border-radius: 10px;
+    border: none;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.cput-grad-nav-links{
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.cput-grad-nav-links:hover{
+    color: var(--main)!;
+}
