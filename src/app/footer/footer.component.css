@@ -1,0 +1,13 @@
+.footer{
+    height: 400px;
+    background-color: var(--secondary);
+    text-align: center;
+}
+
+.footer h1{
+    color: var(--light-text);
+    font-size: 56px;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}

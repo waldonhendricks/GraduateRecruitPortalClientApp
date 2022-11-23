@@ -1,5 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-:root{
+@font-face {
+    font-family: helveticaNeue;
+    src: url(assets/fonts/helveticaneue/HelveticaNeueLt.ttf);
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family: helveticaNeue;
+    src: url(assets/fonts/helveticaneue/HelveticaNeue.ttf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: helveticaNeue;
+    src: url(assets/fonts/helveticaneue/HelveticaNeueMed.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: helveticaNeue;
+    src: url(assets/fonts/helveticaneue/HelveticaNeueBd.ttf);
+    font-weight: bold;
+}
+
+:root {
     --dark-text: #292929;
     --light-text: #ffffff;
     --main: #008DB8;
@@ -9,7 +33,44 @@
     --green: #11D600;
 }
 
-.grad-cput-btn{
+h1{
+    font-size: 24px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+h3{
+    font-size: 18px;
+}
+
+h4{
+    font-size: 16.5px;
+}
+
+h5{
+    font-size: 15px;
+}
+
+h6{
+    font-size: 13px;
+}
+
+p{
+    font-size: 16px;
+}
+
+label{
+    font-size: 16.5px;
+    font-weight: 600;
+}
+
+button{
+    text-transform: uppercase;
+}
+
+.grad-cput-btn {
     display: block;
     color: var(--light-text);
     background-color: var(--main);
@@ -22,11 +83,42 @@
     font-size: 15px;
 }
 
-.cput-grad-nav-links{
+.grad-cput-big-btn {
+    display: block;
+    color: var(--light-text);
+    background-color: var(--main);
+    border-radius: 10px;
+    border: none;
+    width: 200px;
+    height: 60px;
+    text-align: center;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 15px;
+    text-transform: uppercase;
 }
 
-.cput-grad-nav-links:hover{
-    color: var(--main)!;
+.cput-grad-nav-links {
+    font-weight: 600;
+    font-size: 17px;
+    font-family: helveticaNeue;
+}
+
+.cput-grad-nav-links:hover {
+    color: var(--main) !;
+}
+
+.landing-splash-widget {
+    overflow: hidden;
+}
+
+.landing-splash-widget img {
+    height: 60%;
+    display: block;
+    height: 653px;
+    width: 100%;
+}
+
+#gradImage{
+    width: 100%;
+    height: 100%;
 }
