@@ -1,4 +1,4 @@
-export interface Signup{
+export interface Graduate{
     email: string;
     password: string;
     confirmPassword: string;
