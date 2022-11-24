@@ -11,25 +11,37 @@
 }
 
 .col h1{
-    margin-left: 600px;
-    margin-top: -600px;
+    margin-left: 700px;
+    margin-top: -550px;
     font-size: 30pt;
 }
 
 .label1 {
     /* font-size: 15px; */
-    margin-left: 600px;
+    margin-left: 700px;
+  margin-top: 50px;
     font-family:  Helvetica;
     align-content: center;
    
 }
 .label2{
-    margin-left: 600px;
+    margin-left: 700px;
     align-content: center;
     font-family:  Helvetica;
 }
 .label3{
-    margin-left: 600px;
+    margin-left: 700px;
     align-content: center;
     font-family:  Helvetica;
+}
+.btn btn-primary{
+    border: none;
+    color: #008DB8;
+    text-align: center;
+text-emphasis-color: white;
+text-decoration: none;
+}
+.col-12{
+    margin-left: 710px;
+    margin-top: 20px;
 }
