@@ -10,17 +10,32 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Collaboration Rules
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Commit Messages
+All commits made in this project should follow the convention below.
+A commit should have 3 parts
+1. Type
+2. Colon
+3. Description of the task under the give task. ***Short and precised***
 
-## Running unit tests
+#### See examples below
+---
+> A commit for a newly added entity
+`TASK: Added and implemented domain entity car.`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> A commit for a bug fix.
+`BUG FIX: Fixed null pointer reference for car objects caused by an uninitialized object in vehicle.`
+**[NOTE]** You can omit the cause if you want to But it is strongly recommended you put the cause of the Bug so 
+that in later stages, if one of the team member(s) go through the same error the commit message might be of 
+some help to them to track down their cause.
 
-## Running end-to-end tests
+> A commit for a refactoring
+`REFACTORING: Extracted ValidateStudentNumber() method from AddStudent()`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+> A commit for a new feature
+`FEATURE: Added session tracking for logged-in users`
+---
 
 ## Further help
 
