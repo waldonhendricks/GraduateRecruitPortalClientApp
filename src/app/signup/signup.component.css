@@ -15,22 +15,21 @@
     margin-top: -600px;
     font-size: 30pt;
 }
-.label1 b{
-    font-size: 15px;
-    padding: 100%;
-    margin-left: 700px;
-    
-   
+
+.label1 {
+    /* font-size: 15px; */
+    margin-left: 600px;
     font-family:  Helvetica;
     align-content: center;
    
 }
 .label2{
-   
-    margin-left: 710px;
+    margin-left: 600px;
     align-content: center;
+    font-family:  Helvetica;
 }
 .label3{
-    margin-left: 710px;
+    margin-left: 600px;
     align-content: center;
+    font-family:  Helvetica;
 }
