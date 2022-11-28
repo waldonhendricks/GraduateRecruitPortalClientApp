@@ -28,7 +28,7 @@ import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.componen
     ResetPasswordComponent,
     UtilityComponent,
     ComponentDevelopmentComponent,
-    GraduateProfileComponent
+    GraduateProfileComponent,
     DirectVacancyComponent
   ],
   imports: [
