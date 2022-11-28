@@ -1,0 +1,13 @@
+.form-heading{
+    margin-left: 122px;
+    position: absolute;
+    margin-top: 25px;
+    font-family: Helvetica;
+    font-style: bold;
+}
+
+.col{
+    margin-top: 100px;
+    width: 30px;
+    font-family: Helvetica;
+}
