@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ComponentDevelopmentComponent } from './component-development/component-development.component';
 import { GraduateProfileComponent } from './graduate-profile/graduate-profile.component';
+import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SignupComponent } from './signup/signup.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'component-development', component: ComponentDevelopmentComponent },
   {path: 'graduate-profile',component: GraduateProfileComponent}
+  { path: 'direct-vacancy', component: DirectVacancyComponent },
 ];
 
 @NgModule({
@@ -22,4 +24,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent];
+export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ComponentDevelopmentComponent, DirectVacancyComponent];
 

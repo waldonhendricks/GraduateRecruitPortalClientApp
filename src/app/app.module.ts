@@ -14,6 +14,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { UtilityComponent } from './utility/utility.component';
 import { ComponentDevelopmentComponent } from './component-development/component-development.component';
 import { GraduateProfileComponent } from './graduate-profile/graduate-profile.component';
+import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.component';
 
 
 
@@ -28,6 +29,7 @@ import { GraduateProfileComponent } from './graduate-profile/graduate-profile.co
     UtilityComponent,
     ComponentDevelopmentComponent,
     GraduateProfileComponent
+    DirectVacancyComponent
   ],
   imports: [
     HttpClientModule,

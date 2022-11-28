@@ -253,8 +253,14 @@ button{
 }
 
 .grad-portal-graduate-app-direct-vacancy-widget{
-    height: 150px;
+    padding: 1% 2%;
+    height: 195px;
     border: 2px solid var(--bs-gray-500);
+}
+
+.grad-portal-graduate-app-direct-vacancy-widget h4{
+    color: var(--orange);
+
 }
 
 .grad-portal-direct-vacancy-btn{
