@@ -14,6 +14,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { UtilityComponent } from './utility/utility.component';
 import { ComponentDevelopmentComponent } from './component-development/component-development.component';
 import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -33,6 +34,7 @@ import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.componen
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),

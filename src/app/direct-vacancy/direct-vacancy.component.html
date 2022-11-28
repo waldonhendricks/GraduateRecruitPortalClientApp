@@ -1,14 +1,44 @@
 <app-navbar></app-navbar>
-<div class="grad-portal-graduate-app-direct-vacancy-wrapper">
-    <h1>Vacancies</h1>
-    <h3>Direct Applications</h3>
-    <div class="card w-100 grad-portal-graduate-app-direct-vacancy-widget">
-        <div class="card-body">
-            <h1 class="card-title">Junior DevOps Engineer</h1>
-            <p class="card-text">Wembley Square 2, 134 Solan Rd, Gardens, Cape Town, 8001</p>
-            <h4>Cape Town & Johannesburg - On-Sight</h4>
-            <p class="card-text">A DevOps Engineer works with developers and the IT staff to oversee the code releases, combining an understandin…</p>
-            <a href="#" class="grad-cput-small-btn grad-portal-direct-vacancy-btn">Apply</a>
+<div class="wrapper">
+    <div class="grad-portal-graduate-app-direct-vacancy-wrapper">
+        <div class="grad-portal-graduate-app-direct-vacancy-wrapper-heading">
+            <h1>Vacancies</h1>
+            <h3>Direct Applications</h3>
+            <div class="grad-portal-direct-vacancy-switch-btn-wrapper">
+                <a class="grad-cput-small-btn" id="grad-portal-direct-vacancy-switch-btn-da" href="#">
+                    <!-- <span></span> -->
+                    DA
+                </a>
+                <a class="grad-cput-small-btn" id="grad-portal-direct-vacancy-switch-btn-ad" href="#">
+                    <!-- <span></span> -->
+                    AD
+                </a>
+            </div>
+            <a id="grad-portal-direct-vacancy-refresh-btn" class="grad-cput-small-btn" href="#">Refresh</a>
+        </div>
+
+        <div class="card w-100 grad-portal-graduate-app-direct-vacancy-widget">
+            <div class="card-body">
+                <h1 class="card-title">Junior DevOps Engineer</h1>
+                <p class="card-text">Wembley Square 2, 134 Solan Rd, Gardens, Cape Town, 8001</p>
+                <h4>Cape Town & Johannesburg - On-Sight</h4>
+                <p class="card-text">A DevOps Engineer works with developers and the IT staff to oversee the code
+                    releases, combining an understandin…</p>
+                <a href="#" class="grad-cput-small-btn grad-portal-direct-vacancy-btn">Apply</a>
+            </div>
+        </div>
+
+        <div class="grad-portal-graduate-app-direct-vacancy-pager-btn-wrapper">
+            <button class="grad-cput-small-btn grad-portal-graduate-app-direct-vacancy-pager-btn">
+                &#60;
+                <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
+            </button>
+            <p>
+                <span>1</span>
+                -
+                <span>10</span>
+            </p>
+            <button class="grad-cput-small-btn grad-portal-graduate-app-direct-vacancy-pager-btn">&#62;</button>
         </div>
     </div>
 </div>

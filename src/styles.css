@@ -252,6 +252,66 @@ button{
     margin-top: 2%;
 }
 
+.grad-portal-graduate-app-direct-vacancy-wrapper-heading{
+    margin: 4% 0%;
+}
+
+#grad-portal-direct-vacancy-refresh-btn{
+    width: 100px;
+    position: absolute;
+    top: 46%;
+    right: 0%;
+    height: 43px;
+    padding-top: 0.8%;
+}
+
+.grad-portal-graduate-app-direct-vacancy-wrapper-heading{
+    position: relative;
+    height: 110px;
+}
+
+.grad-portal-graduate-app-direct-vacancy-wrapper-heading h1{
+    margin-bottom: 2%;
+}
+
+.grad-portal-direct-vacancy-switch-btn-wrapper{
+    border: 3px solid var(--secondary);
+    border-radius: 5px;
+    width: 115.5px;
+    padding: 0% 0%;
+    position: absolute;
+    right: 10%;
+    bottom: 15%;
+}
+
+.grad-portal-direct-vacancy-switch-btn-wrapper a{
+    display: inline-block;
+}
+
+#grad-portal-direct-vacancy-switch-btn-da{
+    position: relative;
+    width: 55px;
+    border-radius: 3px;
+    padding-top: 6.6%;
+}
+
+#grad-portal-direct-vacancy-switch-btn-ad{
+    position: relative;
+    width: 55px;
+    background-color: var(--light-text);
+    color: var(--dark-text);
+    border-radius: 3px;
+    padding-top: 6.6%;
+}
+
+.grad-portal-graduate-app-direct-vacancy-wrapper-heading span{
+    position: absolute;
+    margin: 0%;
+    padding: 0%;
+    top: 15%;
+    left: 33%;
+}
+
 .grad-portal-graduate-app-direct-vacancy-widget{
     padding: 1% 2%;
     height: 195px;
@@ -265,6 +325,27 @@ button{
 
 .grad-portal-direct-vacancy-btn{
     position: absolute;
-    right: 2%;
-    bottom: 15%;
+    right: 4%;
+    bottom: 20%;
 }
+
+.grad-portal-graduate-app-direct-vacancy-pager-btn-wrapper{
+    margin-top: 4%;
+    width: 110px;
+    float: right;
+}
+
+.grad-portal-graduate-app-direct-vacancy-pager-btn-wrapper p{
+    display: inline-block;
+    margin: 0% 2.69%;
+}
+
+.grad-portal-graduate-app-direct-vacancy-pager-btn{
+    width: 30px;
+    height: 30px;
+    padding: 0.2%;
+    display: inline-block;
+    border-radius: 4px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
