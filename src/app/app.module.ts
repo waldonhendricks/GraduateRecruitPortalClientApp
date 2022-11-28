@@ -13,6 +13,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UtilityComponent } from './utility/utility.component';
 import { ComponentDevelopmentComponent } from './component-development/component-development.component';
+import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.component';
 
 
 
@@ -24,8 +25,9 @@ import { ComponentDevelopmentComponent } from './component-development/component
     FooterComponent,
     SignupComponent,
     ResetPasswordComponent,
-    UtilityComponent
-    ComponentDevelopmentComponent
+    UtilityComponent,
+    ComponentDevelopmentComponent,
+    DirectVacancyComponent
   ],
   imports: [
     HttpClientModule,
