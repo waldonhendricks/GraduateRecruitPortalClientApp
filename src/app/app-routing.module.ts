@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'component-development', component: ComponentDevelopmentComponent },
-  {path: 'graduate-profile',component: GraduateProfileComponent}
+  {path: 'graduate-profile',component: GraduateProfileComponent},
   { path: 'direct-vacancy', component: DirectVacancyComponent },
 ];
 
@@ -23,6 +23,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent];
-export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ComponentDevelopmentComponent, DirectVacancyComponent];
+export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent,DirectVacancyComponent];
+
 
