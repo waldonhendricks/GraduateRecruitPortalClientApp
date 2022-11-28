@@ -11,7 +11,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { UtilityComponent } from './utility/utility.component';
 import { ComponentDevelopmentComponent } from './component-development/component-development.component';
+
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { ComponentDevelopmentComponent } from './component-development/component
     FooterComponent,
     SignupComponent,
     ResetPasswordComponent,
+    UtilityComponent
     ComponentDevelopmentComponent
   ],
   imports: [

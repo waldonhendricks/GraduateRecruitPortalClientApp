@@ -1,27 +1,28 @@
-<div class="wrapper">
+<div class="wrapper" id="addRegistration">
     <div class="grad-portal-dashboard-layout-wrapper">
         <div class="grad-portal-dashboard-layout-left-widget">
             <img src="../assets/CPUT_Logo.jpeg" alt="cput logo">
         </div>
         <div class="grad-portal-dashboard-layout-right-widget">
-            <div class="grad-portal-dashboard-layout-right-form-wrapper">
+            <div class="grad-portal-dashboard-layout-right-form-wrapper" id="main-container">
                 <h1>Signup</h1>
-                <form action="" class="grad-portal-dashboard-layout-right-form">
+                <form action="" class="grad-portal-dashboard-layout-right-form" id="addRegistration"
+                    [formGroup]="signUpForm" (ngSubmit)="submitRegistration()">
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="email" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" />
-                      </div>
-                      <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
+                        <input type="text" class="form-control" formControlName="email" required />
+                    </div>
+                    <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="formGroupExampleInput2" />
-                      </div>
-                      <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
+                        <input type="password" class="form-control" formControlName="password" required />
+                    </div>
+                    <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="password2" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="formGroupExampleInput2" />
-                      </div>
-                      <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
-                        <button type="submit" class="grad-cput-big-btn ">Signup</button>
-                      </div>
+                        <input type="password" class="form-control" formControlName="confirmPassword" required />
+                    </div>
+                    <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
+                        <button type="submit" class="grad-cput-big-btn " [disabled]="signUpForm.invalid">Signup</button>
+                    </div>
                 </form>
             </div>
 
@@ -39,7 +40,7 @@
                         <li class="grad-portal-dashboard-layout-footer-links">
                             <a href="">Contact Us</a>
                         </li>
-    
+
                         <li class="grad-portal-dashboard-layout-footer-links">
                             <a href="">About Us</a>
                         </li>
