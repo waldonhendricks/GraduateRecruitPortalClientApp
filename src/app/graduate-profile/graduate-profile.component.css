@@ -25,5 +25,13 @@
     margin-left: 120px; 
     margin-top: 60px;  
   }
+
+  #endDate, #obtained{
+    width: 545px;
+  }
+
+  .fa fa-plus-circle{
+    size: 30px;
+  }
  
  

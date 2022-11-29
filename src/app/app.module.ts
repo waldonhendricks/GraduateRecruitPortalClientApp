@@ -17,8 +17,6 @@ import { GraduateProfileComponent } from './graduate-profile/graduate-profile.co
 import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.component';
 import { MatNativeDateModule } from '@angular/material/core';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
