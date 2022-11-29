@@ -1,14 +1,15 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <app-navbar></app-navbar>
 
 <div class="form-heading">
     <h1>Graduate Profile</h1>
-    <label for ="personal-information">Personal Information</label>
+    <label for="personal-information">Personal Information</label>
 </div>
 
 <form class="graduate-form-content">
     <div class="row">
         <div class="col">
-            
+
             <label for="firstName">First Name</label>
             <input type="text" class="form-control" placeholder="First name" aria-label="First name">
         </div>
@@ -286,7 +287,7 @@
             </select>
         </div><b></b>
     </div>
-    
+
 </form>
 
 <div class="label">
@@ -295,65 +296,77 @@
 <form class="graduate-form-content">
     <div class="row">
         <div class="col">
-            
+
             <label for="changepaswword">Change Password</label>
-            <input type="password" class="form-control"class="form-control" formControlName="confirmPassword" required />
+            <input type="password" class="form-control" class="form-control" formControlName="confirmPassword"
+                required />
         </div>
         <div class="col">
             <label for="confirmpassword">Confirm Password</label>
-            <input type="password" class="form-control"class="form-control" formControlName="confirmPassword" required />
+            <input type="password" class="form-control" class="form-control" formControlName="confirmPassword"
+                required />
         </div> <b></b>
 
         <div class="label-1">
-
-        <label for="work" >Work Experience </label>
-
-        <label for="workinfo" >(RESEVERSE CHRONOLOGICAL ORDER) </label>
+            <label for="work">Work Experience </label>
+            <p></p>
+            <label for="workinfo" style="color: green;">(RESEVERSE CHRONOLOGICAL ORDER)</label>
         </div>
 
         <form class="graduate-form-content">
             <div class="row">
                 <div class="col">
-                    
+
                     <label for="jobtitle">Job Title</label>
-                    <input type="text" class="form-control" placeholder=""aria-label="Job title">
+                    <input type="text" class="form-control" placeholder="" aria-label="Job title">
                 </div>
                 <div class="col">
                     <label for="assumedrole">Assumed Role</label>
-                    <input type="text" class="form-control" placeholder=""aria-label="Assumed role">
+                    <input type="text" class="form-control" placeholder="" aria-label="Assumed role">
                 </div> <b></b>
                 <div class="col">
-                    
+
                     <label for="companyname">Company Name</label>
-                    <input type="text" class="form-control" placeholder=""aria-label="Company name">
+                    <input type="text" class="form-control" placeholder="" aria-label="Company name">
                 </div>
                 <div class="col">
                     <label for="startdate">Start Date</label>
-                    <input type="text" class="form-control" placeholder=""aria-label="Start date">
+                    <input type="text" class="form-control" placeholder="" aria-label="Start date">
                 </div> <b></b>
 
-                <div class="col"> 
+                <div class="col">
                     <label for="enddate">End date</label>
-                    <input type="text" class="form-control" placeholder=""aria-label="Start date" >
-                </div> 
-           
-                <div class="label-2">
+                    <input type="text" id="endDate" class="form-control" placeholder="" aria-label="Start date">
+                </div><b></b>
 
-                    <label for="Qualification" >Qualification </label>
-        
-                    </div>
-                    <form class="graduate-form-content">
-                        <div class="row">
-                            <div class="col">
-                                
-                                <label for="qualificationname">Qualification Name</label>
-                                <input type="text" class="form-control" placeholder=""aria-label="Qualification name">
-                            </div>
-                            <div class="col">
-                                <label for="qualificationdescription">Qualification Description</label>
-                                <input type="text" class="form-control" placeholder=""aria-label="Assumed role">
-                            </div> <b></b> 
-                            <div class="col">        
+                <div class="col">
+                    <button class="btnAdd"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size:100px"
+                            style="color: black;"></i></button>
+                    <label>Add more experiences</label>
+                </div>
+
+                <div class="label-2">
+                    <label for="Qualification">Qualification </label>
+                </div>
+                <form class="graduate-form-content">
+                    <div class="row">
+                        <div class="col">
+
                             <label for="qualificationname">Qualification Name</label>
-                            <input type="text" class="form-control" placeholder=""aria-label="Qualification name">
+                            <input type="text" class="form-control" placeholder="" aria-label="Qualification name">
+                        </div>
+                        <div class="col">
+                            <label for="qualificationdescription">Qualification Description</label>
+                            <input type="text" class="form-control" placeholder="" aria-label="Assumed role">
+                        </div> <b></b>
+                        <div class="col">
+                            <label for="yearObtained">Year Obtained</label>
+                            <input type="text" id="obtained" class="form-control" placeholder=""
+                                aria-label="Qualification name">
+                        </div><b></b>
+
+                        <div class="col">
+                            <button class="btnAdd"><i class="fa fa-plus-circle" aria-hidden="true"
+                                    style="font-size:100px" style="color: black;"></i></button>
+                            <label>Add more qualifications</label>
                         </div>
