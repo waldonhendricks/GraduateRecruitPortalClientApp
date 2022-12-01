@@ -18,13 +18,29 @@ export class GraduateProfileComponent {
   }
 
   removeExperieceFormSection(event: any): void{
+    // Prevents the default behaviour of the button
     event.preventDefault();
+
+    // Stops event bubbling.
     event.stopImmediatePropagation();
+
+    // Check if the click event occured from the button 
     if(event.target.tagName === "button".toUpperCase())
     {
+      /** 
+       * Get the id number from the button's id which is equivalent to the id
+       * numuber of it outter parent element (div)
+       *  */ 
       let idNumberOfTheButton: number = event.target.id.charAt(event.target.id.length - 1);
+      
+      /**
+       * Get the outter parent div which folds all of the form input fields
+       * using the div's id concatinated with the number of the div.
+       */
       let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
       parentDiv?.remove();
+
+      // SEE LINE 149
     }
     else if(event.target.tagName === "i".toUpperCase())
     {
@@ -34,6 +50,7 @@ export class GraduateProfileComponent {
       parentDiv?.remove();
     }
   }
+
 
   addMoreWorkExperience(event: any): void {
     event.preventDefault();
@@ -130,11 +147,13 @@ export class GraduateProfileComponent {
     startDateInputField.setAttribute("class", "form-control");
     startDateInputField.setAttribute("aria-label", "Start date");
 
+    // Button for removing the form input field's section.
     let binButton = document.createElement("button");
     binButton.setAttribute("class", "removeXpFormSectionBtn");
     binButton.setAttribute("id", `grad-profile-dynamic-fields-widget-id-btn-${dynamicWidgetParent?.childElementCount as number + 1}`);
     binButton.addEventListener("click", this.removeExperieceFormSection.bind(this));
 
+    // Icon for the button.
     let binIconElement = document.createElement("i");
     binIconElement.setAttribute("class", "fa fa-trash");
     binButton.appendChild(binIconElement);
