@@ -7,19 +7,16 @@ import { Component } from '@angular/core';
 })
 export class GraduateProfileComponent {
 
-  constructor()
-  {
+  constructor() {
 
   }
 
-  browseResume(event: any): void 
-  {
+  browseResume(event: any): void {
     event.preventDefault();
     document.getElementById("resumé")?.click();
   }
 
-  addMoreWorkExperience(event: any): void
-  {
+  addMoreWorkExperience(event: any): void {
     event.preventDefault();
     const dynamicWidgetParent = document.getElementById("grad-profile-dynamic-fields-wrapper-id");
     let div = document.createElement("div");
@@ -58,7 +55,7 @@ export class GraduateProfileComponent {
     let secondRowRightColumnDiv = document.createElement("div");
     secondRowRightColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
     secondRowRightColumnDiv.setAttribute("style", "margin-bottom: 4vh;");
-    
+
     let thirdRightRowColumnDiv = document.createElement("div");
     thirdRightRowColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
     thirdRightRowColumnDiv.setAttribute("style", "margin-bottom: 4vh;");
@@ -116,7 +113,7 @@ export class GraduateProfileComponent {
     startDateInputField.setAttribute("type", "date");
     startDateInputField.setAttribute("class", "form-control");
     startDateInputField.setAttribute("aria-label", "Start date");
-    
+
 
     //Append left column elements to the leftColumnDiv
     firstRowLeftColumnDiv.appendChild(jobTitleLabel);
@@ -132,7 +129,7 @@ export class GraduateProfileComponent {
     firstRowRightColumnDiv.appendChild(assumedRoleInputField);
     secondRowRightColumnDiv.appendChild(startDateLabel);
     secondRowRightColumnDiv.appendChild(startDateInputField);
-    
+
 
     //Append the column divs to the row.
     rowDiv.appendChild(firstRowLeftColumnDiv);
@@ -143,7 +140,7 @@ export class GraduateProfileComponent {
 
     thirdRowDiv.appendChild(thirdRowleftColumnDiv);
     thirdRowDiv.appendChild(thirdRightRowColumnDiv);
-    
+
     //Append the the row to the div.
     div.appendChild(rowDiv);
     div.appendChild(secondRowDiv);
@@ -153,5 +150,88 @@ export class GraduateProfileComponent {
     dynamicWidgetParent?.appendChild(div);
   }
 
-  
+  addMoreQualifications(event: any): void {
+    event.preventDefault();
+    const dynamicWidgetParent = document.getElementById("grad-profile-dynamic-qualification-fields-wrapper-id");
+
+    let div = document.createElement("div");
+    div.setAttribute("class", "grad-profile-dynamic-fields-widget");
+
+    let qualRowDiv1 = document.createElement("div");
+    qualRowDiv1.setAttribute("class", "row");
+
+    let qualRowDiv2 = document.createElement("div");
+    qualRowDiv2.setAttribute("class", "row");
+
+    let qualRowDiv3 = document.createElement("div");
+    qualRowDiv3.setAttribute("class", "row");
+
+    // Columns for the qualification
+    let firstRowLeftColumnDiv = document.createElement("div");
+    firstRowLeftColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
+    firstRowLeftColumnDiv.setAttribute("style", "margin-bottom: 4vh");
+
+    let secondRowRightColumnDiv = document.createElement("div");
+    secondRowRightColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
+    secondRowRightColumnDiv.setAttribute("style", "margin-bottom: 4vh");
+
+    let thirdRowleftColumnDiv = document.createElement("div");
+    thirdRowleftColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
+    thirdRowleftColumnDiv.setAttribute("style", "margin-bottom: 4vh");
+
+    let thirdRowRightColumnDiv = document.createElement("div");
+    thirdRowRightColumnDiv.setAttribute("class","col grad-profile-inputs-widget");
+    thirdRowRightColumnDiv.setAttribute("style","margin-bottom: 4vh");
+
+    //Qualification Name
+    let qualificationNameLabel = document.createElement("label");
+    qualificationNameLabel.setAttribute("for", "qualificationName");
+    qualificationNameLabel.append("Qualification Name");
+
+    let qualificationNameInput = document.createElement("input");
+    qualificationNameInput.setAttribute("type", "text");
+    qualificationNameInput.setAttribute("class", "form-control");
+    qualificationNameInput.setAttribute("aria-label", "Qualification Name");
+
+    //Qualification Description
+    let qualificationDescriptionLabel = document.createElement("label");
+    qualificationDescriptionLabel.setAttribute("for", "qualificationDescription");
+    qualificationDescriptionLabel.append("Qualification Description");
+
+    let qualificationDescriptionInput = document.createElement("input");
+    qualificationDescriptionInput.setAttribute("type", "text");
+    qualificationDescriptionInput.setAttribute("class", "form-control");
+    qualificationDescriptionInput.setAttribute("aria-label", "Qualification Description");
+
+    //Year Obtained
+    let yearObtainedLabel = document.createElement("label");
+    yearObtainedLabel.setAttribute("for", "yearObtained");
+    yearObtainedLabel.append("Year Obtained");
+
+    let yearObtainedInput = document.createElement("input");
+    yearObtainedInput.setAttribute("type", "text");
+    yearObtainedInput.setAttribute("class", "form-control");
+    yearObtainedInput.setAttribute("aria-label", "Year Obtained");
+
+    firstRowLeftColumnDiv.appendChild(qualificationNameLabel);
+    firstRowLeftColumnDiv.appendChild(qualificationNameInput);
+    secondRowRightColumnDiv.appendChild(qualificationDescriptionLabel);
+    secondRowRightColumnDiv.appendChild(qualificationDescriptionInput);
+    thirdRowleftColumnDiv.appendChild(yearObtainedLabel);
+    thirdRowleftColumnDiv.appendChild(yearObtainedInput);
+
+    qualRowDiv1.appendChild(firstRowLeftColumnDiv);
+    qualRowDiv1.appendChild(secondRowRightColumnDiv);
+    qualRowDiv3.appendChild(thirdRowleftColumnDiv);
+    qualRowDiv3.appendChild(thirdRowRightColumnDiv);
+
+    div.appendChild(qualRowDiv1);
+    div.appendChild(qualRowDiv2);
+    div.appendChild(qualRowDiv3);
+
+    dynamicWidgetParent?.appendChild(div);
+
+  }
+
+
 }
