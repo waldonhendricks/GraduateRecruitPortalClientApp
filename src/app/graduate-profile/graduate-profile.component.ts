@@ -16,8 +16,7 @@ export class GraduateProfileComponent {
     event.preventDefault();
     document.getElementById("resumé")?.click();
   }
-
-  removeExperieceFormSection(event: any): void{
+  removeQualificationFormSection(event: any): void{
     // Prevents the default behaviour of the button
     event.preventDefault();
 
@@ -51,7 +50,40 @@ export class GraduateProfileComponent {
     }
   }
 
+  removeExperieceFormSection(event: any): void{
+    // Prevents the default behaviour of the button
+    event.preventDefault();
 
+    // Stops event bubbling.
+    event.stopImmediatePropagation();
+
+    // Check if the click event occured from the button 
+    if(event.target.tagName === "button".toUpperCase())
+    {
+      /** 
+       * Get the id number from the button's id which is equivalent to the id
+       * numuber of it outter parent element (div)
+       *  */ 
+      let idNumberOfTheButton: number = event.target.id.charAt(event.target.id.length - 1);
+      
+      /**
+       * Get the outter parent div which folds all of the form input fields
+       * using the div's id concatinated with the number of the div.
+       */
+      let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
+      parentDiv?.remove();
+
+      // SEE LINE 149
+    }
+    else if(event.target.tagName === "i".toUpperCase())
+    {
+      let button: HTMLElement = event.srcElement.parentElement;
+      let idNumberOfTheButton: string = button.id.charAt(button.id.length - 1);
+      let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
+      parentDiv?.remove();
+    }
+  
+  }
   addMoreWorkExperience(event: any): void {
     event.preventDefault();
     
@@ -195,8 +227,8 @@ export class GraduateProfileComponent {
 
     //Append the div to the parent. 
     dynamicWidgetParent?.appendChild(div);
+  
   }
-
   addMoreQualifications(event: any): void {
     event.preventDefault();
     const dynamicWidgetParent = document.getElementById("grad-profile-dynamic-qualification-fields-wrapper-id");
@@ -230,6 +262,8 @@ export class GraduateProfileComponent {
     thirdRowRightColumnDiv.setAttribute("class","col grad-profile-inputs-widget");
     thirdRowRightColumnDiv.setAttribute("style","margin-bottom: 4vh");
 
+  
+
     //Qualification Name
     let qualificationNameLabel = document.createElement("label");
     qualificationNameLabel.setAttribute("for", "qualificationName");
@@ -260,12 +294,24 @@ export class GraduateProfileComponent {
     yearObtainedInput.setAttribute("class", "form-control");
     yearObtainedInput.setAttribute("aria-label", "Year Obtained");
 
+    //remove button
+    let binButton = document.createElement("button");
+    binButton.setAttribute("class", "removeXpFormSectionBtn");
+    binButton.setAttribute("id", `grad-profile-dynamic-fields-widget-id-btn-${dynamicWidgetParent?.childElementCount as number + 1}`);
+    binButton.addEventListener("click", this.removeQualificationFormSection.bind(this));
+
+    // Icon for the button.
+    let binIconElement = document.createElement("i");
+    binIconElement.setAttribute("class", "fa fa-trash");
+    binButton.appendChild(binIconElement);
+
     firstRowLeftColumnDiv.appendChild(qualificationNameLabel);
     firstRowLeftColumnDiv.appendChild(qualificationNameInput);
     secondRowRightColumnDiv.appendChild(qualificationDescriptionLabel);
     secondRowRightColumnDiv.appendChild(qualificationDescriptionInput);
     thirdRowleftColumnDiv.appendChild(yearObtainedLabel);
     thirdRowleftColumnDiv.appendChild(yearObtainedInput);
+    thirdRowRightColumnDiv.appendChild(binButton);
 
     qualRowDiv1.appendChild(firstRowLeftColumnDiv);
     qualRowDiv1.appendChild(secondRowRightColumnDiv);
