@@ -386,7 +386,7 @@
             </div>
 
             <div class="grad-profile-fields-widget">
-                <div class="grad-profile-dynamic-fields-wrapper">
+                <div class="grad-profile-dynamic-fields-wrapper" id="grad-profile-dynamic-qualification-fields-wrapper-id">
                     <div class="grad-profile-dynamic-fields-widget">
                         <div class="row">
                             <div class="col grad-profile-inputs-widget">
@@ -410,7 +410,7 @@
                     </div>
                 </div>
                 <div class="grad-profile-add-more-fields-btn-wrapper">
-                    <button>
+                    <button (click)="addMoreQualifications($event)">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </button>
                     <span>Add more qualifications</span>
