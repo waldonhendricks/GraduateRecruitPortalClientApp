@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-graduate-profile',
   templateUrl: './graduate-profile.component.html',
-  styleUrls: ['./graduate-profile.component.css']
+  styleUrls: ['./graduate-profile.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class GraduateProfileComponent {
-
+  xpWidgetId: string = "grad-profile-dynamic-fields-widget-id";
   constructor() {
 
   }
@@ -16,11 +17,32 @@ export class GraduateProfileComponent {
     document.getElementById("resumé")?.click();
   }
 
+  removeExperieceFormSection(event: any): void{
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if(event.target.tagName === "button".toUpperCase())
+    {
+      let idNumberOfTheButton: number = event.target.id.charAt(event.target.id.length - 1);
+      let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
+      parentDiv?.remove();
+    }
+    else if(event.target.tagName === "i".toUpperCase())
+    {
+      let button: HTMLElement = event.srcElement.parentElement;
+      let idNumberOfTheButton: string = button.id.charAt(button.id.length - 1);
+      let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
+      parentDiv?.remove();
+    }
+  }
+
   addMoreWorkExperience(event: any): void {
     event.preventDefault();
+    
     const dynamicWidgetParent = document.getElementById("grad-profile-dynamic-fields-wrapper-id");
     let div = document.createElement("div");
     div.setAttribute("class", "grad-profile-dynamic-fields-widget");
+
+    div.setAttribute("id", `grad-profile-dynamic-fields-widget-id-${dynamicWidgetParent?.childElementCount as number + 1}`);
 
     // Create Row Div for form input fields.
     let rowDiv = document.createElement("div");
@@ -38,27 +60,21 @@ export class GraduateProfileComponent {
      * */
     let firstRowLeftColumnDiv = document.createElement("div");
     firstRowLeftColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
-    firstRowLeftColumnDiv.setAttribute("style", "margin-bottom: 4vh;");
 
     let secondRowleftColumnDiv = document.createElement("div");
     secondRowleftColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
-    secondRowleftColumnDiv.setAttribute("style", "margin-bottom: 4vh;");
 
     let thirdRowleftColumnDiv = document.createElement("div");
     thirdRowleftColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
-    thirdRowleftColumnDiv.setAttribute("style", "margin-bottom: 4vh;");
 
     let firstRowRightColumnDiv = document.createElement("div");
     firstRowRightColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
-    firstRowRightColumnDiv.setAttribute("style", "margin-bottom: 4vh;");
 
     let secondRowRightColumnDiv = document.createElement("div");
     secondRowRightColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
-    secondRowRightColumnDiv.setAttribute("style", "margin-bottom: 4vh;");
 
     let thirdRightRowColumnDiv = document.createElement("div");
     thirdRightRowColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
-    thirdRightRowColumnDiv.setAttribute("style", "margin-bottom: 4vh;");
 
     // Left Column elements labels, & inputs.
 
@@ -114,6 +130,17 @@ export class GraduateProfileComponent {
     startDateInputField.setAttribute("class", "form-control");
     startDateInputField.setAttribute("aria-label", "Start date");
 
+    let binButton = document.createElement("button");
+    binButton.setAttribute("class", "removeXpFormSectionBtn");
+    binButton.setAttribute("id", `grad-profile-dynamic-fields-widget-id-btn-${dynamicWidgetParent?.childElementCount as number + 1}`);
+    binButton.addEventListener("click", this.removeExperieceFormSection.bind(this));
+
+    let binIconElement = document.createElement("i");
+    binIconElement.setAttribute("class", "fa fa-trash");
+    binButton.appendChild(binIconElement);
+
+
+
 
     //Append left column elements to the leftColumnDiv
     firstRowLeftColumnDiv.appendChild(jobTitleLabel);
@@ -129,6 +156,7 @@ export class GraduateProfileComponent {
     firstRowRightColumnDiv.appendChild(assumedRoleInputField);
     secondRowRightColumnDiv.appendChild(startDateLabel);
     secondRowRightColumnDiv.appendChild(startDateInputField);
+    thirdRightRowColumnDiv.appendChild(binButton);
 
 
     //Append the column divs to the row.
