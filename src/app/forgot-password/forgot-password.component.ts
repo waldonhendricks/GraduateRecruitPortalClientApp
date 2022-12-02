@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,6 +6,6 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./forgot-password.component.css']
 })
 
-export class ForgotPasswordComponent implements OnInit{
-  email: new FormControl("");
+export class ForgotPasswordComponent{
+
 }
