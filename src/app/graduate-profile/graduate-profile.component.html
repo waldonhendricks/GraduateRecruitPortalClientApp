@@ -2,7 +2,7 @@
 <div class="grad-profile-wrapper">
     <h1 class="grad-portal-graduate-app-page-heading">Graduate Profile</h1>
 
-    <form action="">
+    <form action="" [formGroup]="graduateDetailsForm" (ngSubmit)="submitGraduateDetails()">
         <!-- Personal Information -->
         <div class="grad-profile-fields-wrapper">
             <div class="grad-profile-fields-heading">
@@ -13,33 +13,36 @@
                 <div class="row">
                     <div class="col grad-profile-inputs-widget">
                         <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" aria-label="First name">
+                        <input type="text" class="form-control" aria-label="First name" formControlName="firstName">
                     </div>
                     <div class="col grad-profile-inputs-widget">
                         <label for="middleName">Middle Name</label>
-                        <input type="text" class="form-control" aria-label="Middle name">
+                        <input type="text" class="form-control" aria-label="Middle name" formControlName="middleName">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col grad-profile-inputs-widget">
                         <label for="Surname">Surname</label>
-                        <input type="text" class="form-control" aria-label="Surname">
+                        <input type="text" class="form-control" aria-label="Surname" formControlName="lastName">
                     </div>
                     <div class="col grad-profile-inputs-widget">
                         <label for="preffered name">Preferred name</label>
-                        <input type="text" class="form-control" aria-label="Preferred name">
+                        <input type="text" class="form-control" aria-label="Preferred name"
+                            formControlName="preferredName">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col grad-profile-inputs-widget">
                         <label for="secondary-email">Secondary Email</label>
-                        <input type="email" class="form-control" aria-label="Secondary Email">
+                        <input type="email" class="form-control" aria-label="Secondary Email"
+                            formControlName="secondaryEmail">
                     </div>
                     <div class="col grad-profile-inputs-widget">
                         <label for="primary-email">Primary Email</label>
-                        <input type="email" class="form-control" aria-label="Primary email">
+                        <input type="email" class="form-control" aria-label="Primary email"
+                            formControlName="primaryEmail">
                     </div>
                 </div>
 
@@ -57,14 +60,20 @@
                     </div>
 
                     <div class="col grad-profile-inputs-widget">
-                        <label for="license">Licence?</label>
-                        <select class="select2 form-control select2-hidden-accessible"
-                            data-select2-placeholder="license?" tabindex="-1" aria-hidden="true"
-                            formControlName="license" required>
-                            <option data-select2-id="select2-data-3-ibs9">-select gender-</option>
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
+                        <div id="grad-profile-license-dynamic-fields-wrapper-id"
+                            class="grad-profile-dynamic-fields-wrapper">
+                            <label for="license">Do you own a license?</label>
+                            <select class="select2 form-control select2-hidden-accessible"
+                                data-select2-placeholder="license?" tabindex="-1" aria-hidden="true"
+                                formControlName="license" id="licenseOption" onchange="specifyLicense($event)" required>
+                                <option data-select2-id="select2-data-3-ibs9">-indicate if you own a licence-</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+
+                            <!-- Other:
+                        <input type="text" id="optionYes" disabled="disabled" /> -->
+                        </div>
                     </div>
                 </div>
 
@@ -296,7 +305,7 @@
                         <label for="study-permit">Select study permit</label>
                         <select class="select2 form-control select2-hidden-accessible"
                             data-select2-placeholder="study-permit?" tabindex="-1" aria-hidden="true"
-                            formControlName="study-permit" required>
+                            formControlName="studyPermit" required>
                             <option data-select2-id="select2-data-3-ibs9">-do you own a study permit?-</option>
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
@@ -317,7 +326,7 @@
                     <div class="col grad-profile-inputs-widget">
                         <label for="changepaswword">Change Password</label>
                         <input type="password" class="form-control" class="form-control"
-                            formControlName="confirmPassword" required />
+                            formControlName="password" required />
                     </div>
                     <div class="col grad-profile-inputs-widget">
                         <label for="confirmpassword">Confirm Password</label>
@@ -345,29 +354,33 @@
                             </div>
                             <div class="col grad-profile-inputs-widget">
                                 <label for="assumedrole">Assumed Role</label>
-                                <input type="text" class="form-control" aria-label="Assumed role">
+                                <input type="text" class="form-control" aria-label="Assumed role"
+                                    formControlName="assumedRole">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col grad-profile-inputs-widget">
                                 <label for="companyname">Company Name</label>
-                                <input type="text" class="form-control" aria-label="Company name">
+                                <input type="text" class="form-control" aria-label="Company name"
+                                    formControlName="companyName">
                             </div>
                             <div class="col grad-profile-inputs-widget">
                                 <label for="startdate">Start Date</label>
-                                <input type="date" class="form-control" aria-label="Start date">
+                                <input type="date" class="form-control" aria-label="Start date"
+                                    formControlName="startDate">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col grad-profile-inputs-widget">
                                 <label for="enddate">End date</label>
-                                <input type="date" id="endDate" class="form-control" aria-label="Start date">
+                                <input type="date" id="endDate" class="form-control" aria-label="Start date"
+                                    formControlName="endDate">
                             </div>
-                           
+
                             <div class="col">
-                            
+
                             </div>
                         </div>
                     </div>
@@ -388,23 +401,27 @@
             </div>
 
             <div class="grad-profile-fields-widget">
-                <div id="grad-profile-dynamic-qualification-fields-wrapper-id" class="grad-profile-dynamic-fields-wrapper">
+                <div id="grad-profile-dynamic-qualification-fields-wrapper-id"
+                    class="grad-profile-dynamic-fields-wrapper">
                     <div class="grad-profile-dynamic-fields-widget">
                         <div class="row">
                             <div class="col grad-profile-inputs-widget">
                                 <label for="qualificationName">Qualification Name</label>
-                                <input type="text" class="form-control" aria-label="Job title">
+                                <input type="text" class="form-control" aria-label="Job title"
+                                    formControlName="qualificationName">
                             </div>
                             <div class="col grad-profile-inputs-widget">
                                 <label for="qualificationDescription">Qualification Description</label>
-                                <input type="text" class="form-control" aria-label="Assumed role">
+                                <input type="text" class="form-control" aria-label="Assumed role"
+                                    formControlName="qualificationDescription">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col grad-profile-inputs-widget">
                                 <label for="yearObtained">Year Obtained/To be obtained?</label>
-                                <input type="text" id="yearObtained" class="form-control" aria-label="Start date">
+                                <input type="text" id="yearObtained" class="form-control" aria-label="Start date"
+                                    formControlName="graduateDate">
                             </div>
 
                             <div class="col"></div>
@@ -469,6 +486,6 @@
 <!-- Representation -->
 <div class="grad-profile-dynamic-fields-widget">
     <div class="row">
-    
+
     </div>
 </div>
