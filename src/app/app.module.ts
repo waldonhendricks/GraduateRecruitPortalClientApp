@@ -17,6 +17,7 @@ import { GraduateProfileComponent } from './graduate-profile/graduate-profile.co
 import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SigninComponent } from './signin/signin.component';
+import { VacancyInformationComponent } from './vacancy-information/vacancy-information.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SigninComponent } from './signin/signin.component';
     ComponentDevelopmentComponent,
     GraduateProfileComponent,
     DirectVacancyComponent,
-    SigninComponent
+    SigninComponent,
+    VacancyInformationComponent
   ],
   imports: [
     HttpClientModule,
