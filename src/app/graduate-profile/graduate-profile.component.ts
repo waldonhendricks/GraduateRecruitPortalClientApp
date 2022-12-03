@@ -6,6 +6,7 @@ import { Qualification } from '../model/qualification';
 import { ExperienceService } from '../service/experience.service';
 import { GraduateProfileService } from '../service/graduate-profile.service';
 import { QualificationService } from '../service/qualification.service';
+import { ToastrUtility } from '../utility/toast.utility';
 
 @Component({
   selector: 'app-graduate-profile',
@@ -77,15 +78,66 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   xpWidgetId: string = "grad-profile-dynamic-fields-widget-id";
-  constructor(private graduateProfileService: GraduateProfileService,private experienceService: ExperienceService, private qualificationService: QualificationService) {
+  constructor(private graduateProfileService: GraduateProfileService,private experienceService: ExperienceService, private qualificationService: QualificationService ,private toast: ToastrUtility,) {
 
   }
   ngOnInit(): void {
   }
 
   submitGraduateDetails(){
-    //Demi, you must code here
+    if(this.graduateDetailsForm.value.firstName == " "  &&  this.graduateDetailsForm.value.middleName == " " && this.graduateDetailsForm.value.lastName == " " && this.graduateDetailsForm.value.preferredName == " " &&
+    this.graduateDetailsForm.value.primaryEmail == " " &&  this.graduateDetailsForm.value.secondaryEmail == " "  && this.graduateDetailsForm.value.gender == "-1 "  
+    && this.graduateDetailsForm.value.country == "-1 "  && this.graduateDetailsForm.value.studyPermit == " -1"  
+    && this.graduateDetailsForm.value.password== " "  && this.graduateDetailsForm.value.confirmPassword == " "  && this.graduateDetailsForm.value.cellphone == " " ){
+      this.toast.showtoastrError("Please ensure all fields are filled in","Fill in personal details");
+      
+    }
+    if (this.graduateDetailsForm.value.jobTitle==" " && this.graduateDetailsForm.value.assumedRole== " " 
+    &&  this.graduateDetailsForm.value.startDate == " "  && this.graduateDetailsForm.value.endDate== " " ){
+      this.toast.showtoastrError("Please ensure all fields are filled in ","Experience section");
+    }
+    if(this.graduateDetailsForm.value.qualificationName==" " && this.graduateDetailsForm.value.qualificationDescription==" "
+    && this.graduateDetailsForm.value.graduateDate== " "){
+      this.toast.showtoastrError("Please ensure all fields are filled in ","Qualification section");
+    }
+   this.graduateProfile.firstName=this.graduateDetailsForm.value.firstName!;
+   this.graduateProfile.middleName=this.graduateDetailsForm.value.middleName!;
+   this.graduateProfile.lastName=this.graduateDetailsForm.value.lastName!;
+   this.graduateProfile.preferredName=this.graduateDetailsForm.value.preferredName!;
+   this.graduateProfile.primaryEmail=this.graduateDetailsForm.value.primaryEmail!;
+   this.graduateProfile.secondaryEmail=this.graduateDetailsForm.value.secondaryEmail!;
+   this.graduateProfile.gender=this.graduateDetailsForm.value.gender!;
+   this.graduateProfile.country=this.graduateDetailsForm.value.country!;
+  // this.graduateProfile.studyPermit=this.graduateDetailsForm.value.studyPermit!;
+  this.graduateProfile.password=this.graduateDetailsForm.value.password!;
+  this.graduateProfile.confirmPassword=this.graduateDetailsForm.value.confirmPassword!;
+ 
+  this.experience.jobTitle=this.graduateDetailsForm.value.jobTitle!;
+  this.experience.assumedRole=this.graduateDetailsForm.value.assumedRole!;
+   //this.experience.startDate=this.graduateDetailsForm.value.startDate
+   this.experience.endDate=this.graduateDetailsForm.value.endDate!;
+
+   this.qualification.qualificationName=this.graduateDetailsForm.value.qualificationName!;
+   this.qualification.qualificationDescription=this.graduateDetailsForm.value.qualificationDescription!;
+   //Date.qualification.graduateDate=this.graduateDetailsForm.value.graduateDate!;
+   this.graduateDetails(this.graduateProfile);
+   setTimeout(() => {
+   }, 1800);
   }
+  graduateDetails(graduateProfile: GraduateProfile):void{
+    this.graduateProfileService.saveProfile(graduateProfile).subscribe({
+      error: (error) => {
+        this.toast.showtoastrError(error, "Request status");
+        console.log(error);
+        setTimeout(() => {
+        }, 1500);
+      },
+
+      complete: () => this.toast.showtoastrSuccess("Save Request Successful.", "Request Status")
+    });  
+
+  }
+  
 
   browseResume(event: any): void {
     event.preventDefault();
