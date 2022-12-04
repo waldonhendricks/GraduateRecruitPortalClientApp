@@ -5,7 +5,12 @@ export interface GraduateProfile{
     preferredName: string;
     primaryEmail: string;
     secondaryEmail: string;
+    gender: string;
+    license: Boolean;
+    country: string;
+    studyPermit: Boolean;
     password: string;
+    confirmPassword: string;
     cellphone: string;
 
 }
