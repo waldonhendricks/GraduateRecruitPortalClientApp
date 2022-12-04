@@ -5,6 +5,17 @@
 /*  font-family: Helvetica;*/
 /*  font-style: bold;*/
 /*}*/
+.vacancy-info-wrapper{
+  padding: 3% 5%;
+}
+
+.vacancy-info-page-body-heading{
+  margin-bottom: 2.5vh;
+}
+
+.vacancy-info-page-list{
+  margin-bottom: 2.5vh;
+}
 
 .position{
   margin-left: 120px;
@@ -36,15 +47,21 @@
   margin-top: 60px;
 }
 
-.button{
-  margin-left: 120px;
-  margin-top: 10px;
-  width: 90%;
+.button {
+  display: block;
+  color: var(--light-text);
+  background-color: var(--main);
+  border-radius: 10px;
   border: none;
-  background-color:#008DB8;
-  color: white;
-  padding: 1px 1px;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: left;
+  width: 10%;
+  height: 47px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
 }
+
+.button:hover{
+  opacity: 0.7;
+}
+

@@ -7,12 +7,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignupComponent } from './signup/signup.component';
-<<<<<<< HEAD
 import { VacancyInformationComponent } from './vacancy-information/vacancy-information.component';
-=======
 import { SigninComponent } from './signin/signin.component';
-
->>>>>>> 47597040dba4d978dd396a844bf9b310d6f4d4ec
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
@@ -23,11 +19,9 @@ const routes: Routes = [
   { path: 'component-development', component: ComponentDevelopmentComponent },
   { path: 'graduate-profile', component: GraduateProfileComponent },
   { path: 'direct-vacancy', component: DirectVacancyComponent },
-<<<<<<< HEAD
   { path: 'vacancy-information', component: VacancyInformationComponent },
-=======
   { path: 'login', component: SigninComponent },
->>>>>>> 47597040dba4d978dd396a844bf9b310d6f4d4ec
+
 ];
 
 @NgModule({
@@ -35,10 +29,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-<<<<<<< HEAD
 export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent,DirectVacancyComponent, VacancyInformationComponent];
-=======
-export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ForgotPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent, DirectVacancyComponent];
->>>>>>> 47597040dba4d978dd396a844bf9b310d6f4d4ec
+
 
 
