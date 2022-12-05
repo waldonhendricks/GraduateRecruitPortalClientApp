@@ -7,9 +7,13 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignupComponent } from './signup/signup.component';
+import { VacancyInformationComponent } from './vacancy-information/vacancy-information.component';
 import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d5f35dee2f9f678bed7253c26f0d71f28cfa754
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
@@ -20,6 +24,7 @@ const routes: Routes = [
   { path: 'component-development', component: ComponentDevelopmentComponent },
   { path: 'graduate-profile', component: GraduateProfileComponent },
   { path: 'direct-vacancy', component: DirectVacancyComponent },
+  { path: 'vacancy-information', component: VacancyInformationComponent },
   { path: 'login', component: SigninComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'contact-us', component: ContactComponent },
@@ -30,6 +35,16 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ForgotPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent, DirectVacancyComponent, ForgotPasswordComponent, ContactComponent];
+export const routingComponents = [
+  HomepageComponent, 
+  SignupComponent, 
+  ResetPasswordComponent, 
+  ForgotPasswordComponent, 
+  ComponentDevelopmentComponent, 
+  GraduateProfileComponent, 
+  DirectVacancyComponent, 
+  ForgotPasswordComponent, 
+  ContactComponent
+];
 
 
