@@ -10,10 +10,6 @@ import { SignupComponent } from './signup/signup.component';
 import { VacancyInformationComponent } from './vacancy-information/vacancy-information.component';
 import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
-<<<<<<< HEAD
-
-=======
->>>>>>> 7d5f35dee2f9f678bed7253c26f0d71f28cfa754
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
