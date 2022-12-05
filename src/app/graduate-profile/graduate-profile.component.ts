@@ -85,37 +85,28 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   submitGraduateDetails(){
-    if(this.graduateDetailsForm.value.firstName == " "  &&  this.graduateDetailsForm.value.middleName == " " && this.graduateDetailsForm.value.lastName == " " && this.graduateDetailsForm.value.preferredName == " " &&
-    this.graduateDetailsForm.value.primaryEmail == " " &&  this.graduateDetailsForm.value.secondaryEmail == " "  && this.graduateDetailsForm.value.gender == "-1 "  
+    if(this.graduateDetailsForm.value.firstName == " " && this.graduateDetailsForm.value.lastName == " "  &&
+    this.graduateDetailsForm.value.primaryEmail == " "  && this.graduateDetailsForm.value.gender == "-1 "  
     && this.graduateDetailsForm.value.country == "-1 "  && this.graduateDetailsForm.value.studyPermit == " -1"  
     && this.graduateDetailsForm.value.password== " "  && this.graduateDetailsForm.value.confirmPassword == " "  && this.graduateDetailsForm.value.cellphone == " " ){
       this.toast.showtoastrError("Please ensure all fields are filled in","Fill in personal details");
       
-    }
-    if (this.graduateDetailsForm.value.jobTitle==" " && this.graduateDetailsForm.value.assumedRole== " " 
-    &&  this.graduateDetailsForm.value.startDate == " "  && this.graduateDetailsForm.value.endDate== " " ){
-      this.toast.showtoastrError("Please ensure all fields are filled in ","Experience section");
     }
     if(this.graduateDetailsForm.value.qualificationName==" " && this.graduateDetailsForm.value.qualificationDescription==" "
     && this.graduateDetailsForm.value.graduateDate== " "){
       this.toast.showtoastrError("Please ensure all fields are filled in ","Qualification section");
     }
    this.graduateProfile.firstName=this.graduateDetailsForm.value.firstName!;
-   this.graduateProfile.middleName=this.graduateDetailsForm.value.middleName!;
    this.graduateProfile.lastName=this.graduateDetailsForm.value.lastName!;
-   this.graduateProfile.preferredName=this.graduateDetailsForm.value.preferredName!;
+  
    this.graduateProfile.primaryEmail=this.graduateDetailsForm.value.primaryEmail!;
-   this.graduateProfile.secondaryEmail=this.graduateDetailsForm.value.secondaryEmail!;
    this.graduateProfile.gender=this.graduateDetailsForm.value.gender!;
    this.graduateProfile.country=this.graduateDetailsForm.value.country!;
   // this.graduateProfile.studyPermit=this.graduateDetailsForm.value.studyPermit!;
   this.graduateProfile.password=this.graduateDetailsForm.value.password!;
   this.graduateProfile.confirmPassword=this.graduateDetailsForm.value.confirmPassword!;
  
-  this.experience.jobTitle=this.graduateDetailsForm.value.jobTitle!;
-  this.experience.assumedRole=this.graduateDetailsForm.value.assumedRole!;
-   //this.experience.startDate=this.graduateDetailsForm.value.startDate
-   this.experience.endDate=this.graduateDetailsForm.value.endDate!;
+  
 
    this.qualification.qualificationName=this.graduateDetailsForm.value.qualificationName!;
    this.qualification.qualificationDescription=this.graduateDetailsForm.value.qualificationDescription!;
