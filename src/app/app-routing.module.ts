@@ -8,6 +8,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'graduate-profile', component: GraduateProfileComponent },
   { path: 'direct-vacancy', component: DirectVacancyComponent },
   { path: 'login', component: SigninComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'contact-us', component: ContactComponent },
 ];
 
 @NgModule({
@@ -27,6 +30,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ForgotPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent, DirectVacancyComponent];
+export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ForgotPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent, DirectVacancyComponent, ForgotPasswordComponent, ContactComponent];
 
 
