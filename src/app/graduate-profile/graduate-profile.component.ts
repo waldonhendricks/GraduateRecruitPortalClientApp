@@ -477,15 +477,4 @@ export class GraduateProfileComponent implements OnInit {
 
   }
 
-  specifyLicense(event: any): void {
-    //  var selectedOption = event.options[event.selectedIndex].value;
-    //  var yesOption = document.getElementById("optionYes");
-
-    //  yesOption?.ariaDisabled = selectedOption == "yes" ? false : true;
-
-    //  if(!yesOption?.ariaDisabled){
-    //   yesOption?.focus();
-
-  }
-
 }
