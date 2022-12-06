@@ -22,7 +22,8 @@ const routes: Routes = [
   { path: 'direct-vacancy', component: DirectVacancyComponent },
   { path: 'vacancy-information', component: VacancyInformationComponent },
   { path: 'login', component: SigninComponent },
-  { path: 'contact_us', component: ContactComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'contact-us', component: ContactComponent },
 ];
 
 @NgModule({
@@ -30,6 +31,16 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomepageComponent, SignupComponent, ResetPasswordComponent, ForgotPasswordComponent, ComponentDevelopmentComponent, GraduateProfileComponent, DirectVacancyComponent, ContactComponent, VacancyInformationComponent];
+export const routingComponents = [
+  HomepageComponent, 
+  SignupComponent, 
+  ResetPasswordComponent, 
+  ForgotPasswordComponent, 
+  ComponentDevelopmentComponent, 
+  GraduateProfileComponent, 
+  DirectVacancyComponent, 
+  ForgotPasswordComponent, 
+  ContactComponent
+];
 
 

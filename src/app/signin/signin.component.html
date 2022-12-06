@@ -1,33 +1,3 @@
-
-<!--start header-->
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm" id="mainNav">
-    <div class="container px-5">
-        <a class="navbar-brand fw-bold" href="#page-top">
-            <img width="90px" height="60px" src="..\assets\CPUT_Navbar-Logo.jpeg" alt="CPUT Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="bi-list"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a style="color: #292929; " class="nav-link me-lg-3 cput-grad-nav-links"
-                        routerLink="/login" routerLinkActive="inactive">Login</a></li>
-                <li class="nav-item"><a style="color: #292929;" class="nav-link me-lg-3 cput-grad-nav-links"
-                        routerLink="/direct-vacancy" routerLinkActive="active">Vacancy</a></li>
-                <li class="nav-item"><a style="color: #292929;" class="nav-link me-lg-3 cput-grad-nav-links"
-                    routerLink="/contact_us" routerLinkActive="active">Contact Us</a></li>
-                <li class="nav-item"><a style="color: #292929;" class="nav-link me-lg-3 cput-grad-nav-links"
-                        href="#download">About Us</a></li>
-            </ul>
-            <button class="grad-cput-btn" data-bs-target="#feedbackModal">
-                <span><a href="/signup">Signup</a></span>
-            </button>
-        </div>
-    </div>
-</nav>
-<!--end header-->
 <div class="grad-portal-dashboard-layout-wrapper">
     <div class="grad-portal-dashboard-layout-left-widget">
         <img src="../assets/CPUT_Logo.jpeg" alt="cput logo">
@@ -43,6 +13,7 @@
                   <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" id="formGroupExampleInput2" />
+                    <a routerLink="/forgot-password" routerLinkActive="active" style="float: right;">Forgot Password</a>
                   </div>
                   <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
                     <button type="submit" class="grad-cput-big-btn ">Login</button>
@@ -62,7 +33,7 @@
 
                 <div id="footerLinks">
                     <li class="grad-portal-dashboard-layout-footer-links">
-                        <a href="">Contact Us</a>
+                        <a routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
                     </li>
 
                     <li class="grad-portal-dashboard-layout-footer-links">
