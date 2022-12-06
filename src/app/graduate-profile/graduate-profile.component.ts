@@ -80,6 +80,7 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   xpWidgetId: string = "grad-profile-dynamic-fields-widget-id";
+  qualificationWidgetId = "grad-profile-qualification-dynamic-fields-widget-id";
   constructor(public formBuilder: FormBuilder, private graduateProfileService: GraduateProfileService, private experienceService: ExperienceService, private qualificationService: QualificationService, private toast: ToastrUtility) {
   }
   ngOnInit(): void {
@@ -171,6 +172,7 @@ export class GraduateProfileComponent implements OnInit {
     event.preventDefault();
     document.getElementById("resumé")?.click();
   }
+
   removeQualificationFormSection(event: any): void {
     // Prevents the default behaviour of the button
     event.preventDefault();
@@ -190,7 +192,7 @@ export class GraduateProfileComponent implements OnInit {
        * Get the outter parent div which folds all of the form input fields
        * using the div's id concatinated with the number of the div.
        */
-      let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
+      let parentDiv = document.getElementById(`${this.qualificationWidgetId}-${idNumberOfTheButton}`);
       parentDiv?.remove();
 
       // SEE LINE 149
@@ -198,7 +200,7 @@ export class GraduateProfileComponent implements OnInit {
     else if (event.target.tagName === "i".toUpperCase()) {
       let button: HTMLElement = event.srcElement.parentElement;
       let idNumberOfTheButton: string = button.id.charAt(button.id.length - 1);
-      let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
+      let parentDiv = document.getElementById(`${this.qualificationWidgetId}-${idNumberOfTheButton}`);
       parentDiv?.remove();
     }
   }
@@ -235,6 +237,7 @@ export class GraduateProfileComponent implements OnInit {
     }
 
   }
+
   addMoreWorkExperience(event: any): void {
     event.preventDefault();
 
@@ -342,8 +345,6 @@ export class GraduateProfileComponent implements OnInit {
     binButton.appendChild(binIconElement);
 
 
-
-
     //Append left column elements to the leftColumnDiv
     firstRowLeftColumnDiv.appendChild(jobTitleLabel);
     firstRowLeftColumnDiv.appendChild(jobTitleInputField);
@@ -380,12 +381,15 @@ export class GraduateProfileComponent implements OnInit {
     dynamicWidgetParent?.appendChild(div);
 
   }
+
   addMoreQualifications(event: any): void {
     event.preventDefault();
     const dynamicWidgetParent = document.getElementById("grad-profile-dynamic-qualification-fields-wrapper-id");
 
     let div = document.createElement("div");
     div.setAttribute("class", "grad-profile-dynamic-fields-widget");
+    div.setAttribute("id", `grad-profile-qualification-dynamic-fields-widget-id-${dynamicWidgetParent?.childElementCount as number + 1}`);
+
 
     let qualRowDiv1 = document.createElement("div");
     qualRowDiv1.setAttribute("class", "row");
@@ -448,7 +452,7 @@ export class GraduateProfileComponent implements OnInit {
     //remove button
     let binButton = document.createElement("button");
     binButton.setAttribute("class", "removeXpFormSectionBtn");
-    binButton.setAttribute("id", `grad-profile-dynamic-fields-widget-id-btn-${dynamicWidgetParent?.childElementCount as number + 1}`);
+    binButton.setAttribute("id", `grad-profile-qualification-dynamic-fields-widget-id-btn-${dynamicWidgetParent?.childElementCount as number + 1}`);
     binButton.addEventListener("click", this.removeQualificationFormSection.bind(this));
 
     // Icon for the button.
@@ -474,7 +478,16 @@ export class GraduateProfileComponent implements OnInit {
     div.appendChild(qualRowDiv3);
 
     dynamicWidgetParent?.appendChild(div);
+  }
 
+  specifyLicense(event: any): void {
+    //  var selectedOption = event.options[event.selectedIndex].value;
+    //  var yesOption = document.getElementById("optionYes");
+
+    //  yesOption?.ariaDisabled = selectedOption == "yes" ? false : true;
+
+    //  if(!yesOption?.ariaDisabled){
+    //   yesOption?.focus();
   }
 
 }
