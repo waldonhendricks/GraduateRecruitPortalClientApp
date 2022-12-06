@@ -92,14 +92,17 @@
                     <div class="col grad-profile-inputs-widget">
                         <div id="grad-profile-license-dynamic-fields-wrapper-id"
                             class="grad-profile-dynamic-fields-wrapper">
-                            <label for="license">Do you own a license?</label>
+                            <label for="license">Do you own a driver's license?</label>
                             <select class="select2 form-control select2-hidden-accessible"
                                 data-select2-placeholder="license?" tabindex="-1" aria-hidden="true"
                                 formControlName="license" id="licenseOption" onchange="specifyLicense($event)" required>
                                 <option data-select2-id="select2-data-3-ibs9">-indicate if you own drivers licence-
                                 </option>
-                                <option value="yes">Yes</option>
                                 <option value="no">No</option>
+                                <option value="motorBikeLicense">Yes - Motor Bike (Code A)</option>
+                                <option value="code8">Yes - Code 8 License (Code B)</option>
+                                <option value="code10">Yes - Code 10 License (Code C)</option>
+                                <option value="code14">Yes - Code 14 License (Code D)</option>
                             </select>
                         </div>
                     </div>
