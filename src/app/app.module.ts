@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -24,6 +23,7 @@ import { VacancyInformationComponent } from './vacancy-information/vacancy-infor
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recruitment-admin-navbar.component';
+import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recr
     VacancyInformationComponent,
     ContactComponent,
     VacancyAdsComponent,
-    RecruitmentAdminNavbarComponent
+    RecruitmentAdminNavbarComponent,
+    VacancyPostComponent
 
   ],
   imports: [
