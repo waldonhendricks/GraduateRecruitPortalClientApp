@@ -1,0 +1,5 @@
+.homepage-divider{
+    background-color: var(--main);
+    display: block;
+    height: 90px;
+}

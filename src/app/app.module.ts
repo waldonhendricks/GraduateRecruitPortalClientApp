@@ -23,6 +23,7 @@ import { VacancyInformationComponent } from './vacancy-information/vacancy-infor
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recruitment-admin-navbar.component';
+import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recr
     VacancyInformationComponent,
     ContactComponent,
     VacancyAdsComponent,
-    RecruitmentAdminNavbarComponent
+    RecruitmentAdminNavbarComponent,
+    VacancyPostComponent
 
   ],
   imports: [
