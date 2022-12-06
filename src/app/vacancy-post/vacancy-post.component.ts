@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./vacancy-post.component.css']
 })
 export class VacancyPostComponent {
-  //Demi's code must be added here
+  
 
 }
