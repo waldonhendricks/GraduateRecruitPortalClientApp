@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Experiecnce } from "../model/experience";
 import { GraduateProfile } from "../model/graduate";
+import { Qualification } from "../model/qualification";
 
 @Injectable({
     providedIn: 'root'
@@ -15,8 +16,8 @@ export class QualificationService{
     constructor(private http: HttpClient){
     }
 
-    public addExperience(experience: Experiecnce): Observable<Experiecnce>{
-        return this.http.post<Experiecnce>(`${this.apiServerURL}/gradrecruitment/experience/save_experience`,experience);
+    public addQualification(qualification: Qualification): Observable<Qualification>{
+        return this.http.post<Qualification>(`${this.apiServerURL}/gradrecruitment/qualification/save_qualification`,qualification);
 
     }
 }

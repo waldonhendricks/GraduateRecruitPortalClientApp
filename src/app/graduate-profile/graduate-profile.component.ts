@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Experiecnce } from '../model/experience';
 import { GraduateProfile } from '../model/graduate';
 import { Qualification } from '../model/qualification';
@@ -15,29 +15,30 @@ import { ToastrUtility } from '../utility/toast.utility';
   encapsulation: ViewEncapsulation.None,
 })
 export class GraduateProfileComponent implements OnInit {
-  
+
   graduateDetailsForm = new FormGroup({
     firstName: new FormControl(""),
     middleName: new FormControl(""),
-    lastName: new FormGroup(""),
-    preferredName: new FormGroup(""),
-    secondaryEmail: new FormGroup(""),
-    primaryEmail: new FormGroup(""),
-    gender: new FormGroup(""),
-    license: new FormGroup(""),
-    country: new FormGroup(""),
-    studyPermit: new FormGroup(""),
-    password: new FormGroup(""),
-    confirmPassword: new FormGroup(""),
-    cellphone: new FormGroup(""),
+    lastName: new FormControl(""),
+    preferredName: new FormControl(""),
+    secondaryEmail: new FormControl(""),
+    primaryEmail: new FormControl(""),
+    gender: new FormControl(""),
+    license: new FormControl(""),
+    country: new FormControl(""),
+    studyPermit: new FormControl(""),
+    password: new FormControl(""),
+    confirmPassword: new FormControl(""),
+    cellphone: new FormControl(""),
 
     //from "Expierience" model class
     jobTitle: new FormControl(""),
+    companyName: new FormControl(""),
     assumedRole: new FormControl(""),
     startDate: new FormControl(""),
     endDate: new FormControl(""),
 
-      //from "Qualification model class"
+    //from "Qualification model class"
     qualificationName: new FormControl(""),
     qualificationDescription: new FormControl(""),
     graduateDate: new FormControl("")
@@ -45,7 +46,7 @@ export class GraduateProfileComponent implements OnInit {
   });
 
   graduateProfile: GraduateProfile = {
-    firstName:'',
+    firstName: '',
     middleName: '',
     lastName: '',
     preferredName: '',
@@ -64,9 +65,10 @@ export class GraduateProfileComponent implements OnInit {
   experience: Experiecnce = {
     experienceId: 0,
     jobTitle: '',
+    companyName: '',
     assumedRole: '',
     startDate: '',
-    endDate: '', 
+    endDate: '',
   }
 
   qualification: Qualification = {
@@ -74,57 +76,59 @@ export class GraduateProfileComponent implements OnInit {
     qualificationName: '',
     qualificationDescription: '',
     graduateDate: new Date(Date.now())
-    
+
   }
 
   xpWidgetId: string = "grad-profile-dynamic-fields-widget-id";
-  constructor(private graduateProfileService: GraduateProfileService,private experienceService: ExperienceService, private qualificationService: QualificationService ,private toast: ToastrUtility,) {
-
+  constructor(public formBuilder: FormBuilder, private graduateProfileService: GraduateProfileService, private experienceService: ExperienceService, private qualificationService: QualificationService, private toast: ToastrUtility) {
   }
   ngOnInit(): void {
   }
 
-  submitGraduateDetails(){
-    if(this.graduateDetailsForm.value.firstName == " "  &&  this.graduateDetailsForm.value.middleName == " " && this.graduateDetailsForm.value.lastName == " " && this.graduateDetailsForm.value.preferredName == " " &&
-    this.graduateDetailsForm.value.primaryEmail == " " &&  this.graduateDetailsForm.value.secondaryEmail == " "  && this.graduateDetailsForm.value.gender == "-1 "  
-    && this.graduateDetailsForm.value.country == "-1 "  && this.graduateDetailsForm.value.studyPermit == " -1"  
-    && this.graduateDetailsForm.value.password== " "  && this.graduateDetailsForm.value.confirmPassword == " "  && this.graduateDetailsForm.value.cellphone == " " ){
-      this.toast.showtoastrError("Please ensure all fields are filled in","Fill in personal details");
-      
-    }
-    if (this.graduateDetailsForm.value.jobTitle==" " && this.graduateDetailsForm.value.assumedRole== " " 
-    &&  this.graduateDetailsForm.value.startDate == " "  && this.graduateDetailsForm.value.endDate== " " ){
-      this.toast.showtoastrError("Please ensure all fields are filled in ","Experience section");
-    }
-    if(this.graduateDetailsForm.value.qualificationName==" " && this.graduateDetailsForm.value.qualificationDescription==" "
-    && this.graduateDetailsForm.value.graduateDate== " "){
-      this.toast.showtoastrError("Please ensure all fields are filled in ","Qualification section");
-    }
-   this.graduateProfile.firstName=this.graduateDetailsForm.value.firstName!;
-   this.graduateProfile.middleName=this.graduateDetailsForm.value.middleName!;
-   this.graduateProfile.lastName=this.graduateDetailsForm.value.lastName!;
-   this.graduateProfile.preferredName=this.graduateDetailsForm.value.preferredName!;
-   this.graduateProfile.primaryEmail=this.graduateDetailsForm.value.primaryEmail!;
-   this.graduateProfile.secondaryEmail=this.graduateDetailsForm.value.secondaryEmail!;
-   this.graduateProfile.gender=this.graduateDetailsForm.value.gender!;
-   this.graduateProfile.country=this.graduateDetailsForm.value.country!;
-  // this.graduateProfile.studyPermit=this.graduateDetailsForm.value.studyPermit!;
-  this.graduateProfile.password=this.graduateDetailsForm.value.password!;
-  this.graduateProfile.confirmPassword=this.graduateDetailsForm.value.confirmPassword!;
- 
-  this.experience.jobTitle=this.graduateDetailsForm.value.jobTitle!;
-  this.experience.assumedRole=this.graduateDetailsForm.value.assumedRole!;
-   //this.experience.startDate=this.graduateDetailsForm.value.startDate
-   this.experience.endDate=this.graduateDetailsForm.value.endDate!;
+  submitGraduateDetails() {
+    console.log("I must run first!");
+    if (this.graduateDetailsForm.value.firstName == " " && this.graduateDetailsForm.value.middleName == " " && this.graduateDetailsForm.value.lastName == " " && this.graduateDetailsForm.value.preferredName == " " &&
+      this.graduateDetailsForm.value.primaryEmail == " " && this.graduateDetailsForm.value.secondaryEmail == " " && this.graduateDetailsForm.value.gender == "-1 "
+      && this.graduateDetailsForm.value.country == "-1 " && this.graduateDetailsForm.value.studyPermit == " -1"
+      && this.graduateDetailsForm.value.password == " " && this.graduateDetailsForm.value.confirmPassword == " " && this.graduateDetailsForm.value.cellphone == " ") {
+      this.toast.showtoastrError("Please ensure all fields are filled in", "Fill in personal details");
 
-   this.qualification.qualificationName=this.graduateDetailsForm.value.qualificationName!;
-   this.qualification.qualificationDescription=this.graduateDetailsForm.value.qualificationDescription!;
-   //Date.qualification.graduateDate=this.graduateDetailsForm.value.graduateDate!;
-   this.graduateDetails(this.graduateProfile);
-   setTimeout(() => {
-   }, 1800);
+    }
+   else if (this.graduateDetailsForm.value.jobTitle == " " && this.graduateDetailsForm.value.assumedRole == " "
+      && this.graduateDetailsForm.value.startDate == " " && this.graduateDetailsForm.value.endDate == " ") {
+      this.toast.showtoastrError("Please ensure all fields are filled in ", "Experience section");
+    }
+    else if (this.graduateDetailsForm.value.qualificationName == " " && this.graduateDetailsForm.value.qualificationDescription == " "
+      && this.graduateDetailsForm.value.graduateDate == " ") {
+      this.toast.showtoastrError("Please ensure all fields are filled in ", "Qualification section");
+    }
+    this.graduateProfile.firstName = this.graduateDetailsForm.value.firstName!;
+    this.graduateProfile.middleName = this.graduateDetailsForm.value.middleName!;
+    this.graduateProfile.lastName = this.graduateDetailsForm.value.lastName!;
+    this.graduateProfile.preferredName = this.graduateDetailsForm.value.preferredName!;
+    this.graduateProfile.primaryEmail = this.graduateDetailsForm.value.primaryEmail!;
+    this.graduateProfile.secondaryEmail = this.graduateDetailsForm.value.secondaryEmail!;
+    this.graduateProfile.gender = this.graduateDetailsForm.value.gender!;
+    this.graduateProfile.country = this.graduateDetailsForm.value.country!;
+    // this.graduateProfile.studyPermit=this.graduateDetailsForm.value.studyPermit!;
+    this.graduateProfile.password = this.graduateDetailsForm.value.password!;
+    this.graduateProfile.confirmPassword = this.graduateDetailsForm.value.confirmPassword!;
+
+    this.experience.jobTitle = this.graduateDetailsForm.value.jobTitle!;
+    this.experience.assumedRole = this.graduateDetailsForm.value.assumedRole!;
+    //this.experience.startDate=this.graduateDetailsForm.value.startDate
+    this.experience.endDate = this.graduateDetailsForm.value.endDate!;
+
+    this.qualification.qualificationName = this.graduateDetailsForm.value.qualificationName!;
+    this.qualification.qualificationDescription = this.graduateDetailsForm.value.qualificationDescription!;
+    //Date.qualification.graduateDate=this.graduateDetailsForm.value.graduateDate!;
+    this.graduateDetails(this.graduateProfile);
+    setTimeout(() => {
+    }, 1800);
   }
-  graduateDetails(graduateProfile: GraduateProfile):void{
+
+  //personal information of the graduate
+  graduateDetails(graduateProfile: GraduateProfile): void {
     this.graduateProfileService.saveProfile(graduateProfile).subscribe({
       error: (error) => {
         this.toast.showtoastrError(error, "Request status");
@@ -134,16 +138,40 @@ export class GraduateProfileComponent implements OnInit {
       },
 
       complete: () => this.toast.showtoastrSuccess("Save Request Successful.", "Request Status")
-    });  
+    });
+  }
+
+  //work experience details of graduate
+  graduateWorkExperience(workExperience: Experiecnce): void {
+    this.experienceService.addExperience(workExperience).subscribe({
+      error: (error) => {
+        this.toast.showtoastrError(error, "Request status");
+        console.log(error);
+        setTimeout(() => {
+        }, 1500);
+      },
+      complete: () => this.toast.showtoastrSuccess("Save Request Successful.", "Request Status")
+    });
+  }
+
+  graduateQualification(graduateQualification: Qualification): void {
+    this.qualificationService.addQualification(graduateQualification).subscribe({
+      error: (error) => {
+        this.toast.showtoastrError(error, "Request status");
+        console.log(error);
+        setTimeout(() => {
+        }, 1500);
+      },
+      complete: () => this.toast.showtoastrSuccess("Save Request Successful.", "Request Status")
+    })
 
   }
-  
 
   browseResume(event: any): void {
     event.preventDefault();
     document.getElementById("resumé")?.click();
   }
-  removeQualificationFormSection(event: any): void{
+  removeQualificationFormSection(event: any): void {
     // Prevents the default behaviour of the button
     event.preventDefault();
 
@@ -151,14 +179,13 @@ export class GraduateProfileComponent implements OnInit {
     event.stopImmediatePropagation();
 
     // Check if the click event occured from the button 
-    if(event.target.tagName === "button".toUpperCase())
-    {
+    if (event.target.tagName === "button".toUpperCase()) {
       /** 
        * Get the id number from the button's id which is equivalent to the id
        * numuber of it outter parent element (div)
-       *  */ 
+       *  */
       let idNumberOfTheButton: number = event.target.id.charAt(event.target.id.length - 1);
-      
+
       /**
        * Get the outter parent div which folds all of the form input fields
        * using the div's id concatinated with the number of the div.
@@ -168,8 +195,7 @@ export class GraduateProfileComponent implements OnInit {
 
       // SEE LINE 149
     }
-    else if(event.target.tagName === "i".toUpperCase())
-    {
+    else if (event.target.tagName === "i".toUpperCase()) {
       let button: HTMLElement = event.srcElement.parentElement;
       let idNumberOfTheButton: string = button.id.charAt(button.id.length - 1);
       let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
@@ -177,7 +203,7 @@ export class GraduateProfileComponent implements OnInit {
     }
   }
 
-  removeExperieceFormSection(event: any): void{
+  removeExperieceFormSection(event: any): void {
     // Prevents the default behaviour of the button
     event.preventDefault();
 
@@ -185,14 +211,13 @@ export class GraduateProfileComponent implements OnInit {
     event.stopImmediatePropagation();
 
     // Check if the click event occured from the button 
-    if(event.target.tagName === "button".toUpperCase())
-    {
+    if (event.target.tagName === "button".toUpperCase()) {
       /** 
        * Get the id number from the button's id which is equivalent to the id
        * numuber of it outter parent element (div)
-       *  */ 
+       *  */
       let idNumberOfTheButton: number = event.target.id.charAt(event.target.id.length - 1);
-      
+
       /**
        * Get the outter parent div which folds all of the form input fields
        * using the div's id concatinated with the number of the div.
@@ -202,18 +227,17 @@ export class GraduateProfileComponent implements OnInit {
 
       // SEE LINE 149
     }
-    else if(event.target.tagName === "i".toUpperCase())
-    {
+    else if (event.target.tagName === "i".toUpperCase()) {
       let button: HTMLElement = event.srcElement.parentElement;
       let idNumberOfTheButton: string = button.id.charAt(button.id.length - 1);
       let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
       parentDiv?.remove();
     }
-  
+
   }
   addMoreWorkExperience(event: any): void {
     event.preventDefault();
-    
+
     const dynamicWidgetParent = document.getElementById("grad-profile-dynamic-fields-wrapper-id");
     let div = document.createElement("div");
     div.setAttribute("class", "grad-profile-dynamic-fields-widget");
@@ -354,7 +378,7 @@ export class GraduateProfileComponent implements OnInit {
 
     //Append the div to the parent. 
     dynamicWidgetParent?.appendChild(div);
-  
+
   }
   addMoreQualifications(event: any): void {
     event.preventDefault();
@@ -386,10 +410,10 @@ export class GraduateProfileComponent implements OnInit {
     thirdRowleftColumnDiv.setAttribute("style", "margin-bottom: 4vh");
 
     let thirdRowRightColumnDiv = document.createElement("div");
-    thirdRowRightColumnDiv.setAttribute("class","col grad-profile-inputs-widget");
-    thirdRowRightColumnDiv.setAttribute("style","margin-bottom: 4vh");
+    thirdRowRightColumnDiv.setAttribute("class", "col grad-profile-inputs-widget");
+    thirdRowRightColumnDiv.setAttribute("style", "margin-bottom: 4vh");
 
-  
+
 
     //Qualification Name
     let qualificationNameLabel = document.createElement("label");
@@ -453,15 +477,15 @@ export class GraduateProfileComponent implements OnInit {
 
   }
 
-  specifyLicense(event: any): void{
-  //  var selectedOption = event.options[event.selectedIndex].value;
-  //  var yesOption = document.getElementById("optionYes");
-   
-  //  yesOption?.ariaDisabled = selectedOption == "yes" ? false : true;
+  specifyLicense(event: any): void {
+    //  var selectedOption = event.options[event.selectedIndex].value;
+    //  var yesOption = document.getElementById("optionYes");
 
-  //  if(!yesOption?.ariaDisabled){
-  //   yesOption?.focus();
+    //  yesOption?.ariaDisabled = selectedOption == "yes" ? false : true;
 
-   }
+    //  if(!yesOption?.ariaDisabled){
+    //   yesOption?.focus();
+
+  }
 
 }
