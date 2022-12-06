@@ -5,6 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -19,6 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { SigninComponent } from './signin/signin.component';
 import { VacancyInformationComponent } from './vacancy-information/vacancy-information.component';
 import { ContactComponent } from './contact/contact.component';
+import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,8 @@ import { ContactComponent } from './contact/contact.component';
     DirectVacancyComponent,
     SigninComponent,
     VacancyInformationComponent,
-    ContactComponent
+    ContactComponent,
+    VacancyAdsComponent
 
   ],
   imports: [
@@ -44,6 +49,8 @@ import { ContactComponent } from './contact/contact.component';
     MatNativeDateModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    CarouselModule,
+    ButtonModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
