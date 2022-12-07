@@ -41,8 +41,7 @@ import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recr
     VacancyInformationComponent,
     ContactComponent,
     VacancyAdsComponent,
-    RecruitmentAdminNavbarComponent
-
+    RecruitmentAdminNavbarComponent,
   ],
   imports: [
     HttpClientModule,

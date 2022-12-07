@@ -231,7 +231,7 @@ button{
 
 .grad-portal-dashboard-layout-right-footer-wrapper{
     position: absolute;
-    bottom: 0%;
+    bottom: 1%;
     width: 70vw;
 }
 
@@ -248,6 +248,12 @@ button{
 #footerCopyright{
     list-style: none;
     display: inline-block;
+    margin-top: 1%;
+}
+
+.grad-portal-dashboard-img{
+    width: 215px;
+    height: 100px;
 }
 
 .grad-portal-dashboard-layout-right-footer-wrapper ul{
@@ -378,6 +384,8 @@ button{
 .grad-portal-graduate-app-page-heading {
     margin-bottom: 2% ;
 }
+
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: helveticaNeue; }
