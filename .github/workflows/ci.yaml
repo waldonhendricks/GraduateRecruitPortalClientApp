@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request: 
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{hashFiles('**/package-lock.json')}}
+          restore-keysL | ${{ runner.os }}-node-
+
+-name: NPM Install Yarn
+ run: npm -g install yarn 
+
+-name: YARN Install
+ run: yarn install
+
+-name: YARN Install Angular
+ run: yarn global add @angular/cli
+
+-name: SET Default Angular Package Manager
+ run: ng set -global cli.packageManager=yarn
+
+-name: Lint
+ run: yarn lint
+
+-name: Format
+ run: yarn format
+
+-name: YARN build Angular Production
+ run: yarn run build:prod
+
+-name: Deploy to my EC2 instance
+ uses: easingthems/ssh/deploy@2.1.5
+ with: 
+  SSH_PRIVATE_KEY: $ {{ secrets.SSH_PRIVATE_KEY }}
+  SOURCE: "dist/graduate-recruit-portal-client-app"
+  REMOTE_HOST: "ec2-remote-host"
+  REMOTE_USER: "ubuntu"
+  TARGET: "/var/www/html/graduate-recruit-portal-client-app"
