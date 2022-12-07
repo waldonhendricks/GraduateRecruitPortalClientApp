@@ -11,6 +11,7 @@ import { VacancyInformationComponent } from './vacancy-information/vacancy-infor
 import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
+import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'vacancy-ad', component: VacancyAdsComponent },
+  {path: 'vacancy-post', component: VacancyPostComponent}
 ];
 
 @NgModule({
@@ -43,7 +45,8 @@ export const routingComponents = [
   DirectVacancyComponent, 
   ForgotPasswordComponent, 
   ContactComponent,
-  VacancyAdsComponent,
+  VacancyAdsComponent,,
+  VacancyPostComponent
 ];
 
 
