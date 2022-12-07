@@ -23,7 +23,18 @@ margin-top: 30px;
 }
 .vacancy-post-button{
     margin-top: 50px;
-    margin-left: 100px;
+    margin-left: 80px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: block;
+  color: var(--light-text);
+  background-color: var(--main);
+  border-radius: 10px;
+  border: none;
+  width: 20%;
+  height: 40px;
    
 
 }
