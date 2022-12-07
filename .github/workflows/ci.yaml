@@ -21,7 +21,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{hashFiles('**/package-lock.json')}}
-          restore-keysL | ${{ runner.os }}-node-
+          restore-keys: | ${{ runner.os }}-node-
 
 -name: NPM Install Yarn
  run: npm -g install yarn 
