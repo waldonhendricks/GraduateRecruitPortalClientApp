@@ -1,28 +1,157 @@
-.homepage-divider{
+.homepage-divider {
     background-color: var(--main);
     display: block;
     height: 90px;
 }
 
-.homepage-bottom-section{
+.homepage-bottom-section {
     height: 420px;
     position: relative;
     overflow: hidden;
 }
 
-.col h1{
+.col h1 {
     margin-top: 10%;
     margin-bottom: 3%;
 }
 
-.homepage-get-started-btn{
+.homepage-get-started-btn {
     width: 350px;
     position: absolute;
     top: 55%;
     left: 4.2%;
 }
 
-.homepage-bottom-section-left-column{
+.homepage-bottom-section-left-column {
     padding-left: 5%;
     padding-top: 0%;
+}
+
+#homepage-main-section{
+    display: none;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .homepage-divider {
+        height: 60px;
+    }
+
+    #homepage-main-section-large-screen {
+        display: none;
+        visibility: hidden;
+    }
+
+    .homepage-bottom-section {
+        height: auto;
+        padding: 0% 0%;
+    }
+
+    .homepage-bottom-section-left-column {
+        padding-left: 0%;
+        padding: 10% 5%;
+    }
+
+    .homepage-bottom-section-left-column h1 {
+        margin-bottom: 4%;
+    }
+
+    .homepage-main-section-get-started-btn {
+        margin-top: 12%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) { }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    #homepage-main-section {
+        display: none;
+        visibility: hidden;
+    }
+
+    .homepage-get-started-btn {
+        top: 72%;
+        left: 3.2%;
+    }
+
+    .homepage-bottom-section{
+        height: 260px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .homepage-divider {
+        background-color: var(--main);
+        display: block;
+        height: 90px;
+    }
+    
+    .homepage-bottom-section {
+        height: 420px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .col h1 {
+        margin-top: 10%;
+        margin-bottom: 3%;
+    }
+    
+    .homepage-get-started-btn {
+        width: 350px;
+        position: absolute;
+        top: 55%;
+        left: 4.2%;
+    }
+    
+    .homepage-bottom-section-left-column {
+        padding-left: 5%;
+        padding-top: 0%;
+    }
+    
+    #homepage-main-section{
+        display: none;
+    }
+    
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .homepage-divider {
+        background-color: var(--main);
+        display: block;
+        height: 90px;
+    }
+    
+    .homepage-bottom-section {
+        height: 420px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .col h1 {
+        margin-top: 10%;
+        margin-bottom: 3%;
+    }
+    
+    .homepage-get-started-btn {
+        width: 350px;
+        position: absolute;
+        top: 55%;
+        left: 4.2%;
+    }
+    
+    .homepage-bottom-section-left-column {
+        padding-left: 5%;
+        padding-top: 0%;
+    }
+    
+    #homepage-main-section{
+        display: none;
+    }
+    
 }
