@@ -1,0 +1,198 @@
+*
+{
+padding: 0;
+margin: 0;
+font-family: sans-serif;
+}
+
+
+/*--------------------------------------------------------------
+# Breadcrumbs
+--------------------------------------------------------------*/
+.breadcrumbs {
+  padding: 15px 0;
+  background-color: #f3f8fa;
+  min-height: 40px;
+}.breadcrumbs h2 {
+  font-size: 28px;
+  font-weight: 300;
+}
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.breadcrumbs ol li + li {
+  padding-left: 10px;
+}
+.breadcrumbs ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #8a9199;
+  content: "/";
+}
+@media (max-width: 768px) {
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+  .breadcrumbs ol {
+    display: block;
+  }
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
+}
+
+
+.banner
+{
+  height: 80vh;
+  /*---background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(images/snap-5.jpg);----*/
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.banner h1
+{
+  padding-top: 170px;
+  font-size: 50px;
+  letter-spacing: 6px;
+  font-weight: 600;
+  text-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+.search-job
+{
+  padding: 30px 0;
+  margin: 3% 50px;
+  background: #008DB8;
+}
+.search-job .form-control
+{
+  max-width: 250px;
+  display: inline-flex;
+  margin: 10px 5px;
+  border-radius: 0;
+  box-shadow: none !important;
+  border: none !important;
+}
+.search-job .btn-primary
+{
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  display: inline-flex;
+  margin: 5px;
+  padding: 5px 20px;
+}
+
+/*--------top recruiters-----------*/
+
+#recruiters
+{
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+#recruiters h3
+{
+  text-align: center;
+  padding-bottom: 40px;
+}
+h3::before
+{
+  content: '';
+  background-image: linear-gradient(to right, #6db9ef, #7ce08a);
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  z-index: -10;
+  margin-top: -15px;
+  border-top-left-radius: 70px;
+  border-bottom-right-radius: 90px;
+}
+#recruiters img
+{
+  max-width: 100px;
+  margin: 10px 20px;
+}
+
+/*-------RECENT JOBS-------*/
+
+#jobs
+{
+  background: #f8f8fa;
+  padding: 70px 0;
+}
+.company-details
+{
+  box-shadow: 0 2px 70px 0 rgba(110,130,208, .18);
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.job-update
+{
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.job-update .bi
+{
+  margin-top: 5px;
+  margin-right: 10px;
+  color: #1e4356;
+}
+.job-update small
+{
+  background: #efefef;
+  padding: 1px 5px;
+  margin: 0 5px;
+}
+.job-update p
+{
+  margin-bottom: 0 !important;
+}
+.job-update a
+{
+  text-decoration: none !important;
+  float: right;
+  color: #717274;
+}
+.apply-btn
+{
+  height: 30px;
+  background-image: linear-gradient(to right, #012952, #008DB8);
+  padding: 7px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+} 
+.apply-btn .btn-primary
+{
+  padding: 0 30px;
+  float: right;
+  border-radius: 0;
+  box-shadow: none !important;
+  background: transparent;
+  border: 1px solid #fff;
+}
+.page-link li
+{
+  height: 25px;
+  width: 25px;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+}
+.page-link li:hover, .active
+{
+  color: #fff;
+  background-image: linear-gradient(to right, #008DB8, #012952);
+}
+.left-arrow
+{
+  color: rgb(177, 174, 174);
+}
+.right-arrow
+{
+  color: #012952;
+}
