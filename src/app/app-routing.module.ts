@@ -12,6 +12,7 @@ import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
+import {CompanyDepartmentsListComponent} from "./company-departments-list/company-departments-list.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'vacancy-ad', component: VacancyAdsComponent },
-  {path: 'vacancy-post', component: VacancyPostComponent}
+  {path: 'vacancy-post', component: VacancyPostComponent},
+  {path: 'company-departments-list', component: CompanyDepartmentsListComponent}
 ];
 
 @NgModule({
@@ -36,17 +38,18 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [
-  HomepageComponent, 
-  SignupComponent, 
-  ResetPasswordComponent, 
-  ForgotPasswordComponent, 
-  ComponentDevelopmentComponent, 
-  GraduateProfileComponent, 
-  DirectVacancyComponent, 
-  ForgotPasswordComponent, 
+  HomepageComponent,
+  SignupComponent,
+  ResetPasswordComponent,
+  ForgotPasswordComponent,
+  ComponentDevelopmentComponent,
+  GraduateProfileComponent,
+  DirectVacancyComponent,
+  ForgotPasswordComponent,
   ContactComponent,
-  VacancyAdsComponent,,
-  VacancyPostComponent
+  VacancyAdsComponent,
+  VacancyPostComponent,
+  CompanyDepartmentsListComponent
 ];
 
 

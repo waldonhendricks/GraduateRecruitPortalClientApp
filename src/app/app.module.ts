@@ -5,8 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { CarouselModule } from 'primeng/carousel';
-import { ButtonModule } from 'primeng/button';
+//import { CarouselModule } from 'primeng/carousel';
+//import { ButtonModule } from 'primeng/button';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -24,6 +24,7 @@ import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recruitment-admin-navbar.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
+import {CompanyDepartmentsListComponent} from "./company-departments-list/company-departments-list.component";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
     ContactComponent,
     VacancyAdsComponent,
     RecruitmentAdminNavbarComponent,
-    VacancyPostComponent
+    VacancyPostComponent,
+    CompanyDepartmentsListComponent
   ],
   imports: [
     HttpClientModule,
@@ -51,8 +53,8 @@ import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
     MatNativeDateModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CarouselModule,
-    ButtonModule,
+    //CarouselModule,
+    //ButtonModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
