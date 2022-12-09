@@ -28,8 +28,8 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'vacancy-ad', component: VacancyAdsComponent },
-  {path: 'vacancy-post', component: VacancyPostComponent}
-  { path: 'candidates-list', component: CompanyRecruitmentListComponent},
+  { path: 'vacancy-post', component: VacancyPostComponent },
+  { path: 'company-departments-list', component: CompanyDepartmentsListComponent }
 ];
 
 @NgModule({
@@ -38,18 +38,18 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [
-  HomepageComponent, 
-  SignupComponent, 
-  ResetPasswordComponent, 
-  ForgotPasswordComponent, 
-  ComponentDevelopmentComponent, 
-  GraduateProfileComponent, 
-  DirectVacancyComponent, 
-  ForgotPasswordComponent, 
+  HomepageComponent,
+  SignupComponent,
+  ResetPasswordComponent,
+  ForgotPasswordComponent,
+  ComponentDevelopmentComponent,
+  GraduateProfileComponent,
+  DirectVacancyComponent,
+  ForgotPasswordComponent,
   ContactComponent,
-  VacancyAdsComponent,,
-  VacancyPostComponent
-  CompanyRecruitmentListComponent,
+  VacancyAdsComponent,
+  VacancyPostComponent,
+  CompanyDepartmentsListComponent
 ];
 
 
