@@ -23,8 +23,10 @@ jobs:
         uses: borales/actions-yarn@v4 
         with:
           cmd: install
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # if needed
+      - name: Install Angular CLI
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: yarn global add @angular/cli
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
