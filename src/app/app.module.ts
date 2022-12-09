@@ -5,8 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-//import { CarouselModule } from 'primeng/carousel';
-//import { ButtonModule } from 'primeng/button';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -53,8 +53,8 @@ import {CompanyDepartmentsListComponent} from "./company-departments-list/compan
     MatNativeDateModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    //CarouselModule,
-    //ButtonModule,
+    CarouselModule,
+    ButtonModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

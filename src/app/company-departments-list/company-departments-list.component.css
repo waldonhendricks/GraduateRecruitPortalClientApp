@@ -1,12 +1,24 @@
+h1 {
+  font-size: 45px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 20px;
+}
+
 .grad-portal-graduate-app-departments-list-wrapper{
   padding: 0% 5%;
   margin-top: 2%;
 }
 
-.grad-portal-graduate-app-departments-list-widget{
-  padding: 1% 2%;
-  height: 700px;
-  border: 3px solid var(--bs-gray-500);
+.card{
+  border: 2px solid var(--bs-gray-500);
   border-color: black;
 }
 
@@ -28,8 +40,8 @@
 
 .grad-portal-departments-list-browse-grad-btn{
   position: absolute;
-  right: 5%;
-  bottom: 12%;
+  right: 2%;
+  bottom: 7%;
 }
 
 
@@ -37,28 +49,3 @@
   opacity: 0.7;
   color: var(--light-text);
 }
-
-/*#appliedScienceImg{*/
-/*  width: 1600px;*/
-/*  height: 450px;*/
-/*}*/
-
-/*#appliedScienceImg{*/
-/*  position: absolute;*/
-/*  top: 20%;*/
-/*  left: 50%;*/
-/*  transform: translate(-50%, -50%);*/
-/*}*/
-
-/*.column {*/
-/*  float: left;*/
-/*  width: 25%;*/
-/*  padding: 0 10px;*/
-/*}*/
-
-/* Clear floats after the columns*/
-/*.row:after {*/
-/*  content: "";*/
-/*  display: table;*/
-/*  clear: both;*/
-/*}*/
