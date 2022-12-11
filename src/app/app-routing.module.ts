@@ -12,6 +12,7 @@ import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
+import { CompanyDepartmentsListComponent } from './company-departments-list/company-departments-list.component';
 import { CompanyRecruitmentListComponent } from './company-recruitment-list/company-recruitment-list.component';
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   { path: 'contact-us', component: ContactComponent },
   { path: 'vacancy-ad', component: VacancyAdsComponent },
   { path: 'vacancy-post', component: VacancyPostComponent },
-  { path: 'company-departments-list', component: CompanyDepartmentsListComponent }
+  { path: 'departments-list', component: CompanyDepartmentsListComponent },
+  { path: 'recruitment-list', component: CompanyRecruitmentListComponent },
 ];
 
 @NgModule({
