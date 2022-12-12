@@ -385,9 +385,22 @@ button {
     margin-bottom: 2%;
 }
 
+.card-body{
+    border: 1.5px solid var(--bs-gray-500) !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="date"], select{
+    border: 1px solid var(--bs-gray-600) !important;
+}
+
 html,
 body {
     height: 100%;
+    color: var(--dark-text);
 }
 
 body {
