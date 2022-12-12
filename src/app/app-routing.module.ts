@@ -14,10 +14,11 @@ import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 import { CompanyDepartmentsListComponent } from './company-departments-list/company-departments-list.component';
 import { CompanyRecruitmentListComponent } from './company-recruitment-list/company-recruitment-list.component';
+import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-  { path: 'homepage', component: HomepageComponent },
+  { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },
+  { path: 'graduate-homepage', component: HomepageComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'vacancy-post', component: VacancyPostComponent },
   { path: 'departments-list', component: CompanyDepartmentsListComponent },
   { path: 'recruitment-list', component: CompanyRecruitmentListComponent },
+  { path: 'recruiter-homepage', component: CompanyHomepageComponent },
 ];
 
 @NgModule({

@@ -25,6 +25,7 @@ import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recruitment-admin-navbar.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 import {CompanyDepartmentsListComponent} from "./company-departments-list/company-departments-list.component";
+import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {CompanyDepartmentsListComponent} from "./company-departments-list/compan
     VacancyAdsComponent,
     RecruitmentAdminNavbarComponent,
     VacancyPostComponent,
-    CompanyDepartmentsListComponent
+    CompanyDepartmentsListComponent,
+    CompanyHomepageComponent
   ],
   imports: [
     HttpClientModule,
