@@ -13,8 +13,8 @@ import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 import { CompanyDepartmentsListComponent } from './company-departments-list/company-departments-list.component';
-import { CompanyRecruitmentListComponent } from './company-recruitment-list/company-recruitment-list.component';
 import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
+import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },
@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'vacancy-ad', component: VacancyAdsComponent },
   { path: 'vacancy-post', component: VacancyPostComponent },
   { path: 'departments-list', component: CompanyDepartmentsListComponent },
-  { path: 'recruitment-list', component: CompanyRecruitmentListComponent },
+  { path: 'recruitment-list', component: RecruitmentListComponent },
   { path: 'recruiter-homepage', component: CompanyHomepageComponent },
 ];
 
