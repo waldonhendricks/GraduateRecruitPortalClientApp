@@ -25,8 +25,8 @@ jobs:
         run: yarn global add @angular/cli
       - name: Yarn Install 
         run: yarn install
-      - name: yarn build Angular Production
-        run: yarn build:prod
+      - name: Build Angular Production
+        run: ng build --prod
 
       # - name: Run install
       #   uses: borales/actions-yarn@v4 
