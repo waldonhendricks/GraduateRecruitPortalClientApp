@@ -381,3 +381,65 @@ button{
 
 html, body { height: 100%; }
 body { margin: 0; font-family: helveticaNeue; }
+
+.graduate-info-wrapper{
+    padding: 3% 5%;
+  }
+  
+  .graduate-info-page-body-heading{
+    margin-bottom: 2.5vh;
+  }
+  
+  .graduate-info-page-list{
+    margin-bottom: 2.5vh;
+  }
+  
+  .position{
+    margin-left: 120px;
+    margin-top: 60px;
+  }
+  
+  .location{
+    margin-left: 120px;
+    margin-top: 60px;
+  }
+  
+  .description{
+    margin-left: 120px;
+    margin-top: 60px;
+  }
+  
+  .requirements{
+    margin-left: 120px;
+    margin-top: 60px;
+  }
+  
+  .responsibility{
+    margin-left: 120px;
+    margin-top: 60px;
+  }
+  
+  .company{
+    margin-left: 120px;
+    margin-top: 60px;
+  }
+  
+  .button {
+    display: block;
+    color: var(--light-text);
+    background-color: var(--main);
+    border-radius: 10px;
+    border: none;
+    width: 10%;
+    height: 47px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+  }
+  
+  .button:hover{
+    opacity: 0.7;
+  }
+
+
