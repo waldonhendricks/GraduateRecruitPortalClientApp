@@ -1,7 +1,9 @@
 <div class="wrapper" id="addRegistration">
     <div class="grad-portal-dashboard-layout-wrapper">
         <div class="grad-portal-dashboard-layout-left-widget">
+            <div class="landscape-logo">
             <img class="grad-portal-dashboard-img" src="../assets/CPUT_Logo-White.png" alt="cput logo">
+            </div>
         </div>
         <div class="grad-portal-dashboard-layout-right-widget">
             <div class="grad-portal-dashboard-layout-right-form-wrapper" id="main-container">
@@ -9,7 +11,7 @@
                 <form action="" class="grad-portal-dashboard-layout-right-form" id="addRegistration"
                     [formGroup]="signUpForm" (ngSubmit)="submitRegistration()">
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" id="lblPw" class="form-label">Email</label>
                         <input type="text" class="form-control" formControlName="email" required />
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
@@ -21,22 +23,28 @@
                         <input type="password" class="form-control" formControlName="confirmPassword" required />
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
-                        <button type="submit" class="grad-cput-big-btn " [disabled]="signUpForm.invalid">Signup</button>
+                        <div class="landscape-button">
+                          <button type="submit" class="grad-cput-big-btn " [disabled]="signUpForm.invalid">Signup</button>
+                        </div>
                     </div>
                 </form>
             </div>
 
             <div class="grad-portal-dashboard-layout-right-footer-wrapper">
+
+                <div class="footer-section">
                 <ul>
                     <li id="footerImg">
-                        <img src="../../assets/CPUT_Navbar-Logo.jpeg" alt="Cput Logo">
+                        <img src="../../assets/CPUT_Navbar-Logo.png" alt="Cput Logo">
                     </li>
-
                     <li id="footerCopyright">
                         &copy; Cape Peninsula University of Technoolgy
                     </li>
+                </ul>
+                </div>
 
                     <div id="footerLinks">
+                        <div class="footer-landscape-links">
                         <li class="grad-portal-dashboard-layout-footer-links">
                             <a href="">Contact Us</a>
                         </li>
@@ -44,8 +52,9 @@
                         <li class="grad-portal-dashboard-layout-footer-links">
                             <a href="">About Us</a>
                         </li>
+                        </div>
                     </div>
-                </ul>
+                <!-- </ul> -->
             </div>
         </div>
     </div>
