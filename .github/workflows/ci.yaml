@@ -26,7 +26,7 @@ jobs:
       - name: Yarn Install 
         run: yarn install
       - name: Build Angular Production
-        run: ng build --prod
+        run: ng build --verbose
 
       # - name: Run install
       #   uses: borales/actions-yarn@v4 
