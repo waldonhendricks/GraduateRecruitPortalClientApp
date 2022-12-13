@@ -11,11 +11,14 @@ import { VacancyInformationComponent } from './vacancy-information/vacancy-infor
 import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
-import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
+import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
+import { CompanyDepartmentsListComponent } from './company-departments-list/company-departments-list.component';
+import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
+
 
 const routes: Routes = [
-  { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-  { path: 'homepage', component: HomepageComponent },
+  { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },
+  { path: 'graduate-homepage', component: HomepageComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
@@ -27,7 +30,10 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'vacancy-ad', component: VacancyAdsComponent },
-  { path: 'graduate-information', component: GraduateInformationComponent },
+  { path: 'vacancy-post', component: VacancyPostComponent },
+  { path: 'departments-list', component: CompanyDepartmentsListComponent },
+  //{ path: 'recruitment-list', component: RecruitmentListComponent },
+  { path: 'recruiter-homepage', component: CompanyHomepageComponent },
 ];
 
 @NgModule({
@@ -36,17 +42,18 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [
-  HomepageComponent, 
-  SignupComponent, 
-  ResetPasswordComponent, 
-  ForgotPasswordComponent, 
-  ComponentDevelopmentComponent, 
-  GraduateProfileComponent, 
-  DirectVacancyComponent, 
-  ForgotPasswordComponent, 
+  HomepageComponent,
+  SignupComponent,
+  ResetPasswordComponent,
+  ForgotPasswordComponent,
+  ComponentDevelopmentComponent,
+  GraduateProfileComponent,
+  DirectVacancyComponent,
+  ForgotPasswordComponent,
   ContactComponent,
   VacancyAdsComponent,
-  GraduateInformationComponent,
+  VacancyPostComponent,
+  CompanyDepartmentsListComponent
 ];
 
 

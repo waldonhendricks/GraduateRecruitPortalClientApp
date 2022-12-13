@@ -1,0 +1,35 @@
+.homepage-divider {
+    background-color: var(--main);
+    display: block;
+    height: 90px;
+}
+
+.recruiter-homepage-wrapper{
+    padding: 3% 5%;
+}
+
+.recruiter-homepage-heading-wrapper{
+    margin-bottom: 3%;
+}
+
+.recruiter-homepage-card-button h3{
+    display: inline-block;
+}
+
+.recruiter-homepage-card-button button{
+    width: 145px;
+    float: right;
+}
+
+.card-body{
+    padding-top: 6% !important;
+    height: 14vh !important;
+}
+
+.row{
+    gap: 20% !important;
+}
+
+.col{
+    margin-bottom: 5% !important;
+}

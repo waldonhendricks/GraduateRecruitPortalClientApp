@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -24,7 +23,10 @@ import { VacancyInformationComponent } from './vacancy-information/vacancy-infor
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recruitment-admin-navbar.component';
-import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
+import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
+import {CompanyDepartmentsListComponent} from "./company-departments-list/company-departments-list.component";
+import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { GraduateInformationComponent } from './graduate-information/graduate-in
     HomepageComponent,
     FooterComponent,
     SignupComponent,
-   //ResetPasswordComponent,
+   ResetPasswordComponent,
     UtilityComponent,
     ComponentDevelopmentComponent,
     GraduateProfileComponent,
@@ -43,8 +45,10 @@ import { GraduateInformationComponent } from './graduate-information/graduate-in
     ContactComponent,
     VacancyAdsComponent,
     RecruitmentAdminNavbarComponent,
-    GraduateInformationComponent
-
+    VacancyPostComponent,
+    CompanyDepartmentsListComponent,
+    CompanyHomepageComponent,
+   
   ],
   imports: [
     HttpClientModule,
