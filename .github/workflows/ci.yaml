@@ -20,7 +20,7 @@ jobs:
           node-version: "18.x"
 
       - name: Install rsync
-        run: RUN apt-get update && apt-get upgrade -y && apt-get install -y rsync git
+        run: apt-get update && apt-get upgrade -y && apt-get install -y rsync git
       
       - name: NPM Install Yarn
         run: npm install -g yarn 
