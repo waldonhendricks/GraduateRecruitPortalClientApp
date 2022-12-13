@@ -1,0 +1,48 @@
+<app-recruitment-admin-navbar></app-recruitment-admin-navbar>
+<div class="wrapper">
+    <div class="recruiter-list-wrapper">
+        <div class="recruitment-list-heading-wrapper">
+            <h1>
+                Recruitment List
+            </h1>
+        </div>
+
+        <div class="recruitment-list-sorting-form-wrapper">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <label for="" >Department</label>
+                        <select name="department" class="form-select" aria-label="department">
+                            <option value="Information Technology - Software Development">Information Technology - Software Development</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="">Country</label>
+                        <select name="country" class="form-select" aria-label="country">
+                            <option value="ZA">South Africa</option>
+                        </select>
+                    </div>
+                  </div>                 
+            </form>
+        </div>
+
+        <div id="exportBtnDiv">
+            <button id="exportBtn" class="grad-cput-small-btn">Export</button>
+        </div>
+
+        <div class="recruitment-list-wrapper">
+            <div class="card recruiter-list-card">
+                <div class="card-body">
+                    <h3 class="card-title">John Doe</h3>
+                    <p>Preferred Name: John</p>
+                    <h3 id="countryOfOrigin">South Africa</h3>
+                    <button routerLink="" 
+                            routerLinkActive="active" 
+                            class="grad-cput-small-btn">
+                            View
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
