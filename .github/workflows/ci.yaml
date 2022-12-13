@@ -46,6 +46,6 @@ jobs:
         with: 
           SSH_PRIVATE_KEY: $ {{ secrets.SSH_PRIVATE_KEY }}
           SOURCE: "dist/graduate-recruit-portal-client-app"
-          REMOTE_HOST: "34.207.94.81"
+          REMOTE_HOST: "54.227.218.54"
           REMOTE_USER: "ubuntu"
           TARGET: "/var/www/html/graduate-recruit-portal-client-app"
