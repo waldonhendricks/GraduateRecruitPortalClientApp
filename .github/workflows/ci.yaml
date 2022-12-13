@@ -48,7 +48,9 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         with: 
           SSH_PRIVATE_KEY: $ {{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "dist/graduate-recruit-portal-client-app"
+          SOURCE: "dist\\graduate-recruit-portal-client-app"
           REMOTE_HOST: "54.227.218.54"
           REMOTE_USER: "ubuntu"
-          TARGET: "/var/www/html/graduate-recruit-portal-client-app"
+          TARGET: "\\var\\www\\html\\graduate-recruit-portal-client-app"
+
+      # No Update Just for commit purposes, will be removed later.
