@@ -6,107 +6,49 @@
         width: 165px;
     }
 
-   .grad-portal-dashboard-layout-left-widget img{
-    /* height: 90px;
-    width: 95px; */
-    height: 10%;
-    width: 100%;
-    margin-top: 10vh;
+    .grad-portal-dashboard-layout-left-widget img {
+        height: 5%;
+        width: 85%;
+        margin-top: 10vh;
 
-   }
-    
+    }
+
+    #footerLinks {
+        margin-top: -12vh;
+        height: 5%;
+    }
+
+    .grad-portal-dashboard-layout-right-footer-wrapper img {
+        width: 35%;
+        height: 10%;
+    }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) { }
+@media only screen and (min-width: 600px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    #homepage-main-section {
-        display: none;
-        visibility: hidden;
+    .landscape-button {
+        margin-top: -13vh;
     }
 
-    .homepage-get-started-btn {
-        top: 72%;
-        left: 3.2%;
+    .landscape-logo img {
+        height: 15%;
+        width: 80%;
+        margin-top: 10vh;
+
     }
 
-    .homepage-bottom-section{
-        height: 260px;
-    }
-}
+    .footer-section {
+        margin-bottom: -7vh;
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .homepage-divider {
-        background-color: var(--main);
-        display: block;
-        height: 90px;
     }
-    
-    .homepage-bottom-section {
-        height: 420px;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .col h1 {
-        margin-top: 10%;
-        margin-bottom: 3%;
-    }
-    
-    .homepage-get-started-btn {
-        width: 350px;
-        position: absolute;
-        top: 55%;
-        left: 4.2%;
-    }
-    
-    .homepage-bottom-section-left-column {
-        padding-left: 5%;
-        padding-top: 0%;
-    }
-    
-    #homepage-main-section{
-        display: none;
-    }
-    
-}
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-    .homepage-divider {
-        background-color: var(--main);
-        display: block;
-        height: 90px;
+    .footer-landscape-links {
+        margin-top: -5vh;
+
     }
-    
-    .homepage-bottom-section {
-        height: 420px;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .col h1 {
-        margin-top: 10%;
-        margin-bottom: 3%;
-    }
-    
-    .homepage-get-started-btn {
-        width: 350px;
-        position: absolute;
-        top: 55%;
-        left: 4.2%;
-    }
-    
-    .homepage-bottom-section-left-column {
-        padding-left: 5%;
-        padding-top: 0%;
-    }
-    
-    #homepage-main-section{
-        display: none;
-    }
-    
+
 }
