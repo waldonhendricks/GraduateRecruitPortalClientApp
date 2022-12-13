@@ -1,0 +1,57 @@
+.recruiter-list-wrapper{
+    padding: 3% 5%;
+}
+
+.recruitment-list-heading-wrapper{
+    margin-bottom: 2%;
+}
+
+.recruitment-list-sorting-form-wrapper{
+    width: 70vw;
+    margin-bottom: 2%;
+    position: relative;
+}
+
+.row{
+    gap: 3% !important;
+}
+
+.recruitment-list-sorting-form-wrapper button{
+    width: 100px;
+    padding-top: 0%;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+
+.recruiter-list-card{
+    margin: 5% 0%;
+}
+
+.recruiter-list-card button{
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    padding-top: 0%;
+}
+
+.card-body{
+    padding: 2% 4%;
+}
+
+#countryOfOrigin{
+    color: var(--orange);
+}
+
+#exportBtnDiv{
+    display: inline-block;
+    position: absolute;
+    top: 28%;
+    right: 5%;
+}
+
+#exportBtn{
+    padding-top: 0%;
+    width: 100px;
+    height: 6vh;
+}
