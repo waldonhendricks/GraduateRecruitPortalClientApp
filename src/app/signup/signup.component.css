@@ -1,6 +1,6 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .grad-portal-dashboard-layout-right-form-wrapper {
+    /* .grad-portal-dashboard-layout-right-form-wrapper {
         height: 60px;
         margin-top: -15vh;
         width: 165px;
@@ -21,7 +21,7 @@
     .grad-portal-dashboard-layout-right-footer-wrapper img {
         width: 35%;
         height: 10%;
-    }
+    } */
 
 }
 
@@ -30,7 +30,7 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .landscape-button {
+    /* .landscape-button {
         margin-top: -13vh;
     }
 
@@ -49,6 +49,6 @@
     .footer-landscape-links {
         margin-top: -5vh;
 
-    }
+    } */
 
 }
