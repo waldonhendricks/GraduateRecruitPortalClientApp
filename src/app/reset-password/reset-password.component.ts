@@ -8,10 +8,7 @@ import { ToastrUtility } from '../utility/toast.utility';
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.css']
 })
-<<<<<<< HEAD
-export class ResetPasswordComponent {
-  
-=======
+
 export class ResetPasswordComponent implements OnInit {
   resetPasswordForm;
 
@@ -47,7 +44,6 @@ export class ResetPasswordComponent implements OnInit {
   // setTimeout(() => {
   //}, 1800);
 
->>>>>>> 382a7546c78764fd027a200c37b7136e691e3cc9
 }
 
 //resetPassword(graduate: Graduate): void {

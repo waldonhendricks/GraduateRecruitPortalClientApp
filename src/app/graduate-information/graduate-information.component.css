@@ -9,6 +9,50 @@
 .graduate-info-qualifications-body-wrapper{
     margin-bottom: 2%;
 }
+
 .graduate-info-experience-body-wrapper{
     margin-bottom: 2%;
+}
+
+.graduate-info-document-section{
+    overflow: hidden;
+}
+
+.graduate-info-document-section-heading{
+    margin-bottom: 2%;
+}
+
+.graduate-info-document-wrapper{
+    border: 1.5px solid var(--dark-text);
+    border-radius: 5px;
+    padding: 0%;
+    width: 250px !important;
+    height: 200px;
+    position: relative;
+}
+
+.graduate-info-document-wrapper button{
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+}
+
+.row{
+    gap: 0% 1% !important;
+}
+
+.col {
+    width: 250px !important;
+}
+
+.graduate-info-action-btn-section{
+    margin: 2% 0%;
+    width: 100%;
+}
+
+.graduate-info-action-btn-section button{
+    display: inline-block;
+    width: 320px;
+    margin-right: 3%;
+    height: 50px;
 }

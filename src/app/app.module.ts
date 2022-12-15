@@ -29,7 +29,9 @@ import { CompanyHomepageComponent } from './company-homepage/company-homepage.co
 import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
-
+import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { SelectService } from './select.service';
 
 @NgModule({
   declarations: [
@@ -51,13 +53,17 @@ import { GraduateInformationComponent } from './graduate-information/graduate-in
     VacancyPostComponent,
     CompanyDepartmentsListComponent,
     CompanyHomepageComponent,
-    GraduateInformationComponent,
     ForgotPasswordComponent,
     RecruitmentListComponent,
+    GraduateInformationComponent,
+    VacancyPdfViewComponent,
+  
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     MatNativeDateModule,
@@ -65,8 +71,9 @@ import { GraduateInformationComponent } from './graduate-information/graduate-in
     CarouselModule,
     ButtonModule,
     ToastrModule.forRoot(),
+    PdfViewerModule
   ],
-  providers: [],
+  providers: [SelectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
