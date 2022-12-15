@@ -24,10 +24,12 @@ import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recruitment-admin-navbar.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
-import {CompanyDepartmentsListComponent} from "./company-departments-list/company-departments-list.component";
+import { CompanyDepartmentsListComponent } from "./company-departments-list/company-departments-list.component";
 import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
 import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
+
 
 @NgModule({
   declarations: [
@@ -49,8 +51,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     VacancyPostComponent,
     CompanyDepartmentsListComponent,
     CompanyHomepageComponent,
+    GraduateInformationComponent,
+    ForgotPasswordComponent,
     RecruitmentListComponent,
-    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

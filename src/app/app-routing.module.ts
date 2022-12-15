@@ -54,5 +54,3 @@ export const routingComponents = [
   CompanyDepartmentsListComponent,
   RecruitmentListComponent
 ];
-
-
