@@ -4,20 +4,36 @@
     </div>
     <div class="grad-portal-dashboard-layout-right-widget">
         <div class="grad-portal-dashboard-layout-right-form-wrapper">
+            <div class="mobile-logo" style="margin-top: 10%;">
+                <img class="grad-portal-dashboard-img" src="../assets/CPUT_Logo.png" alt="cput logo">
+            </div>
             <h1>Sign In</h1>
-            <form action="" class="grad-portal-dashboard-layout-right-form">
+            <form action="" class="grad-portal-dashboard-layout-right-form" [formGroup]="signInForm"
+                (ngSubmit)="login()" novalidate>
                 <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" />
-                  </div>
-                  <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
+                    <input type="text" class="form-control" formControlName="primaryEmail" />
+                    <div *ngIf="signInForm.controls['primaryEmail'].invalid && (signInForm.controls['primaryEmail'].dirty || signInForm.controls['primaryEmail'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="signInForm.controls['primaryEmail'].errors?.['required']">
+                            Email required
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="formGroupExampleInput2" />
+                    <input type="password" class="form-control" formControlName="password" />
+                    <div *ngIf="signInForm.controls['password'].invalid && (signInForm.controls['password'].dirty || signInForm.controls['password'].touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="signInForm.controls['password'].errors?.['required']">
+                            Password required
+                        </div>
+                    </div>
                     <a routerLink="/forgot-password" routerLinkActive="active" style="float: right;">Forgot Password</a>
-                  </div>
-                  <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
+                </div>
+                <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
                     <button type="submit" class="grad-cput-big-btn ">Login</button>
-                  </div>
+                </div>
             </form>
         </div>
 

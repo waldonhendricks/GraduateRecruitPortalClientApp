@@ -31,7 +31,6 @@ const routes: Routes = [
   { path: 'vacancy-ad', component: VacancyAdsComponent },
   { path: 'vacancy-post', component: VacancyPostComponent },
   { path: 'departments-list', component: CompanyDepartmentsListComponent },
-  { path: 'recruitment-list', component: RecruitmentListComponent },
   { path: 'recruiter-homepage', component: CompanyHomepageComponent },
 ];
 
@@ -52,7 +51,8 @@ export const routingComponents = [
   ContactComponent,
   VacancyAdsComponent,
   VacancyPostComponent,
-  CompanyDepartmentsListComponent
+  CompanyDepartmentsListComponent,
+  RecruitmentListComponent
 ];
 
 
