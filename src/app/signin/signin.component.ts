@@ -12,10 +12,9 @@ import { SigninService } from '../service/signin-service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  [x: string]: any;
 
   signInForm = new FormGroup({
-    primaryEmail: new FormGroup(""),
+    email: new FormGroup(""),
     password: new FormGroup("")
   });
 
@@ -44,13 +43,13 @@ export class SigninComponent implements OnInit {
   }
 
   login() {
-    if (this.signInForm.value.primaryEmail === " " || this.signInForm.value.password === " ") {
+    if (this.signInForm.value.email === " " || this.signInForm.value.password === " ") {
       this.toast.showtoastrError("Please complete all fields", "Empty fields error");
       return;
 
     }
 
-    this.graduateLogin.primaryEmail = this.signInForm.value.primaryEmail!;
+    this.graduateLogin.primaryEmail = this.signInForm.value.email!;
     this.graduateLogin.password = this.signInForm.value.password!;
     this.signIn(this.graduateLogin);
     setTimeout(() => {
