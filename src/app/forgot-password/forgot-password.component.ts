@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -8,4 +9,20 @@ import { Component } from '@angular/core';
 
 export class ForgotPasswordComponent{
 
+  resetPasswordFormGroup = new FormGroup(
+  {
+    email: new FormControl("", [Validators.required, Validators.maxLength(2)])
+  });
+
+  get email()
+  {
+    return this.resetPasswordFormGroup.get('email');
+  }
+
+  constructor()
+  {
+    
+  }
+
+  submitResetPassword(){}
 }

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -27,6 +27,7 @@ import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 import {CompanyDepartmentsListComponent} from "./company-departments-list/company-departments-list.component";
 import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
 import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -48,14 +49,15 @@ import { RecruitmentListComponent } from './recruitment-list/recruitment-list.co
     VacancyPostComponent,
     CompanyDepartmentsListComponent,
     CompanyHomepageComponent,
-    RecruitmentListComponent
+    RecruitmentListComponent,
+    ForgotPasswordComponent
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    MatNativeDateModule,
     ReactiveFormsModule,
+    MatNativeDateModule,
     BrowserAnimationsModule,
     CarouselModule,
     ButtonModule,

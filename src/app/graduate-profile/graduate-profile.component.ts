@@ -8,6 +8,7 @@ import { GraduateProfileService } from '../service/graduate-profile.service';
 import { QualificationService } from '../service/qualification.service';
 import { ToastrUtility } from '../utility/toast.utility';
 
+
 @Component({
   selector: 'app-graduate-profile',
   templateUrl: './graduate-profile.component.html',
