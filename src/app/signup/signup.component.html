@@ -2,32 +2,52 @@
     <div class="grad-portal-dashboard-layout-wrapper">
         <div class="grad-portal-dashboard-layout-left-widget">
             <div class="landscape-logo">
-            <img class="grad-portal-dashboard-img" src="../assets/CPUT_Logo-White.png" alt="cput logo">
+                <img class="grad-portal-dashboard-img" src="../assets/CPUT_Logo-White.png" alt="cput logo">
             </div>
         </div>
         <div class="grad-portal-dashboard-layout-right-widget">
             <div class="mobile-logo" style="margin-top: 10%;">
                 <img class="grad-portal-dashboard-img" src="../assets/CPUT_Logo.png" alt="cput logo">
-              </div>
+            </div>
             <div class="grad-portal-dashboard-layout-right-form-wrapper" style="padding-top: 1%;" id="main-container">
                 <h1>Signup</h1>
-                <form action="" class="grad-portal-dashboard-layout-right-form" id="addRegistration"
-                    [formGroup]="signUpForm" (ngSubmit)="submitRegistration()">
+                <form class="grad-portal-dashboard-layout-right-form" id="addRegistration" [formGroup]="signUpForm"
+                    (ngSubmit)="submitRegistration()" novalidate>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="email" id="lblPw" class="form-label">Email</label>
-                        <input type="text" class="form-control" formControlName="email" required />
+                        <input type="email" class="form-control" formControlName="primaryEmail" required
+                            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                        <div *ngIf="signUpForm.controls['primaryEmail'].invalid && (signUpForm.controls['primaryEmail'].dirty || signUpForm.controls['primaryEmail'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="signUpForm.controls['primaryEmail'].errors?.['required']">
+                                Primary email required
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" formControlName="password" required />
+                        <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="signUpForm.controls['password'].errors?.['required']">
+                                Password required
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="password2" class="form-label">Confirm Password</label>
                         <input type="password" class="form-control" formControlName="confirmPassword" required />
+                        <div *ngIf="signUpForm.controls['confirmPassword'].invalid && (signUpForm.controls['confirmPassword'].dirty || signUpForm.controls['confirmPassword'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="signUpForm.controls['confirmPassword'].errors?.['required']">
+                                Confirmed password required
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
                         <div class="landscape-button">
-                          <button type="submit" class="grad-cput-big-btn " [disabled]="signUpForm.invalid">Signup</button>
+                            <button type="submit" class="grad-cput-big-btn "
+                                [disabled]="signUpForm.invalid">Signup</button>
                         </div>
                     </div>
                 </form>
@@ -36,18 +56,18 @@
             <div class="grad-portal-dashboard-layout-right-footer-wrapper">
 
                 <div class="footer-section">
-                <ul>
-                    <li id="footerImg">
-                        <img src="../../assets/CPUT_Navbar-Logo.png" alt="Cput Logo">
-                    </li>
-                    <li id="footerCopyright">
-                        &copy; Cape Peninsula University of Technology
-                    </li>
-                </ul>
+                    <ul>
+                        <li id="footerImg">
+                            <img src="../../assets/CPUT_Navbar-Logo.png" alt="Cput Logo">
+                        </li>
+                        <li id="footerCopyright">
+                            &copy; Cape Peninsula University of Technoolgy
+                        </li>
+                    </ul>
                 </div>
 
-                    <div id="footerLinks">
-                        <div class="footer-landscape-links">
+                <div id="footerLinks">
+                    <div class="footer-landscape-links">
                         <li class="grad-portal-dashboard-layout-footer-links">
                             <a href="">Contact Us</a>
                         </li>
@@ -55,9 +75,8 @@
                         <li class="grad-portal-dashboard-layout-footer-links">
                             <a href="">About Us</a>
                         </li>
-                        </div>
                     </div>
-                <!-- </ul> -->
+                </div>
             </div>
         </div>
     </div>

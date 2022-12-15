@@ -14,8 +14,7 @@ import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 import { CompanyDepartmentsListComponent } from './company-departments-list/company-departments-list.component';
 import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
-import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
-
+import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },
@@ -28,14 +27,11 @@ const routes: Routes = [
   { path: 'direct-vacancy', component: DirectVacancyComponent },
   { path: 'vacancy-information', component: VacancyInformationComponent },
   { path: 'login', component: SigninComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'vacancy-ad', component: VacancyAdsComponent },
   { path: 'vacancy-post', component: VacancyPostComponent },
   { path: 'departments-list', component: CompanyDepartmentsListComponent },
-  //{ path: 'recruitment-list', component: RecruitmentListComponent },
   { path: 'recruiter-homepage', component: CompanyHomepageComponent },
-  { path: 'graduate-information', component: GraduateInformationComponent },
 ];
 
 @NgModule({
@@ -56,7 +52,5 @@ export const routingComponents = [
   VacancyAdsComponent,
   VacancyPostComponent,
   CompanyDepartmentsListComponent,
-  GraduateInformationComponent
+  RecruitmentListComponent
 ];
-
-
