@@ -30,7 +30,6 @@ import { RecruitmentListComponent } from './recruitment-list/recruitment-list.co
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,9 +50,9 @@ import { GraduateInformationComponent } from './graduate-information/graduate-in
     VacancyPostComponent,
     CompanyDepartmentsListComponent,
     CompanyHomepageComponent,
-    GraduateInformationComponent,
     ForgotPasswordComponent,
     RecruitmentListComponent,
+    GraduateInformationComponent,
   ],
   imports: [
     BrowserModule,
