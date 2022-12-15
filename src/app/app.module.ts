@@ -26,7 +26,9 @@ import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recr
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 import {CompanyDepartmentsListComponent} from "./company-departments-list/company-departments-list.component";
 import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
-import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
+import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { RecruitmentListComponent } from './recruitment-list/recruitment-list.co
     VacancyPostComponent,
     CompanyDepartmentsListComponent,
     CompanyHomepageComponent,
-    RecruitmentListComponent
+    GraduateInformationComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     HttpClientModule,
