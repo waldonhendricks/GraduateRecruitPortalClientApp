@@ -84,17 +84,5 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  // login(graduate: Graduate): void
-  // {
-  //   this.signUpService.login(graduate).subscribe(
-  //   {
-  //     error: (error) => this.toast.showtoastrError(error, "Request Status"),
-  //     complete: () => this.toast.showtoastrSuccess("Signup Successful.", "Request Status")
-  //   });
-
-  //   setTimeout(() => {
-  //     //window.location.reload();   
-  //   }, 1500);
-  // }
 }
 

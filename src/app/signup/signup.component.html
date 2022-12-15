@@ -11,19 +11,38 @@
             </div>
             <div class="grad-portal-dashboard-layout-right-form-wrapper" style="padding-top: 1%;" id="main-container">
                 <h1>Signup</h1>
-                <form class="grad-portal-dashboard-layout-right-form" id="addRegistration"
-                    [formGroup]="signUpForm" (ngSubmit)="submitRegistration()" novalidate>
+                <form class="grad-portal-dashboard-layout-right-form" id="addRegistration" [formGroup]="signUpForm"
+                    (ngSubmit)="submitRegistration()" novalidate>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="email" id="lblPw" class="form-label">Email</label>
-                        <input type="text" class="form-control" formControlName="primaryEmail" required />
+                        <input type="email" class="form-control" formControlName="primaryEmail" required
+                            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                        <div *ngIf="signUpForm.controls['primaryEmail'].invalid && (signUpForm.controls['primaryEmail'].dirty || signUpForm.controls['primaryEmail'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="signUpForm.controls['primaryEmail'].errors?.['required']">
+                                Primary email required
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" formControlName="password" required />
+                        <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="signUpForm.controls['password'].errors?.['required']">
+                                Password required
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="password2" class="form-label">Confirm Password</label>
                         <input type="password" class="form-control" formControlName="confirmPassword" required />
+                        <div *ngIf="signUpForm.controls['confirmPassword'].invalid && (signUpForm.controls['confirmPassword'].dirty || signUpForm.controls['confirmPassword'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="signUpForm.controls['confirmPassword'].errors?.['required']">
+                                Confirmed password required
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
                         <div class="landscape-button">
@@ -58,7 +77,6 @@
                         </li>
                     </div>
                 </div>
-                <!-- </ul> -->
             </div>
         </div>
     </div>
