@@ -14,7 +14,7 @@ export class SignupService{
     constructor(private http: HttpClient){
     }
 
-    public register(signup: Graduate): Observable<Graduate>{
-        return this.http.post<Graduate>(`${this.apiServerURL}/gradrecruitment/signup/save_registration`,signup);
-    }
+     public register(signup: Graduate): Observable<Graduate>{
+         return this.http.post<Graduate>(`${this.apiServerURL}/gradrecruitment/signup/save_registration`,signup);
+     }
 }

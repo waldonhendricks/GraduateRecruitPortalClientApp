@@ -14,6 +14,7 @@ import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
 import { CompanyDepartmentsListComponent } from './company-departments-list/company-departments-list.component';
 import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
+import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'departments-list', component: CompanyDepartmentsListComponent },
   //{ path: 'recruitment-list', component: RecruitmentListComponent },
   { path: 'recruiter-homepage', component: CompanyHomepageComponent },
+  { path: 'graduate-information', component: GraduateInformationComponent },
 ];
 
 @NgModule({
@@ -53,7 +55,8 @@ export const routingComponents = [
   ContactComponent,
   VacancyAdsComponent,
   VacancyPostComponent,
-  CompanyDepartmentsListComponent
+  CompanyDepartmentsListComponent,
+  GraduateInformationComponent
 ];
 
 
