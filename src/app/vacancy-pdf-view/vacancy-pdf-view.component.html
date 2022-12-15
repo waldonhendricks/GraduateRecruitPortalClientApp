@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+
+<label>Filter by Department:</label>
+<select [(ngModel)]="selectedDepartment.id" (change)="onSelect($any($event.target).value)">
+  <option value="0">--Select--</option>
+  <option *ngFor="let department of departments" value= {{department.id}}>{{department.name}}</option>
+</select>
+
+<br/><br/>
+
+<div>
+    <label>Filter by Course:</label>
+    <select>
+  <option value="0">--Select--</option>
+  <option *ngFor="let course of courses " value= {{course.id}}>{{course.name}}</option>
+</select>
+</div>
+
+<br/><br/>
+
+
+
+<div class="page">
+
+    <pdf-viewer [src]="src" [original-size]="true" [render-text]="true" [rotation]="0" [show-all]="false" [fit-to-page]="true" [zoom]="1" [zoom-scale]="'page-width'" [stick-to-page]="true" [external-link-target]="'blank'" [autoresize]="true" [show-borders]="false"
+        class="pdf-viewer" [page]="page" (after-load-complete)="afterLoadComplete($event)" class="pdf-viewer"></pdf-viewer>
+
+    <nav *ngIf="isLoaded">
+        <button (click)="prevPage()" [disabled]="page === 1" class="previous">
+          Prev
+        </button>
+        <button (click)="nextPage()" [disabled]="page === totalPages" class="next">
+          Next
+        </button>
+        <p>{{ page }} / {{ totalPages }}</p>
+    </nav>
+
+
+</div>
+
+<button (click)="getVacancy()" class="apply"> 
+  Apply </button>

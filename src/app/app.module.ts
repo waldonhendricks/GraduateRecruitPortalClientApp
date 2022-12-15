@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -24,6 +24,9 @@ import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { RecruitmentAdminNavbarComponent } from './recruitment-admin-navbar/recruitment-admin-navbar.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
+import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { SelectService } from './select.service';
 
 @NgModule({
   declarations: [
@@ -42,12 +45,15 @@ import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
     ContactComponent,
     VacancyAdsComponent,
     RecruitmentAdminNavbarComponent,
-    VacancyPostComponent
+    VacancyPostComponent,
+    VacancyPdfViewComponent,
+  
 
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     MatNativeDateModule,
     ReactiveFormsModule,
@@ -55,8 +61,9 @@ import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
     CarouselModule,
     ButtonModule,
     ToastrModule.forRoot(),
+    PdfViewerModule
   ],
-  providers: [],
+  providers: [SelectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
