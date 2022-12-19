@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import { Department } from '../department';
-import { SelectService } from '../select.service';
-import { Course } from '../course';
+import { Department } from '../model/department';
+import { SelectService } from '../service/select.service';
+import { Course } from '../model/course';
 
 
 

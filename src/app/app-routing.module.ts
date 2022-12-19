@@ -12,15 +12,11 @@ import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
-<<<<<<< HEAD
 import { CompanyDepartmentsListComponent } from './company-departments-list/company-departments-list.component';
 import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
 import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
 import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
 import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
-=======
-import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
->>>>>>> df7323e7b0822ac97acfd06bb1d5b1878b8cf38a
 
 const routes: Routes = [
   { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },

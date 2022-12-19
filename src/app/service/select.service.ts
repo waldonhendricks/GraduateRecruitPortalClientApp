@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Department } from './department';
-import { Course } from './course';
+import { Department } from '../model/department';
+import { Course } from '../model/course';
 
 @Injectable()
 export class SelectService {
