@@ -34,7 +34,9 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
       - run: yarn install --frozen-lockfile
+      - run: yarn remove @angular/cli
       - run: yarn add @angular/cli
+      - run: yarn link @angular/cli
       - run: ng build --prod
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
