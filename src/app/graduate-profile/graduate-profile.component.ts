@@ -42,7 +42,12 @@ export class GraduateProfileComponent implements OnInit {
     //from "Qualification model class"
     qualificationName: new FormControl(""),
     qualificationDescription: new FormControl(""),
-    graduateDate: new FormControl("")
+    graduateDate: new FormControl(""),
+
+    //upload for documents
+    additionalFiles: new FormControl(""),
+    
+    graduateAdditionalFiles: new FormControl("")
 
   });
 
@@ -60,13 +65,13 @@ export class GraduateProfileComponent implements OnInit {
     password: '',
     confirmPassword: '',
     cellphone: '',
+    graduateAdditionalFiles: [],
 
   }
 
   experience: Experiecnce = {
     experienceId: 0,
     jobTitle: '',
-    companyName: '',
     assumedRole: '',
     startDate: '',
     endDate: '',
@@ -76,7 +81,8 @@ export class GraduateProfileComponent implements OnInit {
     qualificationId: 0,
     qualificationName: '',
     qualificationDescription: '',
-    graduateDate: new Date(Date.now())
+    graduateDate: new Date(Date.now()),
+    additionalFiles: []
 
   }
 
@@ -172,6 +178,28 @@ export class GraduateProfileComponent implements OnInit {
   browseResume(event: any): void {
     event.preventDefault();
     document.getElementById("resumé")?.click();
+  }
+
+  browseId(event: any): void{
+    event.preventDefault();
+    document.getElementById("idDocument")?.click();
+  }
+
+  browseAcademicRecord(event: any): void{
+    event.preventDefault();
+    document.getElementById("academicRecord")?.click();
+
+  }
+
+  browseMatricResults(event: any): void{
+    event.preventDefault();
+    document.getElementById("matricResults")?.click();
+  }
+
+  browsePermit(event: any): void{
+    event.preventDefault();
+    document.getElementById("studyPermit")?.click();
+
   }
 
   removeQualificationFormSection(event: any): void {

@@ -31,8 +31,8 @@ export class SigninComponent implements OnInit {
     studyPermit: false,
     password: '',
     confirmPassword: '',
-    cellphone: ''
-
+    cellphone: '',
+    graduateAdditionalFiles: []
   };
 
 
