@@ -180,6 +180,28 @@ export class GraduateProfileComponent implements OnInit {
     document.getElementById("resumé")?.click();
   }
 
+  browseId(event: any): void{
+    event.preventDefault();
+    document.getElementById("idDocument")?.click();
+  }
+
+  browseAcademicRecord(event: any): void{
+    event.preventDefault();
+    document.getElementById("academicRecord")?.click();
+
+  }
+
+  browseMatricResults(event: any): void{
+    event.preventDefault();
+    document.getElementById("matricResults")?.click();
+  }
+
+  browsePermit(event: any): void{
+    event.preventDefault();
+    document.getElementById("studyPermit")?.click();
+
+  }
+
   removeQualificationFormSection(event: any): void {
     // Prevents the default behaviour of the button
     event.preventDefault();
