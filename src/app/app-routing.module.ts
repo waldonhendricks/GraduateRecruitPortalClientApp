@@ -12,10 +12,10 @@ import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
-import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
 import { CompanyDepartmentsListComponent } from './company-departments-list/company-departments-list.component';
 import { CompanyHomepageComponent } from './company-homepage/company-homepage.component';
 import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
+import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
 import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
 
 const routes: Routes = [

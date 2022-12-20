@@ -23,6 +23,7 @@
 }
 
 .graduate-info-document-wrapper{
+    display: block !important;
     border: 1.5px solid var(--dark-text);
     border-radius: 5px;
     padding: 0%;
@@ -35,24 +36,34 @@
     width: 100%;
     position: absolute;
     bottom: 0%;
+    height: 50px;
+    border-radius: 4px;
 }
 
 .row{
+    display: unset;
+    flex-wrap: unset;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
     gap: 0% 1% !important;
+    padding: 0% 1%;
 }
 
 .col {
+    display: block !important;
     width: 250px !important;
 }
 
 .graduate-info-action-btn-section{
-    margin: 2% 0%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 5% 0%;
     width: 100%;
 }
 
 .graduate-info-action-btn-section button{
     display: inline-block;
-    width: 320px;
+    width: 90%;
     margin-right: 3%;
-    height: 50px;
+    height: 55px;
 }

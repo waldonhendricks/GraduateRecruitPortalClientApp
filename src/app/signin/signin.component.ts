@@ -4,7 +4,7 @@ import { GraduateProfile } from '../model/graduate';
 import { Graduate } from '../model/signup';
 import { GraduateProfileService } from '../service/graduate-profile.service';
 import { ToastrUtility } from '../utility/toast.utility';
-import { SigninService } from '../service/signin-service';
+import { SigninService } from '../service/signin-service.service';
 
 @Component({
   selector: 'app-signin',

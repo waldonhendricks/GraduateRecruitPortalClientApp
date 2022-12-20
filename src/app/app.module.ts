@@ -30,8 +30,8 @@ import { RecruitmentListComponent } from './recruitment-list/recruitment-list.co
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
 import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
+import { SelectService } from './service/select.service';
 // import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { SelectService } from './select.service';
 
 @NgModule({
   declarations: [
@@ -57,12 +57,10 @@ import { SelectService } from './select.service';
     RecruitmentListComponent,
     GraduateInformationComponent,
     VacancyPdfViewComponent,
-  
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     MatNativeDateModule,
