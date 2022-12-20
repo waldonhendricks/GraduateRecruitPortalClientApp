@@ -12,5 +12,6 @@ export interface GraduateProfile{
     password: string;
     confirmPassword: string;
     cellphone: string;
+    graduateAdditionalFiles: Array<any>;
 
 }

@@ -3,5 +3,6 @@ export interface Qualification{
     qualificationName: string;
     qualificationDescription: string;
     graduateDate: Date;
+    additionalFiles: Array<any>;
     
 }

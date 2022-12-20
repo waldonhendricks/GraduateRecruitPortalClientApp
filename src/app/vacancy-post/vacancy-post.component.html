@@ -3,33 +3,32 @@
     <div class="landing-splash-widget">
         <img src="assets\CPUT.jpg" alt="Landing page image">
     </div>
-
     <div class="homepage-divider"></div>
 </div>
 
-<div class="vacancy-post-wrapper">
-    <h1 class="grad-portal-post-page-heading"> Add Vacancy</h1>
-</div>
-
-<div class="vacancy-post-wrapper">
-    <div class="vacancy-post-info">
-        <h5>Vacancy Information</h5>
+<form action="" id="addVacancyPost" [formGroup]="vacancyPostForm" (ngSubmit)="submitVacancyPost()" novalidate>
+    <div class="vacancy-post-wrapper">
+        <h1 class="grad-portal-post-page-heading"> Add Vacancy</h1>
     </div>
+
+    <div class="vacancy-post-wrapper">
+        <div class="vacancy-post-info">
+            <h5>Vacancy Information</h5>
+        </div>
 
         <div class="vacancy-post-department">
             <label for="Department">Department</label>
-            <select class="select form-control select-hidden" id="size" data-select-placeholder="select department" tabindex="1"
-                aria-hidden="true" formControlName="department" required>
+            <select class="select form-control select-hidden" id="size" data-select-placeholder="select department"
+                tabindex="1" aria-hidden="true" formControlName="departmentName" required>
                 <option data-select-id="select-department">select department</option>
-                <option value="information1">Informatics and Design - Architectural Technology and Interior Design</option>
+                <option value="information1">Informatics and Design - Architectural Technology and Interior Design
+                </option>
                 <option value="information2">Informatics and Design - Urban and Regional Planning </option>
                 <option value="information3">Informatics and Design - Information Technology </option>
                 <option value="information4">Informatics and Design - Applied Design </option>
                 <option value="information5">Informatics and Design - Media </option>
-
                 <option value="education-foundation">Education - Foundation Phase</option>
                 <option value="education-intermediate">Education - Intermediate Phase</option>
-
                 <option value="bma">Business and Mangement Sciences - Applied Legal studies</option>
                 <option value="bmb">Business and Mangement Sciences - Business and Information Administration</option>
                 <option value="bmc">Business and Mangement Sciences - Hospitality Management </option>
@@ -42,7 +41,8 @@
                 <option value="bmk">Business and Mangement Sciences - Public Administration & Governance</option>
                 <option value="bml">Business and Mangement Sciences - Operations Management</option>
                 <option value="bmq">Business and Mangement Sciences - Management and Project Management</option>
-                <option value="bmw">Business and Mangement Sciences - Financial Information Systems & Internal Auditing</option>
+                <option value="bmw">Business and Mangement Sciences - Financial Information Systems & Internal Auditing
+                </option>
                 <option value="bmr">Business and Mangement Sciences - Financial Accounting and Taxation</option>
                 <option value="bmt">Business and Mangement Sciences - Entrepreneurship and Business Management</option>
                 <option value="bmy">Business and Mangement Sciences - Cost and Management Accounting</option>
@@ -50,30 +50,41 @@
                 <option value="Health-department1">Health and welliness Sciences - Biomedical Sciences</option>
                 <option value="Health-department2">Health and welliness Sciences - Dental Sciences</option>
                 <option value="Health-department3">Health and welliness Sciences - Emergency Medical Sciences</option>
-                <option value="Health-department4">Health and welliness Sciences - Medical Imaging and Therapeutic Sciences</option>
+                <option value="Health-department4">Health and welliness Sciences - Medical Imaging and Therapeutic
+                    Sciences
+                </option>
                 <option value="Health-department5">Health and welliness Sciences - Nursing</option>
                 <option value="Health-department1">Health and welliness Sciences - Ophthalmic Sciences</option>
                 <option value="Health-department1">Health and welliness Sciences - Welliness Sciences</option>
                 <option value="applied-department1">Applied Sciences - Food Technology </option>
-                <option value="engineering1">Engineering & the Built Environment - Construction Management and Quantity Surveying</option>
+                <option value="engineering1">Engineering & the Built Environment - Construction Management and Quantity
+                    Surveying</option>
                 <option value="engineering2">Engineering & the Built Environment - Chemical Engineering</option>
-                <option value="engineering3">Engineering & the Built Environment - Civil Engineering & Geomatics</option>
-                <option value="engineering4">Engineering & the Built Environment - Clothing & Textile Technology</option>
-                <option value="engineering5">Engineering & the Built Environment - Electrical, Electronic and Computer Engineering</option>
-                <option value="engineering6">Engineering & the Built Environment - Industrial & Systems Engineering</option>
+                <option value="engineering3">Engineering & the Built Environment - Civil Engineering & Geomatics
+                </option>
+                <option value="engineering4">Engineering & the Built Environment - Clothing & Textile Technology
+                </option>
+                <option value="engineering5">Engineering & the Built Environment - Electrical, Electronic and Computer
+                    Engineering</option>
+                <option value="engineering6">Engineering & the Built Environment - Industrial & Systems Engineering
+                </option>
                 <option value="engineering7">Engineering & the Built Environment - Maritime Studies</option>
-                <option value="engineering7">Engineering & the Built Environment - Mechanical and Mechatronic Engineering</option>
+                <option value="engineering7">Engineering & the Built Environment - Mechanical and Mechatronic
+                    Engineering
+                </option>
             </select>
-        </div>   
-    
-    <div class="vacancy-ad">
-        <div class="vacancy-post-ad">
-            <label for="vacancy-ad">Vacancy AD</label>
-            <input type="file" name="" id="vacancy-post-ad" />
         </div>
 
-    <div class="btnContainer">
-        <div class="vacancy-post-button">
-            <button class="grad-cput-big-btn homepage-get-started-btn" id="btnSubmit" type="submit">Submit</button>
+        <div class="vacancy-ad">
+            <div class="vacancy-post-ad">
+                <label for="vacancy-ad">Vacancy AD</label>
+                <input type="file" name="" id="vacancy-post-ad" required />
+            </div>
+
+            <div class="btnContainer">
+                <div class="vacancy-post-button">
+                    <button class="grad-cput-big-btn homepage-get-started-btn" id="btnSubmit"
+                        type="submit">Submit</button>
+                </div>
+            </div>
         </div>
-    </div>
