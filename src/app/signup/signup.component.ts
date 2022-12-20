@@ -33,8 +33,8 @@ export class SignupComponent implements OnInit {
     studyPermit: false,
     password: '',
     confirmPassword: '',
-    cellphone: ''
-
+    cellphone: '',
+    graduateAdditionalFiles: []
   };
 
   constructor(private graduateService: GraduateProfileService, private toast: ToastrUtility) {

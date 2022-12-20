@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -31,7 +31,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
 import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
 import { SelectService } from './service/select.service';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+// import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -68,7 +68,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     CarouselModule,
     ButtonModule,
     ToastrModule.forRoot(),
-    PdfViewerModule
+    // PdfViewerModule
   ],
   providers: [SelectService],
   bootstrap: [AppComponent]
