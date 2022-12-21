@@ -36,8 +36,8 @@ const routes: Routes = [
   { path: 'departments-list', component: CompanyDepartmentsListComponent },
   { path: 'recruiter-homepage', component: CompanyHomepageComponent },
   { path: 'graduate-information', component: GraduateInformationComponent },
-  {path: 'vacancy-post', component: VacancyPostComponent},
-  {path: 'vacancy-pdf-view', component: VacancyPdfViewComponent}
+  { path: 'vacancy-post', component: VacancyPostComponent },
+  { path: 'vacancy-pdf-view', component: VacancyPdfViewComponent }
 ];
 
 @NgModule({
