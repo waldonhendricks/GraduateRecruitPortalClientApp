@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { GraduateProfile } from '../model/graduate';
-import { Graduate } from '../model/signup';
 import { GraduateProfileService } from '../service/graduate-profile.service';
 import { ToastrUtility } from '../utility/toast.utility';
 import { SigninService } from '../service/signin-service.service';
@@ -14,8 +13,8 @@ import { SigninService } from '../service/signin-service.service';
 export class SigninComponent implements OnInit {
 
   signInForm = new FormGroup({
-    email: new FormGroup(""),
-    password: new FormGroup("")
+    email: new FormGroup("", Validators.required),
+    password: new FormGroup("", Validators.required)
   });
 
   graduateLogin: GraduateProfile = {
@@ -39,10 +38,11 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private signInService: SigninService, private graduate: GraduateProfileService, private toast: ToastrUtility) {
+  constructor(private signInService: SigninService, private graduateService: GraduateProfileService, private toast: ToastrUtility) {
   }
 
   login() {
+    console.log("i must validate")
     if (this.signInForm.value.email === " " || this.signInForm.value.password === " ") {
       this.toast.showtoastrError("Please complete all fields", "Empty fields error");
       return;
@@ -57,16 +57,16 @@ export class SigninComponent implements OnInit {
   }
 
   signIn(graduate: GraduateProfile): void {
-    //   this.signInService.login(graduate).subscribe({
-    //     error: (error: string) => {
-    //       this.toast.showtoastrError(error, "Request status");
-    //       console.log(error);
-    //       setTimeout(() => {
-    //       }, 1500);
-    //     },
-    //     complete: () => this.toast.showtoastrSuccess("Login Request Successful.", "Request Status")
-    //   });
+      this.signInService.login(graduate).subscribe({
+        error: (error: string) => {
+          this.toast.showtoastrError(error, "Request status");
+          console.log(error);
+          setTimeout(() => {
+          }, 1500);
+        },
+        complete: () => this.toast.showtoastrSuccess("Login Request Successful.", "Request Status")
+      });
 
-    // }
+    }
   }
-  }
+  
