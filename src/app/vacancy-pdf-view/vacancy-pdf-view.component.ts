@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Department } from '../model/department';
 import { SelectService } from '../service/select.service';
 import { Course } from '../model/course';
@@ -28,7 +28,7 @@ export class VacancyPdfViewComponent implements OnInit {
   }
 
 
-  selectedDepartment: Department = new Department('2', 'Brazil');
+  selectedDepartment: Department = { departmentId: '2', departmentName: 'Information Technology' };
   departments: Department[] = [];
   courses: Course[] = [];
 
@@ -44,9 +44,8 @@ export class VacancyPdfViewComponent implements OnInit {
   }
 
 
-  getVacancy()
-  {
-    alert ("Applied")
+  getVacancy() {
+    alert("Applied")
   }
 
 }
