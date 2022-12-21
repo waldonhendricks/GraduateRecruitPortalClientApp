@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignupService } from '../service/signup.service';
 import { Graduate } from '../model/signup';
 import { ToastrUtility } from '../utility/toast.utility';
@@ -15,9 +15,9 @@ import { GraduateProfile } from '../model/graduate';
 export class SignupComponent implements OnInit {
 
   signUpForm = new FormGroup({
-    primaryEmail: new FormControl(""),
-    password: new FormControl(""),
-    confirmPassword: new FormControl("")
+    primaryEmail: new FormControl("", Validators.required),
+    password: new FormControl("", Validators.required),
+    confirmPassword: new FormControl("", Validators.required)
   });
 
   graduate: GraduateProfile = {

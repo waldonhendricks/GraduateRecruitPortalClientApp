@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Experiecnce } from '../model/experience';
 import { GraduateProfile } from '../model/graduate';
 import { Qualification } from '../model/qualification';
@@ -18,19 +18,19 @@ import { ToastrUtility } from '../utility/toast.utility';
 export class GraduateProfileComponent implements OnInit {
 
   graduateDetailsForm = new FormGroup({
-    firstName: new FormControl(""),
+    firstName: new FormControl("", Validators.required),
     middleName: new FormControl(""),
-    lastName: new FormControl(""),
+    lastName: new FormControl("", Validators.required),
     preferredName: new FormControl(""),
-    secondaryEmail: new FormControl(""),
-    primaryEmail: new FormControl(""),
-    gender: new FormControl(""),
-    license: new FormControl(""),
-    country: new FormControl(""),
-    studyPermit: new FormControl(""),
-    password: new FormControl(""),
-    confirmPassword: new FormControl(""),
-    cellphone: new FormControl(""),
+    secondaryEmail: new FormControl("", Validators.required),
+    primaryEmail: new FormControl("", Validators.required),
+    gender: new FormControl("", Validators.required),
+    license: new FormControl("", Validators.required),
+    country: new FormControl("", Validators.required),
+    studyPermit: new FormControl("", Validators.required),
+    password: new FormControl("", Validators.required),
+    confirmPassword: new FormControl("", Validators.required),
+    cellphone: new FormControl("", Validators.required),
 
     //from "Expierience" model class
     jobTitle: new FormControl(""),
@@ -40,14 +40,14 @@ export class GraduateProfileComponent implements OnInit {
     endDate: new FormControl(""),
 
     //from "Qualification model class"
-    qualificationName: new FormControl(""),
-    qualificationDescription: new FormControl(""),
-    graduateDate: new FormControl(""),
+    qualificationName: new FormControl("", Validators.required),
+    qualificationDescription: new FormControl("", Validators.required),
+    graduateDate: new FormControl("", Validators.required),
 
     //upload for documents
-    additionalFiles: new FormControl(""),
-    
-    graduateAdditionalFiles: new FormControl("")
+    additionalFiles: new FormControl("", Validators.required),
+
+    graduateAdditionalFiles: new FormControl("", Validators.required)
 
   });
 
@@ -102,7 +102,7 @@ export class GraduateProfileComponent implements OnInit {
       this.toast.showtoastrError("Please ensure all fields are filled in", "Fill in personal details");
 
     }
-   else if (this.graduateDetailsForm.value.jobTitle == " " && this.graduateDetailsForm.value.assumedRole == " "
+    else if (this.graduateDetailsForm.value.jobTitle == " " && this.graduateDetailsForm.value.assumedRole == " "
       && this.graduateDetailsForm.value.startDate == " " && this.graduateDetailsForm.value.endDate == " ") {
       this.toast.showtoastrError("Please ensure all fields are filled in ", "Experience section");
     }
@@ -180,23 +180,23 @@ export class GraduateProfileComponent implements OnInit {
     document.getElementById("resumé")?.click();
   }
 
-  browseId(event: any): void{
+  browseId(event: any): void {
     event.preventDefault();
     document.getElementById("idDocument")?.click();
   }
 
-  browseAcademicRecord(event: any): void{
+  browseAcademicRecord(event: any): void {
     event.preventDefault();
     document.getElementById("academicRecord")?.click();
 
   }
 
-  browseMatricResults(event: any): void{
+  browseMatricResults(event: any): void {
     event.preventDefault();
     document.getElementById("matricResults")?.click();
   }
 
-  browsePermit(event: any): void{
+  browsePermit(event: any): void {
     event.preventDefault();
     document.getElementById("studyPermit")?.click();
 
