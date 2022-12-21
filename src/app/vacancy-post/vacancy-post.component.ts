@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { ToastrUtility } from '../utility/toast.utility';
 import { VacancyPostService } from '../service/vacancy-post.service'
 import { Vacancy } from '../model/vacancy';
@@ -13,8 +13,8 @@ import { Department } from '../model/department';
 export class VacancyPostComponent implements OnInit{
 
   vacancyPostForm = new FormGroup({
-    departmentName: new FormGroup(""),
-    file: new FormGroup([]) 
+    departmentName: new FormGroup("", Validators.required),
+    file: new FormGroup([], Validators.required) 
   });
 
   department: Department = {
