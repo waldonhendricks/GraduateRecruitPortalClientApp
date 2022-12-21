@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },
   { path: 'graduate-homepage', component: HomepageComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'login', component: SigninComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'component-development', component: ComponentDevelopmentComponent },
