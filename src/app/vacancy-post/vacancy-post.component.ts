@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Department } from '../department';
 import { ToastrUtility } from '../utility/toast.utility';
 import { VacancyPostService } from '../service/vacancy-post.service'
 import { Vacancy } from '../model/vacancy';
+import { Department } from '../model/department';
 
 @Component({
   selector: 'app-vacancy-post',
@@ -18,8 +18,8 @@ export class VacancyPostComponent implements OnInit{
   });
 
   department: Department = {
-    id: 0, //department id (auto assignable)
-    name: ''  //department name
+    departmentId: '', //department id (auto assignable)
+    departmentName: ''  //department name
   };
 
   vacancy: Vacancy = {
@@ -48,7 +48,7 @@ export class VacancyPostComponent implements OnInit{
       this.toast.showtoastrError("Failed to post vacancy", "Submission failed");
     }
 
-    this.department.name = this.vacancyPostForm.value.departmentName!;
+    this.department.departmentName = this.vacancyPostForm.value.departmentName!;
     this.vacancy.file = this.vacancyPostForm.value.file!;
 
     this.departmentDetails(this.department);

@@ -3,8 +3,6 @@ import { Department } from '../model/department';
 import { SelectService } from '../service/select.service';
 import { Course } from '../model/course';
 
-
-
 @Component({
   selector: 'app-vacancy-pdf-view',
   templateUrl: './vacancy-pdf-view.component.html',
@@ -30,7 +28,7 @@ export class VacancyPdfViewComponent implements OnInit {
   }
 
 
-  selectedDepartment: Department = new Department(2, 'Brazil');
+  selectedDepartment: Department = new Department('2', 'Brazil');
   departments: Department[] = [];
   courses: Course[] = [];
 
@@ -38,7 +36,7 @@ export class VacancyPdfViewComponent implements OnInit {
 
   ngOnInit() {
     this.departments = this.selectService.getDepartments();
-    this.onSelect(this.selectedDepartment.id);
+    this.onSelect(this.selectedDepartment.departmentId);
   }
 
   onSelect(departmentid: any) {
