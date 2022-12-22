@@ -32,7 +32,6 @@ import { GraduateInformationComponent } from './graduate-information/graduate-in
 import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
 import { SelectService } from './service/select.service';
 import { AlertsComponent } from './alerts/alerts.component';
-import { AuthenticationComponent } from './authentication/authentication.component';
 import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor.component';
 // import { PdfViewerModule } from 'ng2-pdf-viewer';
 
@@ -61,8 +60,6 @@ import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor
     GraduateInformationComponent,
     VacancyPdfViewComponent,
     AlertsComponent,
-    AuthenticationComponent,
-    ErrorInterceptorComponent,
   ],
   imports: [
     BrowserModule,
