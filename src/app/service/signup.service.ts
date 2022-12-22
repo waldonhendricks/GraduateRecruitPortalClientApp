@@ -17,4 +17,9 @@ export class SignupService{
      public register(signupGraduate: Graduate): Observable<Graduate>{
          return this.http.post<Graduate>(`${this.apiServerURL}/gradrecruitment/signup/save_registration`,signupGraduate);
      }
+
+     public update(updateGraduate: Graduate): Observable<Graduate>{
+        return this.http.put<Graduate>(`${this.apiServerURL}/gradrecruitment/signup/update_registration`,updateGraduate);
+
+     }
 }

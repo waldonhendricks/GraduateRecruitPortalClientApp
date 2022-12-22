@@ -48,6 +48,7 @@ export class AppRoutingModule { }
 export const routingComponents = [
   HomepageComponent,
   SignupComponent,
+  SigninComponent,
   ResetPasswordComponent,
   ForgotPasswordComponent,
   ComponentDevelopmentComponent,

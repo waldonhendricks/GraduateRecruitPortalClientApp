@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { SignupService } from '../service/signup.service';
-import { Graduate } from '../model/signup';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrUtility } from '../utility/toast.utility';
-import { identifierName } from '@angular/compiler';
 import { GraduateProfileService } from '../service/graduate-profile.service';
 import { GraduateProfile } from '../model/graduate';
 
@@ -15,9 +12,9 @@ import { GraduateProfile } from '../model/graduate';
 export class SignupComponent implements OnInit {
 
   signUpForm = new FormGroup({
-    primaryEmail: new FormControl(""),
-    password: new FormControl(""),
-    confirmPassword: new FormControl("")
+    primaryEmail: new FormControl("", Validators.required),
+    password: new FormControl("", Validators.required),
+    confirmPassword: new FormControl("", Validators.required)
   });
 
   graduate: GraduateProfile = {
@@ -45,7 +42,8 @@ export class SignupComponent implements OnInit {
 
   submitRegistration() {
     console.log("i must run first");
-    if (this.signUpForm.value.password !== this.signUpForm.value.confirmPassword) {
+
+     if (this.signUpForm.value.password !== this.signUpForm.value.confirmPassword) {
       this.toast.showtoastrError("Password do not match!", "Password Error");
       return;
 
