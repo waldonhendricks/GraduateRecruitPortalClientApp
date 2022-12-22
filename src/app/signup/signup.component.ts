@@ -17,6 +17,8 @@ export class SignupComponent implements OnInit {
     confirmPassword: new FormControl("", Validators.required)
   });
 
+  confirmPassword: string = "";
+
   graduate: GraduateProfile = {
     firstName: '',
     middleName: '',
@@ -29,9 +31,14 @@ export class SignupComponent implements OnInit {
     country: '',
     studyPermit: false,
     password: '',
-    confirmPassword: '',
     cellphone: '',
-    graduateAdditionalFiles: []
+    graduateAdditionalFiles: [],
+    Qualifications: [],
+    Experiences: [],
+    GraduatePortalDocument: [],
+    userId: 0,
+    email: '',
+    userRole: ''
   };
 
   constructor(private graduateService: GraduateProfileService, private toast: ToastrUtility) {
@@ -61,7 +68,10 @@ export class SignupComponent implements OnInit {
     }
     this.graduate.primaryEmail = this.signUpForm.value.primaryEmail!;
     this.graduate.password = this.signUpForm.value.password!;
-    this.graduate.confirmPassword = this.signUpForm.value.confirmPassword!;
+    this.confirmPassword = this.signUpForm.value.confirmPassword!;
+
+    // Must check the password before you submit and if they do not match,
+    // Report back to the user.
     this.signUp(this.graduate);
     setTimeout(() => {
     }, 1800);

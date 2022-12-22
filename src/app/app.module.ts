@@ -33,6 +33,7 @@ import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.com
 import { SelectService } from './service/select.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor.component';
+import { CookieService } from 'ngx-cookie-service';
 // import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
@@ -73,7 +74,7 @@ import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor
     ToastrModule.forRoot(),
     // PdfViewerModule
   ],
-  providers: [SelectService],
+  providers: [SelectService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

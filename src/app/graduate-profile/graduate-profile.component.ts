@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Experiecnce } from '../model/experience';
+import { Experience } from '../model/experience';
 import { GraduateProfile } from '../model/graduate';
 import { Qualification } from '../model/qualification';
 import { ExperienceService } from '../service/experience.service';
@@ -63,13 +63,17 @@ export class GraduateProfileComponent implements OnInit {
     country: '',
     studyPermit: true,
     password: '',
-    confirmPassword: '',
     cellphone: '',
     graduateAdditionalFiles: [],
-
+    Qualifications: [],
+    Experiences: [],
+    GraduatePortalDocument: [],
+    userId: 0,
+    email: '',
+    userRole: ''
   }
 
-  experience: Experiecnce = {
+  experience: Experience = {
     experienceId: 0,
     jobTitle: '',
     assumedRole: '',
@@ -97,7 +101,7 @@ export class GraduateProfileComponent implements OnInit {
     console.log("I must run first!");
     if (this.graduateDetailsForm.value.firstName == " " && this.graduateDetailsForm.value.middleName == " " && this.graduateDetailsForm.value.lastName == " " && this.graduateDetailsForm.value.preferredName == " " &&
       this.graduateDetailsForm.value.primaryEmail == " " && this.graduateDetailsForm.value.secondaryEmail == " " && this.graduateDetailsForm.value.gender == "-1 "
-      && this.graduateDetailsForm.value.country == "-1 " && this.graduateDetailsForm.value.studyPermit == " -1"
+      && this.graduateDetailsForm.value.country == "-1" && this.graduateDetailsForm.value.studyPermit == " -1"
       && this.graduateDetailsForm.value.password == " " && this.graduateDetailsForm.value.confirmPassword == " " && this.graduateDetailsForm.value.cellphone == " ") {
       this.toast.showtoastrError("Please ensure all fields are filled in", "Fill in personal details");
 
@@ -120,7 +124,6 @@ export class GraduateProfileComponent implements OnInit {
     this.graduateProfile.country = this.graduateDetailsForm.value.country!;
     // this.graduateProfile.studyPermit=this.graduateDetailsForm.value.studyPermit!;
     this.graduateProfile.password = this.graduateDetailsForm.value.password!;
-    this.graduateProfile.confirmPassword = this.graduateDetailsForm.value.confirmPassword!;
 
     this.experience.jobTitle = this.graduateDetailsForm.value.jobTitle!;
     this.experience.assumedRole = this.graduateDetailsForm.value.assumedRole!;
@@ -150,7 +153,7 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   //work experience details of graduate
-  graduateWorkExperience(workExperience: Experiecnce): void {
+  graduateWorkExperience(workExperience: Experience): void {
     this.experienceService.addExperience(workExperience).subscribe({
       error: (error) => {
         this.toast.showtoastrError(error, "Request status");

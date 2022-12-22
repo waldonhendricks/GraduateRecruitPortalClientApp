@@ -1,4 +1,4 @@
-export interface Experiecnce{
+export interface Experience{
     experienceId: number;
     jobTitle: string;
     assumedRole: string;

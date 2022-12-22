@@ -1,4 +1,8 @@
-export interface GraduateProfile{
+import { Experience } from "./experience";
+import { Qualification } from "./qualification";
+import { User } from "./user";
+
+export interface GraduateProfile extends User{
     firstName: string;
     middleName: string;
     lastName: string;
@@ -9,8 +13,10 @@ export interface GraduateProfile{
     license: Boolean;
     country: string;
     studyPermit: Boolean;
+    Qualifications: Array<Qualification>;
+    Experiences: Array<Experience>
+    GraduatePortalDocument: Array<any>;
     password: string;
-    confirmPassword: string;
     cellphone: string;
     graduateAdditionalFiles: Array<any>;
 

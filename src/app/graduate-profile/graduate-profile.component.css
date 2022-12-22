@@ -1,25 +1,25 @@
-.grad-profile-wrapper{
+.grad-profile-wrapper {
   padding: 3% 5%;
 }
 
-.grad-profile-fields-wrapper{
+.grad-profile-fields-wrapper {
   margin-bottom: 6vh;
 }
 
-.grad-profile-inputs-widget{
+.grad-profile-inputs-widget {
   margin-bottom: 4vh;
 }
 
-.grad-profile-fields-heading{
+.grad-profile-fields-heading {
   margin-bottom: 2.5vh;
 }
 
-#order-by-hint{
+#order-by-hint {
   color: var(--green);
   font-size: 13.5px;
 }
 
-.grad-profile-add-more-fields-btn-wrapper button{
+.grad-profile-add-more-fields-btn-wrapper button {
   border: 2px solid var(--dark-text);
   background: none;
   width: 45px;
@@ -30,7 +30,7 @@
   margin-right: 0.5%;
 }
 
-.removeXpFormSectionBtn{
+.removeXpFormSectionBtn {
   background: none;
   border: 2px solid var(--dark-text);
   width: 50px;
@@ -43,32 +43,46 @@
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  .grad-profile-fields-widget{
+  .grad-profile-fields-widget {
     display: grid;
     grid-template-column: 1fr;
   }
 
-  .row{
+  .row {
     display: grid !important;
     grid-template-column: 1fr !important;
-}
+  }
 
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) { 
-
-}
+@media only screen and (min-width: 600px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .grad-profile-fields-widget{
+  .grad-profile-fields-widget {
     display: grid;
     grid-template-column: 1fr;
   }
 
-  .row{
+  .row {
     display: grid !important;
     grid-template-column: 1fr !important;
+  }
 }
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .row {
+    display: flex !important;
+    grid-template-column: unset;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px){
+  .row {
+    display: flex !important;
+    grid-template-column: unset;
+  }
 }
