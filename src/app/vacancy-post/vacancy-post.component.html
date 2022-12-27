@@ -18,9 +18,9 @@
 
         <div class="vacancy-post-department">
             <label for="Department">Department</label>
-            <select class="select2 form-control select2-hidden-accessible" id="size" tabindex="-1" aria-hidden="true"
+            <select class="select2 form-control select2-hidden-accessible" id="size" aria-hidden="true"
                 formControlName="departmentName" aria-placeholder="-select department-" required>
-                <option value="">-select department-</option>
+                <option tabindex="-1" value="">-select department-</option>
                 <option *ngFor="let departmentName of CourseDepartment" [ngValue]="departmentName">{{departmentName}}
                 </option>
             </select>

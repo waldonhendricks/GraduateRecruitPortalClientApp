@@ -294,8 +294,8 @@
             <div class="grad-profile-fields-widget">
                 <div class="row">
                     <div class="col grad-profile-inputs-widget">
-                        <label for="resumé">Resumé/CV</label>
-                        <input type="file" name="" id="resumé" formControlName="additionalFiles" />
+                        <label for="resumé">Resumé/CV</label>    
+                            <input type="file" name="" id="resumé" formControlName="additionalFiles" required />        
                         <div class="invalid-feedback"
                             *ngIf="graduateDetailsForm.controls['additionalFiles'].errors?.['required']">
                             <sup>*</sup>Please select file
@@ -304,7 +304,7 @@
 
                     <div class="col grad-profile-inputs-widget">
                         <label for="idDocument">Identification Document</label>
-                        <input type="file" name="" id="idDocument" formControlName="additionalFiles" />
+                        <input type="file" name="" id="idDocument" formControlName="additionalFiles" required />
                         <div class="invalid-feedback"
                             *ngIf="graduateDetailsForm.controls['additionalFiles'].errors?.['required']">
                             <sup>*</sup>Please select file
@@ -313,7 +313,7 @@
 
                     <div class="col grad-profile-inputs-widget">
                         <label for="academicRecord">Academic Record</label>
-                        <input type="file" name="" id="academicRecord" formControlName="additionalFiles" />
+                        <input type="file" name="" id="academicRecord" formControlName="additionalFiles" required />
                         <div class="invalid-feedback"
                             *ngIf="graduateDetailsForm.controls['additionalFiles'].errors?.['required']">
                             <sup>*</sup>Please select file
@@ -324,7 +324,7 @@
                 <div class="row">
                     <div class="col grad-profile-inputs-widget">
                         <label for="matricResults">Matric Results</label>
-                        <input type="file" name="" id="matricResults" formControlName="additionalFiles" />
+                        <input type="file" name="" id="matricResults" formControlName="additionalFiles" required />
                         <div class="invalid-feedback"
                             *ngIf="graduateDetailsForm.controls['additionalFiles'].errors?.['required']">
                             <sup>*</sup>Please select file
@@ -333,7 +333,7 @@
 
                     <div class="col grad-profile-inputs-widget">
                         <label for="studyPermit">Study/Work Permit</label>
-                        <input type="file" name="" id="studyPermit" formControlName="additionalFiles" />
+                        <input type="file" name="" id="studyPermit" formControlName="additionalFiles" required />
                         <div class="invalid-feedback"
                             *ngIf="graduateDetailsForm.controls['additionalFiles'].errors?.['required']">
                             <sup>*</sup>Please select file

@@ -7,6 +7,7 @@ import { ExperienceService } from '../service/experience.service';
 import { GraduateProfileService } from '../service/graduate-profile.service';
 import { QualificationService } from '../service/qualification.service';
 import { ToastrUtility } from '../utility/toast.utility';
+import { requiredFileType } from './file-type';
 
 
 @Component({
@@ -42,12 +43,12 @@ export class GraduateProfileComponent implements OnInit {
     //from "Qualification model class"
     qualificationName: new FormControl("", [Validators.required, Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]),
     qualificationDescription: new FormControl("", [Validators.required, Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]),
-    graduateDate: new FormControl("", Validators.required),
+    graduateDate: new FormControl("", [Validators.required]),
 
     //upload for documents
-    additionalFiles: new FormControl("", Validators.required),
+    additionalFiles: new FormControl("", [Validators.required]),
 
-    graduateAdditionalFiles: new FormControl("", Validators.required)
+    graduateAdditionalFiles: new FormControl("", [Validators.required, requiredFileType('.pdf')])
 
   });
 
@@ -627,16 +628,6 @@ export class GraduateProfileComponent implements OnInit {
     div.appendChild(qualRowDiv3);
 
     dynamicWidgetParent?.appendChild(div);
-  }
-
-  specifyLicense(event: any): void {
-    //  var selectedOption = event.options[event.selectedIndex].value;
-    //  var yesOption = document.getElementById("optionYes");
-
-    //  yesOption?.ariaDisabled = selectedOption == "yes" ? false : true;
-
-    //  if(!yesOption?.ariaDisabled){
-    //   yesOption?.focus();
   }
 
 }
