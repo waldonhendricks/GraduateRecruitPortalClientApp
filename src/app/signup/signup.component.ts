@@ -12,8 +12,8 @@ import { GraduateProfile } from '../model/graduate';
 export class SignupComponent implements OnInit {
 
   signUpForm = new FormGroup({
-    primaryEmail: new FormControl("", Validators.required),
-    password: new FormControl("", Validators.required),
+    primaryEmail: new FormControl("", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+    password: new FormControl("", [Validators.required,Validators.minLength(6)]),
     confirmPassword: new FormControl("", Validators.required)
   });
 
@@ -54,15 +54,15 @@ export class SignupComponent implements OnInit {
       this.toast.showtoastrError("Password do not match!", "Password Error");
       return;
 
-    } else if (this.signUpForm.value.primaryEmail === " ") {
+    } else if (this.signUpForm.value.primaryEmail === "") {
       this.toast.showtoastrError("Email required", "Email Error");
       return;
 
-    } else if (this.signUpForm.value.password === " ") {
-      this.toast.showtoastrError("Password required", "Password error");
+    } else if (this.signUpForm.value.password === "" && (this.signUpForm.value.password?.length < 6)) {
+      this.toast.showtoastrError("6+ Character password required", "Password error");
       return;
 
-    } else if (this.signUpForm.value.confirmPassword === " ") {
+    } else if (this.signUpForm.value.confirmPassword === "") {
       this.toast.showtoastrError("Confirmed password required", "Confirmed password error");
       return;
     }

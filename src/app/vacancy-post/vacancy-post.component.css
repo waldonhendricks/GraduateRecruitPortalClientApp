@@ -47,6 +47,10 @@ margin-top: 30px;
     padding-top: 5%;
  }
 
+ .invalid-feedback {
+    display: block;
+  }
+  
  .vacancy-post-button{
   margin: 0;
   width: 53%;

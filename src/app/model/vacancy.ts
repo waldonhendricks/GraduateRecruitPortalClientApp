@@ -5,5 +5,5 @@ export interface Vacancy{
     jobRole: string;
     isApproved: Boolean;
     location: string;
-    file: Array<any>;
+    file: any;
 }

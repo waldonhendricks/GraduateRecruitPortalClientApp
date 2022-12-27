@@ -30,6 +30,10 @@
   margin-right: 0.5%;
 }
 
+.invalid-feedback {
+  display: block;
+}
+
 .removeXpFormSectionBtn {
   background: none;
   border: 2px solid var(--dark-text);
