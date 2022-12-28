@@ -180,8 +180,6 @@ export class GraduateProfileComponent implements OnInit {
     } else if (this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "") {
       this.toast.showtoastrError("Password fields cannot be empty", "Blank password field(s)");
 
-    //password validation code removed 
-
     }
     else if (this.graduateDetailsForm.value.password !== this.graduateDetailsForm.value.confirmPassword) {
       this.toast.showtoastrError("Confirmed password does not match initial password input", "Password does not match error");
