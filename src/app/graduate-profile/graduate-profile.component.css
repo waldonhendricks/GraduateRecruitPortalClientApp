@@ -49,12 +49,12 @@
 @media only screen and (max-width: 600px) {
   .grad-profile-fields-widget {
     display: grid;
-    grid-template-column: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .row {
     display: grid !important;
-    grid-template-column: 1fr !important;
+    grid-template-columns: 1fr !important;
   }
 
 }
@@ -66,12 +66,12 @@
 @media only screen and (min-width: 768px) {
   .grad-profile-fields-widget {
     display: grid;
-    grid-template-column: 1fr;
+    grid-template-columns: 1fr;
   }
 
   .row {
     display: grid !important;
-    grid-template-column: 1fr !important;
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -79,7 +79,7 @@
 @media only screen and (min-width: 992px) {
   .row {
     display: flex !important;
-    grid-template-column: unset;
+    grid-template-columns: unset;
   }
 }
 
@@ -87,6 +87,6 @@
 @media only screen and (min-width: 1200px){
   .row {
     display: flex !important;
-    grid-template-column: unset;
+    grid-template-columns: unset;
   }
 }
