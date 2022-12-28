@@ -11,7 +11,7 @@ export class ForgotPasswordComponent{
 
   resetPasswordFormGroup = new FormGroup(
   {
-    email: new FormControl("", [Validators.required, Validators.maxLength(2)])
+    email: new FormControl("", [Validators.required, Validators.maxLength(2), Validators.email])
   });
 
   get email()
