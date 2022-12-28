@@ -166,7 +166,7 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   submitGraduateDetails() {
-    console.log("I must run first!");
+    console.log("Submitting graduate details...please wait");
     if (this.graduateDetailsForm.value.firstName == "" && this.graduateDetailsForm.value.middleName == "" && this.graduateDetailsForm.value.lastName == "" && this.graduateDetailsForm.value.preferredName == "" &&
       this.graduateDetailsForm.value.primaryEmail == "" && this.graduateDetailsForm.value.secondaryEmail == "" && this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "" &&
       this.graduateDetailsForm.value.cellphone == "") {
