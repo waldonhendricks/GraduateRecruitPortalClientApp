@@ -34,8 +34,7 @@ import { SelectService } from './service/select.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor.component';
 import { CookieService } from 'ngx-cookie-service';
-import { PasswordStrengthValidatorComponent } from './password-strength-validator/password-strength-validator.component';
-// import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -62,7 +61,6 @@ import { PasswordStrengthValidatorComponent } from './password-strength-validato
     GraduateInformationComponent,
     VacancyPdfViewComponent,
     AlertsComponent,
-    PasswordStrengthValidatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +72,7 @@ import { PasswordStrengthValidatorComponent } from './password-strength-validato
     CarouselModule,
     ButtonModule,
     ToastrModule.forRoot(),
-    // PdfViewerModule
+    PdfViewerModule
   ],
   providers: [SelectService, CookieService],
   bootstrap: [AppComponent]

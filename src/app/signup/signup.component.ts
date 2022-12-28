@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrUtility } from '../utility/toast.utility';
 import { GraduateProfileService } from '../service/graduate-profile.service';
 import { GraduateProfile } from '../model/graduate';
-import { PasswordStrengthValidator } from '../password-strength-validator/password-strength-validator.component';
 
 @Component({
   selector: 'app-signup',
@@ -62,10 +61,10 @@ export class SignupComponent implements OnInit {
       this.toast.showtoastrError("Email required", "Email Error");
       return;
 
-      //email validation does not work
-    //  }else if(!this.signUpForm.value.primaryEmail?.match(this.emailRegex)){
-    //   this.toast.showtoastrError("Email must include '@'", "Invalid email");
-    //   return;
+      //this email validation does not work properly 
+     }else if(!this.signUpForm.value.primaryEmail?.match(this.emailRegex)){
+      this.toast.showtoastrError("Email must include '@'", "Invalid email");
+      return;
 
     } else if (this.signUpForm.value.password === "" && (this.signUpForm.value.password?.length < 8)) {
       this.toast.showtoastrError("8+ Character password required", "Password error");
@@ -75,7 +74,7 @@ export class SignupComponent implements OnInit {
       this.toast.showtoastrError("Confirmed password required", "Confirmed password error");
       return;
 
-      //password validation does not work
+      //this password validation does not work properly
      } else if (!this.signUpForm.value.password?.match(this.passwordRegex)) {
       this.toast.showtoastrError("Password must contain a combination of lowercase, uppercase, digits, and special characters", "Weak password");
       return;
