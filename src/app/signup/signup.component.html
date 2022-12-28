@@ -12,13 +12,13 @@
             <div class="grad-portal-dashboard-layout-right-form-wrapper" style="padding-top: 1%;" id="main-container">
                 <h1>Graduate Signup</h1>
                 <form class="grad-portal-dashboard-layout-right-form" id="addRegistration" [formGroup]="signUpForm"
-                    (ngSubmit)="submitRegistration()" autocomplete="off" novalidate>
+                    (ngSubmit)="submitRegistration()" novalidate>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="email" id="lblPw" class="form-label">Email</label>
-                        <input type="email" class="form-control" formControlName="primaryEmail" required
-                            pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" />
+                        <input type="email" class="form-control" formControlName="primaryEmail" autocomplete="off"
+                            required />
                         <div class="invalid-feedback"
-                            *ngIf="signUpForm.controls['primaryEmail'].errors?.['required'] || signUpForm.controls['primaryEmail'].errors?.['email']">
+                            *ngIf="signUpForm.controls['primaryEmail'].errors?.['required'] || signUpForm.controls['primaryEmail'].errors?.['pattern']">
                             <sup>*</sup>Please enter a valid email
                         </div>
                     </div>
@@ -28,7 +28,15 @@
                         <div *ngIf="signUpForm.controls['password'].errors?.['minlength']"></div>
                         <div class="invalid-feedback"
                             *ngIf="signUpForm.controls['password'].errors?.['required'] || signUpForm.controls['password'].errors?.['pattern']">
-                            <sup>*</sup>Please enter a 8+ character password
+                            <span>
+                                Password must be 8 characters or more
+                            </span>
+                            <ul>
+                                <li>Must include an Uppercase</li>
+                                <li>Must include a Lowercase</li>
+                                <li>Must include a Number</li>
+                                <li>Must include atleast one Special Character</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
@@ -43,7 +51,8 @@
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
                         <div class="landscape-button">
-                            <button type="submit" class="grad-cput-big-btn">Signup</button>
+                            <button type="submit" [disabled]="signUpForm.invalid"
+                                class="grad-cput-big-btn">Signup</button>
                         </div>
                     </div>
                 </form>
