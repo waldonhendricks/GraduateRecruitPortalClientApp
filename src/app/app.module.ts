@@ -34,6 +34,7 @@ import { SelectService } from './service/select.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor.component';
 import { CookieService } from 'ngx-cookie-service';
+import { PasswordStrengthValidatorComponent } from './password-strength-validator/password-strength-validator.component';
 // import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
@@ -61,6 +62,7 @@ import { CookieService } from 'ngx-cookie-service';
     GraduateInformationComponent,
     VacancyPdfViewComponent,
     AlertsComponent,
+    PasswordStrengthValidatorComponent,
   ],
   imports: [
     BrowserModule,

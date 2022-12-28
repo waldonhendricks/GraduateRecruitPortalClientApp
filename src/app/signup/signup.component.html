@@ -12,28 +12,29 @@
             <div class="grad-portal-dashboard-layout-right-form-wrapper" style="padding-top: 1%;" id="main-container">
                 <h1>Graduate Signup</h1>
                 <form class="grad-portal-dashboard-layout-right-form" id="addRegistration" [formGroup]="signUpForm"
-                    (ngSubmit)="submitRegistration()" novalidate>
+                    (ngSubmit)="submitRegistration()" autocomplete="off" novalidate>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="email" id="lblPw" class="form-label">Email</label>
                         <input type="email" class="form-control" formControlName="primaryEmail" required
                             pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" />
-                        <!-- <div *ngIf="signUpForm.controls['primaryEmail'].errors?.['pattern']"></div> -->
-                        <div class="invalid-feedback" *ngIf="signUpForm.controls['primaryEmail'].errors?.['required']">
+                        <div class="invalid-feedback"
+                            *ngIf="signUpForm.controls['primaryEmail'].errors?.['required'] || signUpForm.controls['primaryEmail'].errors?.['email']">
                             <sup>*</sup>Please enter a valid email
                         </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" formControlName="password" minlength="6" required />
+                        <input type="password" class="form-control" formControlName="password" minlength="8" required />
                         <div *ngIf="signUpForm.controls['password'].errors?.['minlength']"></div>
-                        <div class="invalid-feedback" *ngIf="signUpForm.controls['password'].errors?.['required']">
-                            <sup>*</sup>Please enter a 6+ character password
+                        <div class="invalid-feedback"
+                            *ngIf="signUpForm.controls['password'].errors?.['required'] || signUpForm.controls['password'].errors?.['pattern']">
+                            <sup>*</sup>Please enter a 8+ character password
                         </div>
                     </div>
                     <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
                         <label for="password2" class="form-label">Confirm Password</label>
                         <input type="password" class="form-control" formControlName="confirmPassword" required
-                            minlength="6" />
+                            minlength="8" />
                         <div *ngIf="signUpForm.controls['confirmPassword'].errors?.['minlength']"></div>
                         <div class="invalid-feedback"
                             *ngIf="signUpForm.controls['confirmPassword'].errors?.['required']">
