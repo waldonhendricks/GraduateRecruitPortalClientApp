@@ -12,13 +12,13 @@ import { PasswordStrengthValidator } from '../password-strength-validator/passwo
 })
 export class SignupComponent implements OnInit {
 
-  passwordRegex: any = Validators.pattern('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$');
+  passwordRegex: any = '^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$';
   emailRegex: any = Validators.email;
 
   signUpForm = new FormGroup({
     primaryEmail: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)]),
-    confirmPassword: new FormControl("", Validators.required)
+    confirmPassword: new FormControl("", [Validators.required])
   });
 
   confirmPassword: string = "";
@@ -76,9 +76,9 @@ export class SignupComponent implements OnInit {
       return;
 
       //password validation does not work
-    //  } else if (!this.signUpForm.value.password?.match(this.passwordRegex)) {
-    //   this.toast.showtoastrError("Password must contain a combination of lowercase, uppercase, digits, and special characters", "Weak password");
-    //   return;
+     } else if (!this.signUpForm.value.password?.match(this.passwordRegex)) {
+      this.toast.showtoastrError("Password must contain a combination of lowercase, uppercase, digits, and special characters", "Weak password");
+      return;
     }
     this.graduate.primaryEmail = this.signUpForm.value.primaryEmail!;
     this.graduate.password = this.signUpForm.value.password!;
