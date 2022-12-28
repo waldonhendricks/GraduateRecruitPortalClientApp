@@ -180,8 +180,7 @@ export class GraduateProfileComponent implements OnInit {
     } else if (this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "") {
       this.toast.showtoastrError("Password fields cannot be empty", "Blank password field(s)");
 
-    // } else if (this.graduateDetailsForm.value.password !== this.passwordRegex) {
-    //   this.toast.showtoastrError("Password must be at least 8 characters long (mixture of Lowercase letters, Uppercase letters, Numbers, Special characters)", "Weak password");
+    //password validation code removed 
 
     }
     else if (this.graduateDetailsForm.value.password !== this.graduateDetailsForm.value.confirmPassword) {
