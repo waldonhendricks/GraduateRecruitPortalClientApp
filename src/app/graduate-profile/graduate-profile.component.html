@@ -2,7 +2,7 @@
 <div class="grad-profile-wrapper">
     <h1 class="grad-portal-graduate-app-page-heading">Graduate Profile</h1>
 
-    <form action="" [formGroup]="graduateDetailsForm" (ngSubmit)="submitGraduateDetails()" novalidate>
+    <form action="" [formGroup]="graduateDetailsForm" (ngSubmit)="submitGraduateDetails()" autocomplete="off" novalidate>
         <!-- Personal Information -->
         <div class="grad-profile-fields-wrapper">
             <div class="grad-profile-fields-heading">
@@ -346,7 +346,7 @@
         </div>
 
         <div class="grad-profile-form-submission-btn">
-            <button class="grad-cput-big-btn" type="submit">Submit</button>
+            <button class="grad-cput-big-btn" [disabled]="graduateDetailsForm.invalid" type="submit">Submit</button>
         </div>
     </form>
 </div>
