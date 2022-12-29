@@ -19,8 +19,8 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(/*private resetPasswordService: ResetPasswordService,*/ /*private toast: ToastrUtility*/) {
     this.resetPasswordForm = new FormGroup({
-      newPassword: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern("[^A-Za-z0-9]")]),
-      confirmPassword: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern("[^A-Za-z0-9]")])
+      newPassword: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
+      confirmPassword: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])
     }
 
 
