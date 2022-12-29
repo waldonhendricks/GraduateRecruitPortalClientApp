@@ -24,12 +24,12 @@ export class GraduateProfileComponent implements OnInit {
     lastName: new FormControl("", [Validators.required, Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]),
     preferredName: new FormControl("", [Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]),
     secondaryEmail: new FormControl("", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"), Validators.email]),
-    primaryEmail: new FormControl("", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"), Validators.email]),
-    gender: new FormControl("", Validators.required),
-    license: new FormControl("", Validators.required),
-    country: new FormControl("", Validators.required),
-    studyPermit: new FormControl("", Validators.required),
-    password: new FormControl("", [Validators.required, Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/)]),
+    primaryEmail: new FormControl("", [Validators.required, Validators.pattern('^[A-Za-z0-9._%+-]+@mycput.ac\.za$'), Validators.email]),
+    gender: new FormControl("", [Validators.required]),
+    license: new FormControl("", [Validators.required]),
+    country: new FormControl("", [Validators.required]),
+    studyPermit: new FormControl("", [Validators.required]),
+    password: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)]),
     confirmPassword: new FormControl("", [Validators.required]),
     cellphone: new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$")]),
 
@@ -43,12 +43,10 @@ export class GraduateProfileComponent implements OnInit {
     //from "Qualification model class"
     qualificationName: new FormControl("", [Validators.required, Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]),
     qualificationDescription: new FormControl("", [Validators.required, Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]),
-    graduateDate: new FormControl("", [Validators.required]),
+    graduateDate: new FormControl("", [Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')]),
 
     //upload for documents
     additionalFiles: new FormControl("", [Validators.required]),
-
-    graduateAdditionalFiles: new FormControl("", [Validators.required, requiredFileType('.pdf')])
 
   });
 
@@ -158,37 +156,22 @@ export class GraduateProfileComponent implements OnInit {
 
   StudyPermit: any = ['Yes', 'No'];
 
-  // passwordRegex: any = Validators.pattern(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/);
-
-  constructor(public formBuilder: FormBuilder, private graduateProfileService: GraduateProfileService, private experienceService: ExperienceService, private qualificationService: QualificationService, private toast: ToastrUtility) {
+  constructor(public formBuilder: FormBuilder, private graduateProfileService: GraduateProfileService, 
+    private experienceService: ExperienceService, private qualificationService: QualificationService, 
+    private toast: ToastrUtility) {
   }
   ngOnInit(): void {
   }
 
   submitGraduateDetails() {
     console.log("Submitting graduate details...please wait");
-    // if (this.graduateDetailsForm.value.firstName == "" && this.graduateDetailsForm.value.middleName == "" && this.graduateDetailsForm.value.lastName == "" && this.graduateDetailsForm.value.preferredName == "" &&
-    //   this.graduateDetailsForm.value.primaryEmail == "" && this.graduateDetailsForm.value.secondaryEmail == "" && this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "" &&
-    //   this.graduateDetailsForm.value.cellphone == "") {
-    //   this.toast.showtoastrError("Please ensure all fields are filled in", "Missing personal details");
 
-    // } else if (this.graduateDetailsForm.value.gender == "" && this.graduateDetailsForm.value.gender.indexOf("-1") && this.graduateDetailsForm.value.license == "" &&
-    //   this.graduateDetailsForm.value.license.indexOf("-1") && this.graduateDetailsForm.value.country == "" && this.graduateDetailsForm.value.country.indexOf("-1") &&
-    //   this.graduateDetailsForm.value.studyPermit == "" && this.graduateDetailsForm.value.studyPermit.indexOf("-1")) {
-    //   this.toast.showtoastrError("Please ensure all fields are filled in", "Missing personal details");
+    //checks if confirmed password matches the initial entered password
+    if (this.graduateDetailsForm.value.password !== this.graduateDetailsForm.value.confirmPassword) {
+      this.toast.showtoastrError("Confirmed password does not match initial password input", "Password does not match error");
 
-    // } else if (this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "") {
-    //   this.toast.showtoastrError("Password fields cannot be empty", "Blank password field(s)");
+    }
 
-    // }
-    // else if (this.graduateDetailsForm.value.password !== this.graduateDetailsForm.value.confirmPassword) {
-    //   this.toast.showtoastrError("Confirmed password does not match initial password input", "Password does not match error");
-
-    // }
-    // else if (this.graduateDetailsForm.value.qualificationName == "" && this.graduateDetailsForm.value.qualificationDescription == ""
-    //   && this.graduateDetailsForm.value.graduateDate == "") {
-    //   this.toast.showtoastrError("Please ensure all fields are filled in ", "Qualification section");
-    // }
     this.graduateProfile.firstName = this.graduateDetailsForm.value.firstName!;
     this.graduateProfile.middleName = this.graduateDetailsForm.value.middleName!;
     this.graduateProfile.lastName = this.graduateDetailsForm.value.lastName!;

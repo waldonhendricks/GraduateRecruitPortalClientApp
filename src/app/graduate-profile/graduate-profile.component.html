@@ -2,7 +2,8 @@
 <div class="grad-profile-wrapper">
     <h1 class="grad-portal-graduate-app-page-heading">Graduate Profile</h1>
 
-    <form action="" [formGroup]="graduateDetailsForm" (ngSubmit)="submitGraduateDetails()" autocomplete="off" novalidate>
+    <form action="" [formGroup]="graduateDetailsForm" (ngSubmit)="submitGraduateDetails()" autocomplete="off"
+        novalidate>
         <!-- Personal Information -->
         <div class="grad-profile-fields-wrapper">
             <div class="grad-profile-fields-heading">
@@ -14,17 +15,20 @@
                     <div class="col grad-profile-inputs-widget">
                         <label for="firstName">First Name</label>
                         <input type="text" class="form-control" aria-label="First name" formControlName="firstName"
-                            required pattern="('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')">
+                            required>
                         <div class="invalid-feedback"
-                            *ngIf="graduateDetailsForm.controls['firstName'].errors?.['required']">
+                            *ngIf="graduateDetailsForm.controls['firstName'].errors?.['required'] || graduateDetailsForm.controls['firstName'].errors?.['pattern']">
                             <sup>*</sup>Please enter your firstname (Text only)
                         </div>
                     </div>
 
                     <div class="col grad-profile-inputs-widget">
                         <label for="middleName">Middle Name</label>
-                        <input type="text" class="form-control" aria-label="Middle name" formControlName="middleName"
-                            pattern="('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')">
+                        <input type="text" class="form-control" aria-label="Middle name" formControlName="middleName">
+                        <div class="invalid-feedback"
+                            *ngIf="graduateDetailsForm.controls['middleName'].errors?.['pattern']">
+                            <sup>*</sup>Please enter your middle name (Text only)
+                        </div>
                     </div>
                 </div>
 
@@ -32,9 +36,9 @@
                     <div class="col grad-profile-inputs-widget">
                         <label for="Surname">Surname</label>
                         <input type="text" class="form-control" aria-label="Surname" formControlName="lastName"
-                            pattern="('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')">
+                            required>
                         <div class="invalid-feedback"
-                            *ngIf="graduateDetailsForm.controls['lastName'].errors?.['required']">
+                            *ngIf="graduateDetailsForm.controls['lastName'].errors?.['required'] || graduateDetailsForm.controls['lastName'].errors?.['pattern']">
                             <sup>*</sup>Please enter your lastname (Text only)
                         </div>
                     </div>
@@ -42,7 +46,11 @@
                     <div class="col grad-profile-inputs-widget">
                         <label for="preffered name">Preferred name</label>
                         <input type="text" class="form-control" aria-label="Preferred name"
-                            formControlName="preferredName" pattern="('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')">
+                            formControlName="preferredName">
+                        <div class="invalid-feedback"
+                            *ngIf="graduateDetailsForm.controls['preferredName'].errors?.['pattern']">
+                            <sup>*</sup>Please enter your lastname (Text only)
+                        </div>
                     </div>
                 </div>
 
@@ -50,21 +58,20 @@
                     <div class="col grad-profile-inputs-widget">
                         <label for="secondary-email">Secondary Email</label>
                         <input type="email" class="form-control" aria-label="Secondary Email"
-                            formControlName="secondaryEmail" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                            required>
+                            formControlName="secondaryEmail" required>
                         <div class="invalid-feedback"
                             *ngIf="graduateDetailsForm.controls['secondaryEmail'].errors?.['required'] || graduateDetailsForm.controls['secondaryEmail'].errors?.['email'] ">
-                            <sup>*</sup>Please provide a valid secondary email
+                            <sup>*</sup>Please provide your personal (not company email address) email
                         </div>
                     </div>
 
                     <div class="col grad-profile-inputs-widget">
                         <label for="primary-email">Primary Email</label>
                         <input type="email" class="form-control" aria-label="Primary email"
-                            formControlName="primaryEmail" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                            formControlName="primaryEmail" required>
                         <div class="invalid-feedback"
-                            *ngIf="graduateDetailsForm.controls['primaryEmail'].errors?.['required'] || graduateDetailsForm.controls['secondaryEmail'].errors?.['email'] ">
-                            <sup>*</sup>Please provide a valid primary email
+                            *ngIf="graduateDetailsForm.controls['primaryEmail'].errors?.['required'] || graduateDetailsForm.controls['primaryEmail'].errors?.['pattern'] ">
+                            <sup>*</sup>Please provide your student email
                         </div>
                     </div>
                 </div>
@@ -150,17 +157,26 @@
                     <div class="col grad-profile-inputs-widget">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" class="form-control" formControlName="password"
-                            minlength="6" required />
+                            minlength="8" maxlength="30" required />
                         <div class="invalid-feedback"
                             *ngIf="graduateDetailsForm.controls['password'].errors?.['required'] || graduateDetailsForm.controls['password'].errors?.['pattern']">
-                            <sup>*</sup>Please enter your password
+                            <span>
+                                <sup>*</sup>Please enter your 8+ character password
+                            </span>
+                            <ul>
+                                <li>Must include an Uppercase</li>
+                                <li>Must include a Lowercase</li>
+                                <li>Must include a Number</li>
+                                <li>Must include atleast one Special Character</li>
+                            </ul>
                         </div>
+
                     </div>
 
                     <div class="col grad-profile-inputs-widget">
                         <label for="confirmpassword">Confirm Password</label>
                         <input type="password" class="form-control" class="form-control"
-                            formControlName="confirmPassword" minlength="8" required />
+                            formControlName="confirmPassword" minlength="8" maxlength="30" required />
                         <div class="invalid-feedback"
                             *ngIf="graduateDetailsForm.controls['confirmPassword'].errors?.['required']">
                             <sup>*</sup>Please re-enter your password
@@ -184,13 +200,21 @@
                             <div class="col grad-profile-inputs-widget">
                                 <label for="jobtitle">Job Title</label>
                                 <input type="text" class="form-control" aria-label="Job title"
-                                    pattern="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$">
+                                    formControlName="jobTitle">
+                                <div class="invalid-feedback"
+                                    *ngIf="graduateDetailsForm.controls['jobTitle'].errors?.['pattern']">
+                                    <sup>*</sup>Please enter your job title if you have/had any job (Text only)
+                                </div>
                             </div>
 
                             <div class="col grad-profile-inputs-widget">
                                 <label for="assumedrole">Assumed Role</label>
                                 <input type="text" class="form-control" aria-label="Assumed role"
-                                    formControlName="assumedRole" pattern="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$">
+                                    formControlName="assumedRole">
+                                <div class="invalid-feedback"
+                                    *ngIf="graduateDetailsForm.controls['assumedRole'].errors?.['pattern']">
+                                    <sup>*</sup>Please enter your job role if you have/had any job (Text only)
+                                </div>
                             </div>
                         </div>
 
@@ -198,7 +222,11 @@
                             <div class="col grad-profile-inputs-widget">
                                 <label for="companyname">Company Name</label>
                                 <input type="text" class="form-control" aria-label="Company name"
-                                    formControlName="companyName" pattern="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$">
+                                    formControlName="companyName">
+                                <div class="invalid-feedback"
+                                    *ngIf="graduateDetailsForm.controls['companyName'].errors?.['pattern']">
+                                    <sup>*</sup>Please enter the company name you worked at (Text only)
+                                </div>
                             </div>
                             <div class="col grad-profile-inputs-widget">
                                 <label for="startdate">Start Date</label>
@@ -243,20 +271,19 @@
                             <div class="col grad-profile-inputs-widget">
                                 <label for="qualificationName">Qualification Name</label>
                                 <input type="text" class="form-control" aria-label="Job title"
-                                    formControlName="qualificationName" required pattern="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$">
+                                    formControlName="qualificationName" required>
                                 <div class="invalid-feedback"
-                                    *ngIf="graduateDetailsForm.controls['qualificationName'].errors?.['required']">
-                                    <sup>*</sup>Please provide your qualification
+                                    *ngIf="graduateDetailsForm.controls['qualificationName'].errors?.['required'] || graduateDetailsForm.controls['qualificationName'].errors?.['pattern']">
+                                    <sup>*</sup>Please provide your qualification (Text only)
                                 </div>
                             </div>
 
                             <div class="col grad-profile-inputs-widget">
                                 <label for="qualificationDescription">Qualification Description</label>
                                 <input type="text" class="form-control" aria-label="Assumed role"
-                                    formControlName="qualificationDescription" required
-                                    pattern="^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$">
+                                    formControlName="qualificationDescription" required>
                                 <div class="invalid-feedback"
-                                    *ngIf="graduateDetailsForm.controls['qualificationDescription'].errors?.['required']">
+                                    *ngIf="graduateDetailsForm.controls['qualificationDescription'].errors?.['required'] || graduateDetailsForm.controls['qualificationDescription'].errors?.['pattern']">
                                     <sup>*</sup>Please provide a short description of your qualification
                                 </div>
                             </div>
@@ -266,9 +293,9 @@
                             <div class="col grad-profile-inputs-widget">
                                 <label for="yearObtained">Year Obtained/To be obtained?</label>
                                 <input type="text" id="yearObtained" class="form-control" aria-label="Start date"
-                                    formControlName="graduateDate">
+                                    formControlName="graduateDate" required maxlength="4">
                                 <div class="invalid-feedback"
-                                    *ngIf="graduateDetailsForm.controls['graduateDate'].errors?.['required']">
+                                    *ngIf="graduateDetailsForm.controls['graduateDate'].errors?.['required'] || graduateDetailsForm.controls['graduateDate'].errors?.['pattern']">
                                     <sup>*</sup>Please indicate year of graduation
                                 </div>
                             </div>
