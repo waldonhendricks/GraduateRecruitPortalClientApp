@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Experience } from "../model/experience";
-import { GraduateProfile } from "../model/graduate";
+import { Graduate } from "../model/graduate";
 import { Qualification } from "../model/qualification";
 
 @Injectable({

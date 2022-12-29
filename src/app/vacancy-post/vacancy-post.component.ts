@@ -55,9 +55,6 @@ export class VacancyPostComponent implements OnInit {
     if (this.vacancyPostForm.value.departmentName === "" && this.vacancyPostForm.value.departmentName.indexOf("-1")) {
       this.toast.showtoastrError("Please select a department", "Submission failed");
 
-    // }else if(this.vacancyPostForm.value.file === "" && this.vacancyPostForm.value.file === undefined){
-    //   this.toast.showtoastrError("File upload required", "Submission failed");
-
     } else {
       this.toast.showtoastrSuccess("Vacancy successfully submitted", "Submission sucess");
 

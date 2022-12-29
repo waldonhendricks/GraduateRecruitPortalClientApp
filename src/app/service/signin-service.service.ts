@@ -3,7 +3,7 @@ import {EnvironmentInjector, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Graduate } from "../model/faculty";
-import { GraduateProfile } from "../model/graduate";
+import { Graduate } from "../model/graduate";
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +15,7 @@ export class SigninService{
     constructor(private http: HttpClient){
     }
 
-    public login(logInGraduate: GraduateProfile): Observable<GraduateProfile>{
-        return this.http.post<GraduateProfile>(`${this.apiServerURL}/gradrecruitment/signin`,logInGraduate);
+    public login(logInGraduate: Graduate): Observable<Graduate>{
+        return this.http.post<Graduate>(`${this.apiServerURL}/gradrecruitment/signin`,logInGraduate);
     }
 }
