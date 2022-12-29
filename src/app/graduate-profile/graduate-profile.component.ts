@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Experience } from '../model/experience';
-import { GraduateProfile } from '../model/graduate';
+import { Graduate } from '../model/graduate';
 import { Qualification } from '../model/qualification';
 import { ExperienceService } from '../service/experience.service';
 import { GraduateProfileService } from '../service/graduate-profile.service';
@@ -50,7 +50,7 @@ export class GraduateProfileComponent implements OnInit {
 
   });
 
-  graduateProfile: GraduateProfile = {
+  graduateProfile: Graduate = {
     firstName: '',
     middleName: '',
     lastName: '',
@@ -266,7 +266,7 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   //personal information of the graduate
-  graduateDetails(graduateProfile: GraduateProfile): void {
+  graduateDetails(graduateProfile: Graduate): void {
     this.graduateProfileService.saveProfile(graduateProfile).subscribe({
       error: (error) => {
         this.toast.showtoastrError(error, "Request status");

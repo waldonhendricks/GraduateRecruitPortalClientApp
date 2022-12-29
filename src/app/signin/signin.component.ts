@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
-import { GraduateProfile } from '../model/graduate';
+import { Graduate } from '../model/graduate';
 import { GraduateProfileService } from '../service/graduate-profile.service';
 import { ToastrUtility } from '../utility/toast.utility';
 import { SigninService } from '../service/signin-service.service';
@@ -27,7 +27,7 @@ export class SigninComponent implements OnInit {
     return this.signInForm.get('password');
   }
 
-  graduateLogin: GraduateProfile = {
+  graduateLogin: Graduate = {
     firstName: '',
     middleName: '',
     lastName: '',
@@ -74,7 +74,7 @@ export class SigninComponent implements OnInit {
     }, 2000);
   }
 
-  signIn(graduate: GraduateProfile): void {
+  signIn(graduate: Graduate): void {
     this.graduateService.saveProfile(graduate).subscribe({
       error: (error: string) => {
         this.toast.showtoastrError(error, "Request status");

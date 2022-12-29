@@ -2,7 +2,7 @@ import { Experience } from "./experience";
 import { Qualification } from "./qualification";
 import { User } from "./user";
 
-export interface GraduateProfile extends User{
+export interface Graduate extends User{
     firstName: string;
     middleName: string;
     lastName: string;
