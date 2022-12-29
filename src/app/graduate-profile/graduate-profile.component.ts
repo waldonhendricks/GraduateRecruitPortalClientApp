@@ -156,8 +156,8 @@ export class GraduateProfileComponent implements OnInit {
 
   StudyPermit: any = ['Yes', 'No'];
 
-  constructor(public formBuilder: FormBuilder, private graduateProfileService: GraduateProfileService, 
-    private experienceService: ExperienceService, private qualificationService: QualificationService, 
+  constructor(public formBuilder: FormBuilder, private graduateProfileService: GraduateProfileService,
+    private experienceService: ExperienceService, private qualificationService: QualificationService,
     private toast: ToastrUtility) {
   }
   ngOnInit(): void {
@@ -166,10 +166,30 @@ export class GraduateProfileComponent implements OnInit {
   submitGraduateDetails() {
     console.log("Submitting graduate details...please wait");
 
-    //checks if confirmed password matches the initial entered password
-    if (this.graduateDetailsForm.value.password !== this.graduateDetailsForm.value.confirmPassword) {
+    if (this.graduateDetailsForm.value.firstName == "" && this.graduateDetailsForm.value.middleName == "" && this.graduateDetailsForm.value.lastName == "" && this.graduateDetailsForm.value.preferredName == "" &&
+      this.graduateDetailsForm.value.primaryEmail == "" && this.graduateDetailsForm.value.secondaryEmail == "" && this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "" &&
+      this.graduateDetailsForm.value.cellphone == "") {
+      this.toast.showtoastrError("Please ensure all fields are filled in", "Missing personal details")
+
+    } else if (this.graduateDetailsForm.value.gender == "" && this.graduateDetailsForm.value.gender.indexOf("-1") && this.graduateDetailsForm.value.license == "" &&
+      this.graduateDetailsForm.value.license.indexOf("-1") && this.graduateDetailsForm.value.country == "" && this.graduateDetailsForm.value.country.indexOf("-1") &&
+      this.graduateDetailsForm.value.studyPermit == "" && this.graduateDetailsForm.value.studyPermit.indexOf("-1")) {
+      this.toast.showtoastrError("Please ensure all fields are filled in", "Missing personal details");
+
+    } else if (this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "") {
+      this.toast.showtoastrError("Password fields cannot be empty", "Blank password field(s)");
+
+    }
+    else if (this.graduateDetailsForm.value.password !== this.graduateDetailsForm.value.confirmPassword) {
       this.toast.showtoastrError("Confirmed password does not match initial password input", "Password does not match error");
 
+    }
+    else if (this.graduateDetailsForm.value.qualificationName == "" && this.graduateDetailsForm.value.qualificationDescription == ""
+      && this.graduateDetailsForm.value.graduateDate == "") {
+      this.toast.showtoastrError("Please ensure all fields are filled in ", "Qualification section");
+
+    } else {
+      this.toast.showtoastrSuccess("Graduate details successfully submitted", "Submission success");
     }
 
     this.graduateProfile.firstName = this.graduateDetailsForm.value.firstName!;
