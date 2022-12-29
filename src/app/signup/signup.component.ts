@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrUtility } from '../utility/toast.utility';
 import { GraduateProfileService } from '../service/graduate-profile.service';
-import { GraduateProfile } from '../model/graduate';
+import { Graduate } from '../model/graduate';
 
 @Component({
   selector: 'app-signup',
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
 
   confirmPassword: string = "";
 
-  graduate: GraduateProfile = {
+  graduate: Graduate = {
     firstName: '',
     middleName: '',
     lastName: '',
@@ -91,7 +91,7 @@ export class SignupComponent implements OnInit {
 
   }
 
-  signUp(graduate: GraduateProfile): void {
+  signUp(graduate: Graduate): void {
     console.log("run");
     this.graduateService.saveProfile(graduate).subscribe({
       error: (error) => {
