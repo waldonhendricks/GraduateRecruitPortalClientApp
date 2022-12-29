@@ -17,10 +17,10 @@ export class ResetPasswordComponent implements OnInit {
   // confirmPassword: '',
   //};
 
-  constructor(/*private resetPasswordService: ResetPasswordService,*/ private toast: ToastrUtility) {
+  constructor(/*private resetPasswordService: ResetPasswordService,*/ /*private toast: ToastrUtility*/) {
     this.resetPasswordForm = new FormGroup({
-      newPassword: new FormControl("", Validators.required),
-      confirmPassword: new FormControl("", Validators.required)
+      newPassword: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern("[^A-Za-z0-9]")]),
+      confirmPassword: new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern("[^A-Za-z0-9]")])
     }
 
 
@@ -28,23 +28,27 @@ export class ResetPasswordComponent implements OnInit {
 
   }
 
+  get newPassword() {
+    return this.resetPasswordForm.get('newPassword');
+  }
+
+  get confirmPassword() {
+    return this.resetPasswordForm.get('confirmPasword');
+  }
+
   ngOnInit(): void {
   }
 
-  //submitResetPassword() {
-  // if (this.resetPasswordForm.value.newPassword !== this.resetPasswordForm.value.confirmPassword) {
-  //   this.toast.showtoastrError("Password do not match!", "Password Error");
-  //   return;
-  // }
+  submitResetPassword() {
+    // if (this.resetPasswordForm.value.newPassword !== this.resetPasswordForm.value.confirmPassword) {
+    //   this.toast.showtoastrError("Password do not match!", "Password Error");
+    //   return;
+    }
 
 
-  // this.reset-password.newPassword = this.resetPasswordForm.value.newPassword!;
-  // this.reset-password.confirmPassword = this.resetPasswordForm.value.confirmPassword!;
-  // this.reset-password(this.reset-password);
-  // setTimeout(() => {
-  //}, 1800);
 
-}
+
+  }
 
 //resetPassword(graduate: Graduate): void {
   //this.ResetPasswordService.register(graduate).subscribe({
