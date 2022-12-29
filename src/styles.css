@@ -31,6 +31,7 @@
     --backgroud: #ffffff;
     --orange: #F27400;
     --green: #11D600;
+    --alert: #d12828;
 }
 
 h1 {
@@ -75,6 +76,11 @@ label {
 
 button {
     text-transform: uppercase;
+}
+
+.error-msg{
+    display: inline;
+    color: var(--alert);
 }
 
 .grad-cput-btn {

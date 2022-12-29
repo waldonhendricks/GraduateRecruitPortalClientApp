@@ -1,3 +1,16 @@
+#grad-portal-direct-vacancy-refresh-btn {
+  width: 100px;
+  position: absolute;
+  top: 47%;
+  right: 0%;
+  height: 43px;
+  padding-top: 0.8%;
+}
+
+.card-body{
+  border: none !important;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   #grad-portal-direct-vacancy-refresh-btn {
@@ -7,23 +20,59 @@
     right: 10%;
     height: 43px;
     padding-top: 0.8%;
+  }
+
+  .card-body{
+    border: none !important;
+  }
+
 }
-    
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #grad-portal-direct-vacancy-refresh-btn {
+    width: 100px;
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    height: 43px;
+    padding-top: 0.8%;
   }
-  
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) { 
-  
+
+  .card-body{
+    border: none !important;
   }
-  
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-    #grad-portal-direct-vacancy-refresh-btn {
-        width: 100px;
-        position: absolute;
-        top: 100%;
-        right: 10%;
-        height: 43px;
-        padding-top: 0.8%;
-    }
+}
+
+@media only screen and (min-width: 992px) {
+  #grad-portal-direct-vacancy-refresh-btn {
+    width: 100px;
+    position: absolute;
+    top: 47%;
+    right: 0%;
+    height: 43px;
+    padding-top: 0.8%;
   }
+
+  .card-body{
+    border: none !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #grad-portal-direct-vacancy-refresh-btn {
+    width: 100px;
+    position: absolute;
+    top: 47%;
+    right: 0%;
+    height: 43px;
+    padding-top: 0.8%;
+  }
+
+  .card-body{
+    border: none !important;
+  }
+}
