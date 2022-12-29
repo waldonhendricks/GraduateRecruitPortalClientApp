@@ -169,51 +169,51 @@ export class GraduateProfileComponent implements OnInit {
     if (this.graduateDetailsForm.value.firstName == "" && this.graduateDetailsForm.value.middleName == "" && this.graduateDetailsForm.value.lastName == "" && this.graduateDetailsForm.value.preferredName == "" &&
       this.graduateDetailsForm.value.primaryEmail == "" && this.graduateDetailsForm.value.secondaryEmail == "" && this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "" &&
       this.graduateDetailsForm.value.cellphone == "") {
-      this.toast.showtoastrError("Please ensure all fields are filled in", "Missing personal details")
+      this.toast.showtoastrError("Please ensure all fields are filled in", "Missing details")
 
     } else if (this.graduateDetailsForm.value.gender == "" && this.graduateDetailsForm.value.gender.indexOf("-1") && this.graduateDetailsForm.value.license == "" &&
       this.graduateDetailsForm.value.license.indexOf("-1") && this.graduateDetailsForm.value.country == "" && this.graduateDetailsForm.value.country.indexOf("-1") &&
       this.graduateDetailsForm.value.studyPermit == "" && this.graduateDetailsForm.value.studyPermit.indexOf("-1")) {
-      this.toast.showtoastrError("Please ensure all fields are filled in", "Missing personal details");
+      this.toast.showtoastrError("Please ensure all fields are filled in", "Missing details");
 
     } else if (this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "") {
-      this.toast.showtoastrError("Password fields cannot be empty", "Blank password field(s)");
+      this.toast.showtoastrError("Password fields cannot be empty", "Empty password field(s)");
 
     }
     else if (this.graduateDetailsForm.value.password !== this.graduateDetailsForm.value.confirmPassword) {
-      this.toast.showtoastrError("Confirmed password does not match initial password input", "Password does not match error");
+      this.toast.showtoastrError("Confirmed password does not match initial password input", "Password does not match");
 
     }
     else if (this.graduateDetailsForm.value.qualificationName == "" && this.graduateDetailsForm.value.qualificationDescription == ""
       && this.graduateDetailsForm.value.graduateDate == "") {
-      this.toast.showtoastrError("Please ensure all fields are filled in ", "Qualification section");
+      this.toast.showtoastrError("Please ensure all fields are filled in ", "Missing details");
 
     } else {
+      this.graduateProfile.firstName = this.graduateDetailsForm.value.firstName!;
+      this.graduateProfile.middleName = this.graduateDetailsForm.value.middleName!;
+      this.graduateProfile.lastName = this.graduateDetailsForm.value.lastName!;
+      this.graduateProfile.preferredName = this.graduateDetailsForm.value.preferredName!;
+      this.graduateProfile.primaryEmail = this.graduateDetailsForm.value.primaryEmail!;
+      this.graduateProfile.secondaryEmail = this.graduateDetailsForm.value.secondaryEmail!;
+      this.graduateProfile.gender = this.graduateDetailsForm.value.gender!;
+      this.graduateProfile.country = this.graduateDetailsForm.value.country!;
+      this.graduateProfile.studyPermit = Boolean(this.graduateDetailsForm.value.studyPermit!);
+      this.graduateProfile.password = this.graduateDetailsForm.value.password!;
+  
+      this.experience.jobTitle = this.graduateDetailsForm.value.jobTitle!;
+      this.experience.assumedRole = this.graduateDetailsForm.value.assumedRole!;
+      this.experience.startDate = this.graduateDetailsForm.value.startDate!;
+      this.experience.endDate = this.graduateDetailsForm.value.endDate!;
+  
+      this.qualification.qualificationName = this.graduateDetailsForm.value.qualificationName!;
+      this.qualification.qualificationDescription = this.graduateDetailsForm.value.qualificationDescription!;
+      this.qualification.graduateDate = new Date(this.graduateDetailsForm.value.graduateDate!);
+      this.graduateDetails(this.graduateProfile);
+      setTimeout(() => {
+      }, 1800);
       this.toast.showtoastrSuccess("Graduate details successfully submitted", "Submission success");
     }
 
-    this.graduateProfile.firstName = this.graduateDetailsForm.value.firstName!;
-    this.graduateProfile.middleName = this.graduateDetailsForm.value.middleName!;
-    this.graduateProfile.lastName = this.graduateDetailsForm.value.lastName!;
-    this.graduateProfile.preferredName = this.graduateDetailsForm.value.preferredName!;
-    this.graduateProfile.primaryEmail = this.graduateDetailsForm.value.primaryEmail!;
-    this.graduateProfile.secondaryEmail = this.graduateDetailsForm.value.secondaryEmail!;
-    this.graduateProfile.gender = this.graduateDetailsForm.value.gender!;
-    this.graduateProfile.country = this.graduateDetailsForm.value.country!;
-    this.graduateProfile.studyPermit = Boolean(this.graduateDetailsForm.value.studyPermit!);
-    this.graduateProfile.password = this.graduateDetailsForm.value.password!;
-
-    this.experience.jobTitle = this.graduateDetailsForm.value.jobTitle!;
-    this.experience.assumedRole = this.graduateDetailsForm.value.assumedRole!;
-    this.experience.startDate = this.graduateDetailsForm.value.startDate!;
-    this.experience.endDate = this.graduateDetailsForm.value.endDate!;
-
-    this.qualification.qualificationName = this.graduateDetailsForm.value.qualificationName!;
-    this.qualification.qualificationDescription = this.graduateDetailsForm.value.qualificationDescription!;
-    this.qualification.graduateDate = new Date(this.graduateDetailsForm.value.graduateDate!);
-    this.graduateDetails(this.graduateProfile);
-    setTimeout(() => {
-    }, 1800);
   }
 
   // Choose gender using select dropdown
