@@ -40,3 +40,7 @@ some help to them to track down their cause.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+The portal demo can now be accessed through AWS Amplify studio https://master.d2ai6wnuww1one.amplifyapp.com/graduate-homepage
+![image](https://user-images.githubusercontent.com/8423513/209405611-b23ff840-9fb7-4ab6-919f-7ac5756ebcc5.png)
+

@@ -34,7 +34,7 @@ import { SelectService } from './service/select.service';
 import { AlertsComponent } from './alerts/alerts.component';
 import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor.component';
 import { CookieService } from 'ngx-cookie-service';
-// import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -72,7 +72,7 @@ import { CookieService } from 'ngx-cookie-service';
     CarouselModule,
     ButtonModule,
     ToastrModule.forRoot(),
-    // PdfViewerModule
+    PdfViewerModule
   ],
   providers: [SelectService, CookieService],
   bootstrap: [AppComponent]
