@@ -24,24 +24,24 @@ export class SignupComponent implements OnInit {
 
   graduate: Graduate = {
     firstName: '',
-    middleName: '',
-    lastName: '',
+    surname: '',
     preferredName: '',
-    primaryEmail: '',
+    email: '',
     secondaryEmail: '',
-    gender: '',
-    license: false,
+    motorVehicleLicense: '',
     country: '',
-    studyPermit: false,
     password: '',
     cellphone: '',
-    graduateAdditionalFiles: [],
-    Qualifications: [],
-    Experiences: [],
-    GraduatePortalDocument: [],
+    qualifications: [],
+    experiences: [],
     userId: 0,
-    email: '',
-    userRole: ''
+    userRole: '',
+    cv: {
+      cvId: 0,
+      documentLocation: "",
+      isAcknowledged: false,
+      dateAdded: new Date(Date.parse(Date.now().toLocaleString()))
+    }
   };
 
   constructor(private graduateService: GraduateProfileService, private toast: ToastrUtility) {
@@ -50,15 +50,20 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitRegistration() {
+  submitRegistration(): void {
     console.log("Submitting registration...please wait");
 
-    this.graduate.primaryEmail = this.signUpForm.value.primaryEmail!;
+    this.graduate.email = this.signUpForm.value.primaryEmail!;
     this.graduate.password = this.signUpForm.value.password!;
     this.confirmPassword = this.signUpForm.value.confirmPassword!;
 
     // Must check the password before you submit and if they do not match,
     // Report back to the user.
+    if(this.graduate.password !== this.confirmPassword) {
+      this.toast.showtoastrError('Password do not match', "Password Mismatch Error")
+      return;
+    }
+
     this.signUp(this.graduate);
     setTimeout(() => {
     }, 1800);
@@ -67,7 +72,7 @@ export class SignupComponent implements OnInit {
 
   signUp(graduate: Graduate): void {
     console.log("run");
-    this.graduateService.saveProfile(graduate).subscribe({
+    this.graduateService.save(graduate).subscribe({
       error: (error) => {
         this.toast.showtoastrError(error, "Request status");
         console.log(error);

@@ -1,8 +1,6 @@
-export interface CV{
+export interface Cv{
     cvId: number;
     documentLocation: string;
     isAcknowledged: Boolean;
     dateAdded: Date;
-    additionalFiles: Array<any>;
-
 }

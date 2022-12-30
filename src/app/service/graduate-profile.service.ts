@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Graduate } from "../model/graduate";
+import { UserSession } from "../model/userSession";
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +15,13 @@ export class GraduateProfileService{
     constructor(private http: HttpClient){
     }
 
-    public saveProfile(profile: Graduate): Observable<Graduate>{
-        return this.http.post<Graduate>(`${this.apiServerURL}/gradrecruitment/grad_profile/save_gradProfile`,profile);
+    public save(profile: Graduate): Observable<Graduate>
+    {
+        return this.http.post<Graduate>(`${this.apiServerURL}/graduate/signup`,profile);
+    }
+
+    public login(graduate: Graduate): Observable<UserSession>
+    {
+        return this.http.post<UserSession>(`${this.apiServerURL}/graduate/login`,graduate);
     }
 }

@@ -51,24 +51,24 @@ export class GraduateProfileComponent implements OnInit {
   });
 
   graduateProfile: Graduate = {
-    firstName: '',
-    middleName: '',
-    lastName: '',
     preferredName: '',
     secondaryEmail: '',
-    primaryEmail: '',
-    gender: '',
-    license: true,
+    motorVehicleLicense: '',
     country: '',
-    studyPermit: true,
+    cv: {
+      cvId: 0,
+      documentLocation: "",
+      isAcknowledged: false,
+      dateAdded: new Date(Date.parse(Date.now().toLocaleString()))
+    },
+    qualifications: [],
+    experiences: [],
+    userId: 0,
+    firstName: '',
+    surname: '',
+    email: '',
     password: '',
     cellphone: '',
-    graduateAdditionalFiles: [],
-    Qualifications: [],
-    Experiences: [],
-    GraduatePortalDocument: [],
-    userId: 0,
-    email: '',
     userRole: ''
   }
 
@@ -190,14 +190,12 @@ export class GraduateProfileComponent implements OnInit {
 
     } else {
       this.graduateProfile.firstName = this.graduateDetailsForm.value.firstName!;
-      this.graduateProfile.middleName = this.graduateDetailsForm.value.middleName!;
-      this.graduateProfile.lastName = this.graduateDetailsForm.value.lastName!;
+      this.graduateProfile.surname = this.graduateDetailsForm.value.lastName!;
       this.graduateProfile.preferredName = this.graduateDetailsForm.value.preferredName!;
-      this.graduateProfile.primaryEmail = this.graduateDetailsForm.value.primaryEmail!;
+      this.graduateProfile.email = this.graduateDetailsForm.value.primaryEmail!;
       this.graduateProfile.secondaryEmail = this.graduateDetailsForm.value.secondaryEmail!;
-      this.graduateProfile.gender = this.graduateDetailsForm.value.gender!;
       this.graduateProfile.country = this.graduateDetailsForm.value.country!;
-      this.graduateProfile.studyPermit = Boolean(this.graduateDetailsForm.value.studyPermit!);
+      //this.graduateProfile.studyPermit = Boolean(this.graduateDetailsForm.value.studyPermit!);
       this.graduateProfile.password = this.graduateDetailsForm.value.password!;
   
       this.experience.jobTitle = this.graduateDetailsForm.value.jobTitle!;
@@ -267,7 +265,7 @@ export class GraduateProfileComponent implements OnInit {
 
   //personal information of the graduate
   graduateDetails(graduateProfile: Graduate): void {
-    this.graduateProfileService.saveProfile(graduateProfile).subscribe({
+    this.graduateProfileService.save(graduateProfile).subscribe({
       error: (error) => {
         this.toast.showtoastrError(error, "Request status");
         console.log(error);

@@ -8,7 +8,6 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { SignupComponent } from './signup/signup.component';
 import { VacancyInformationComponent } from './vacancy-information/vacancy-information.component';
-import { SigninComponent } from './signin/signin.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
 import { VacancyPostComponent } from './vacancy-post/vacancy-post.component';
@@ -18,19 +17,19 @@ import { GraduateInformationComponent } from './graduate-information/graduate-in
 import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
 import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
 import { BrowseCandidatesComponent } from './browse-candidates/browse-candidates.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },
   { path: 'graduate-homepage', component: HomepageComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'login', component: SigninComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'component-development', component: ComponentDevelopmentComponent },
   { path: 'graduate-profile', component: GraduateProfileComponent },
   { path: 'direct-vacancy', component: DirectVacancyComponent },
   { path: 'vacancy-information', component: VacancyInformationComponent },
-  { path: 'login', component: SigninComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'vacancy-ad', component: VacancyAdsComponent },
   { path: 'vacancy-post', component: VacancyPostComponent },
@@ -50,8 +49,6 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [
   HomepageComponent,
-  SignupComponent,
-  SigninComponent,
   ResetPasswordComponent,
   ForgotPasswordComponent,
   ComponentDevelopmentComponent,

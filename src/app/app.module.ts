@@ -18,7 +18,6 @@ import { ComponentDevelopmentComponent } from './component-development/component
 import { GraduateProfileComponent } from './graduate-profile/graduate-profile.component';
 import { DirectVacancyComponent } from './direct-vacancy/direct-vacancy.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import { SigninComponent } from './signin/signin.component';
 import { VacancyInformationComponent } from './vacancy-information/vacancy-information.component';
 import { ContactComponent } from './contact/contact.component';
 import { VacancyAdsComponent } from './vacancy-ads/vacancy-ads.component';
@@ -36,6 +35,7 @@ import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor
 import { CookieService } from 'ngx-cookie-service';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { BrowseCandidatesComponent } from './browse-candidates/browse-candidates.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,6 @@ import { BrowseCandidatesComponent } from './browse-candidates/browse-candidates
     ComponentDevelopmentComponent,
     GraduateProfileComponent,
     DirectVacancyComponent,
-    SigninComponent,
     VacancyInformationComponent,
     ContactComponent,
     VacancyAdsComponent,
@@ -63,6 +62,7 @@ import { BrowseCandidatesComponent } from './browse-candidates/browse-candidates
     VacancyPdfViewComponent,
     AlertsComponent,
     BrowseCandidatesComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

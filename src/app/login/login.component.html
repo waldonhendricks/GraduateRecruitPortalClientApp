@@ -1,0 +1,67 @@
+<div class="grad-portal-dashboard-layout-wrapper">
+    <div class="grad-portal-dashboard-layout-left-widget">
+      <img class="grad-portal-dashboard-img" src="../assets/CPUT_Logo-White.png" alt="cput logo">
+    </div>
+    <div class="grad-portal-dashboard-layout-right-widget">
+      <div class="grad-portal-dashboard-layout-right-form-wrapper">
+        <div class="landscape-header-content">
+          <div class="mobile-logo">
+            <img class="grad-portal-dashboard-img" src="../assets/CPUT_Logo.png" alt="cput logo">
+          </div>
+          <h1 id="forgot-password-heading-id">Login</h1>
+        </div>
+        <form action="" [formGroup]="loginFormGroup" (ngSubmit)="submitLoginForm()"
+          class="grad-portal-dashboard-layout-right-form">
+  
+          <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" id="email" />
+            <div class="error-msg" *ngIf="email && email.invalid && email.touched">
+              <span class="grad=portal-form-error-msg" *ngIf="email && email.invalid && email.touched">
+                Invalid email
+              </span>
+            </div>
+          </div>
+
+          <div class="mb-3 grad-portal-dashboard-layout-right-form-input-wrapper">
+            <label for="email" class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="password" />
+            <div class="error-msg" *ngIf="password && password.invalid && password.touched">
+              <span class="grad=portal-form-error-msg" *ngIf="password && password.invalid && password.touched">
+                Invalid password
+              </span>
+            </div>
+          </div>
+          <div class="mb-3 grad-portal-dashboard-layout-right-form-input-button-wrapper">
+            <div class="landscape-submit-button">
+              <button [disabled]="loginFormGroup.invalid" type="submit" class="grad-cput-big-btn"
+                id="btnResetPassword">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+  
+      <div class="grad-portal-dashboard-layout-right-footer-wrapper">
+        <ul>
+          <li id="footerImg">
+            <img src="../../assets/CPUT_Navbar-Logo.png" alt="Cput Logo">
+          </li>
+  
+          <li id="footerCopyright">
+            &copy; Cape Peninsula University of Technoolgy
+          </li>
+  
+          <div id="footerLinks">
+            <li class="grad-portal-dashboard-layout-footer-links">
+              <a href="">Contact Us</a>
+            </li>
+  
+            <li class="grad-portal-dashboard-layout-footer-links">
+              <a href="">About Us</a>
+            </li>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
