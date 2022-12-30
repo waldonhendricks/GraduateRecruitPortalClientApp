@@ -45,9 +45,6 @@ export class ResetPasswordComponent implements OnInit {
     //   return;
     }
 
-
-
-
   }
 
 //resetPassword(graduate: Graduate): void {
