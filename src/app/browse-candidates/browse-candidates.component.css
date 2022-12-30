@@ -39,10 +39,6 @@
     padding: 2% 4%;
 }
 
-#filterFormSubmitBtnWrapper{
-    position: relative;
-}
-
 #countryOfOrigin{
     color: var(--orange);
 }
@@ -54,10 +50,8 @@
     right: 5%;
 }
 
-#exportBtn{
-    padding-top: 0%;
-    width: 100px;
-    height: 6vh;
+#filterFormSubmitBtnWrapper{
+    position: relative;
 }
 
 #filterBtn{

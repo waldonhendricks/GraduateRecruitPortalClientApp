@@ -35,6 +35,7 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { ErrorInterceptorComponent } from './error-interceptor/error-interceptor.component';
 import { CookieService } from 'ngx-cookie-service';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { BrowseCandidatesComponent } from './browse-candidates/browse-candidates.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     GraduateInformationComponent,
     VacancyPdfViewComponent,
     AlertsComponent,
+    BrowseCandidatesComponent,
   ],
   imports: [
     BrowserModule,

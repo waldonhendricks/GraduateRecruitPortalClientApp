@@ -17,6 +17,7 @@ import { CompanyHomepageComponent } from './company-homepage/company-homepage.co
 import { GraduateInformationComponent } from './graduate-information/graduate-information.component';
 import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.component';
 import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
+import { BrowseCandidatesComponent } from './browse-candidates/browse-candidates.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'graduate-information', component: GraduateInformationComponent },
   { path: 'vacancy-post', component: VacancyPostComponent },
   { path: 'recruitment-list', component: RecruitmentListComponent },
+  { path: 'browse', component: BrowseCandidatesComponent },
   { path: 'vacancy-pdf-view', component: VacancyPdfViewComponent }
 ];
 
