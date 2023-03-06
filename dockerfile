@@ -8,5 +8,5 @@ COPY package*.json ./
 RUN yarn install
 # Bundle app source
 COPY . .
-EXPOSE 4200
+EXPOSE 80
 CMD [ "yarn", "start" ]
