@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 import { Experience } from '../model/experience';
 import { Graduate } from '../model/graduate';
 import { Qualification } from '../model/qualification';
@@ -16,7 +17,10 @@ import { requiredFileType } from './file-type';
   styleUrls: ['./graduate-profile.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class GraduateProfileComponent implements OnInit {
+export class GraduateProfileComponent implements OnInit
+{
+  private graduateId: string;
+  isSouthAfricaSelected: boolean = false;
 
   graduateDetailsForm = new FormGroup({
     firstName: new FormControl("", [Validators.required, Validators.pattern('^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$')]),
@@ -50,7 +54,7 @@ export class GraduateProfileComponent implements OnInit {
 
   });
 
-  graduateProfile: Graduate = {
+  graduate: Graduate = {
     preferredName: '',
     secondaryEmail: '',
     motorVehicleLicense: '',
@@ -63,7 +67,7 @@ export class GraduateProfileComponent implements OnInit {
     },
     qualifications: [],
     experiences: [],
-    userId: 0,
+    userId: '',
     firstName: '',
     surname: '',
     email: '',
@@ -94,13 +98,14 @@ export class GraduateProfileComponent implements OnInit {
 
   Gender: any = ['Male', 'Female'];
 
-  License: any = ['No', 'Yes - Motor Bike (Code A)',
-    'Yes - Code 8 License (Code B)',
-    'Yes - Code 10 License (Code C)',
-    'Yes - Code 14 License (Code D)'];
+  License: any = ["No", "Yes - Learner's license",
+    "Yes - Motor Bike (Code A)",
+    "Yes - Code 8 License (Code B)",
+    "Yes - Code 10 License (Code C)",
+    "Yes - Code 14 License (Code D)"];
 
   Country: any = ['Algeria (+213)', 'Andorra (+376)', 'Angola (+244)', 'Anguilla (+1264)',
-    'Antigua &amp; Barbuda (+1268)', 'Argentina (+54)', 'Armenia (+374)',
+    'Antigua  Barbuda (+1268)', 'Argentina (+54)', 'Armenia (+374)',
     'Aruba (+297)', 'Australia (+61)', 'Austria (+43)', 'Azerbaijan (+994)',
     'Bahamas (+1242)', 'Bahrain (+973)', 'Bangladesh (+880)', 'Barbados (+1246)',
     'Belarus (+375)', 'Belgium (+32)', 'Belize (+501)', 'Benin (+229)',
@@ -139,83 +144,68 @@ export class GraduateProfileComponent implements OnInit {
     'Panama (+507)', 'Papua New Guinea (+675)', 'Paraguay (+595)', 'Peru (+51)',
     'Philippines (+63)', 'Poland (+48)', 'Portugal (+351)', 'Puerto Rico (+1787)',
     'Qatar (+974)', 'Reunion (+262)', 'Romania (+40)', 'Russia (+7)',
-    'Rwanda (+250)', 'San Marino (+378)', 'Sao Tome &amp; Principe (+239)', 'Saudi Arabia (+966)',
+    'Rwanda (+250)', 'San Marino (+378)', 'Sao Tome  Principe (+239)', 'Saudi Arabia (+966)',
     'Senegal (+221)', 'Serbia (+381)', 'Seychelles (+248)', 'Sierra Leone (+232)',
     'Singapore (+65)', 'Slovak Republic (+421)', 'Slovenia (+386)', 'Solomon Islands (+677)',
     'Somalia (+252)', 'South Africa (+27)', 'Spain (+34)', 'Sri Lanka (+94)',
     'St. Helena (+290)', 'St. Kitts (+1869)', 'St. Lucia (+1758)', 'Sudan (+249)',
     'Suriname (+597)', 'Swaziland (+268)', 'Sweden (+46)', 'Switzerland (+41)',
     'Syria (+963)', 'Taiwan (+886)', 'Tajikstan (+7)', 'Thailand (+66)',
-    'Togo (+228)', 'Tonga (+676)', 'Trinidad &amp; Tobago (+1868)', 'Tunisia (+216)',
-    'Turkey (+90)', 'Turkmenistan (+7)', 'Turkmenistan (+993)', 'Turks &amp; Caicos Islands (+1649)',
+    'Togo (+228)', 'Tonga (+676)', 'Trinidad  Tobago (+1868)', 'Tunisia (+216)',
+    'Turkey (+90)', 'Turkmenistan (+7)', 'Turkmenistan (+993)', 'Turks  Caicos Islands (+1649)',
     'Tuvalu (+688)', 'Uganda (+256)', 'UK (+44)', 'Ukraine (+380)',
     'United Arab Emirates (+971)', 'Uruguay (+598)', 'USA (+1)', 'Uzbekistan (+7)',
     'Vanuatu (+678)', 'Vatican City (+379)', 'Venezuela (+58)', 'Vietnam (+84)',
-    'Virgin Islands - British (+1284)', 'Virgin Islands - US (+1340)', 'Wallis &amp; Futuna (+681)', 'Yemen (North)(+969)',
+    'Virgin Islands - British (+1284)', 'Virgin Islands - US (+1340)', 'Wallis  Futuna (+681)', 'Yemen (North)(+969)',
     'Yemen (South)(+967)', 'Zambia (+260)', 'Zimbabwe (+263)'];
 
   StudyPermit: any = ['Yes', 'No'];
 
-  constructor(public formBuilder: FormBuilder, private graduateProfileService: GraduateProfileService,
+  constructor (public formBuilder: FormBuilder, private graduateService: GraduateProfileService,
     private experienceService: ExperienceService, private qualificationService: QualificationService,
-    private toast: ToastrUtility) {
+    private toast: ToastrUtility, private cookieService: CookieService)
+  {
+    this.graduateId = "";
   }
-  ngOnInit(): void {
+
+  ngOnInit(): void
+  {
+    this.graduateId = this.cookieService.get('GRAD_PORTAL_USER-ID');
+    this.getGraduate(this.graduateId);
+    setTimeout(() => {
+      console.log(this.graduate);
+      this.populateGraduateFormFields();
+    }, 3000);
   }
 
-  submitGraduateDetails() {
-    console.log("Submitting graduate details...please wait");
+  submitGraduateDetails()
+  {
+    this.graduate.firstName = this.graduateDetailsForm.value.firstName!;
+    this.graduate.preferredName = this.graduateDetailsForm.value.preferredName!;
+    this.graduate.surname =  this.graduateDetailsForm.value.lastName!;
+    this.graduate.email =  this.graduateDetailsForm.value.primaryEmail!;
+    this.graduate.secondaryEmail = this.graduateDetailsForm.value.secondaryEmail!;
+    this.graduate.cellphone =  this.graduateDetailsForm.value.cellphone!;
+    this.graduate.motorVehicleLicense = this.graduateDetailsForm.value.license!;
+    this.graduate.country = this.graduateDetailsForm.value.country!;
 
-    if (this.graduateDetailsForm.value.firstName == "" && this.graduateDetailsForm.value.middleName == "" && this.graduateDetailsForm.value.lastName == "" && this.graduateDetailsForm.value.preferredName == "" &&
-      this.graduateDetailsForm.value.primaryEmail == "" && this.graduateDetailsForm.value.secondaryEmail == "" && this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "" &&
-      this.graduateDetailsForm.value.cellphone == "") {
-      this.toast.showtoastrError("Please ensure all fields are filled in", "Missing details")
+    this.saveGraduateDetails(this.graduate);
+    setTimeout(() =>
+    {
+    }, 2500);
+    this.toast.showtoastrSuccess("Graduate details successfully submitted", "Submission success");
+  }
 
-    } else if (this.graduateDetailsForm.value.gender == "" && this.graduateDetailsForm.value.gender.indexOf("-1") && this.graduateDetailsForm.value.license == "" &&
-      this.graduateDetailsForm.value.license.indexOf("-1") && this.graduateDetailsForm.value.country == "" && this.graduateDetailsForm.value.country.indexOf("-1") &&
-      this.graduateDetailsForm.value.studyPermit == "" && this.graduateDetailsForm.value.studyPermit.indexOf("-1")) {
-      this.toast.showtoastrError("Please ensure all fields are filled in", "Missing details");
-
-    } else if (this.graduateDetailsForm.value.password == "" && this.graduateDetailsForm.value.confirmPassword == "") {
-      this.toast.showtoastrError("Password fields cannot be empty", "Empty password field(s)");
-
-    }
-    else if (this.graduateDetailsForm.value.password !== this.graduateDetailsForm.value.confirmPassword) {
-      this.toast.showtoastrError("Confirmed password does not match initial password input", "Password does not match");
-
-    }
-    else if (this.graduateDetailsForm.value.qualificationName == "" && this.graduateDetailsForm.value.qualificationDescription == ""
-      && this.graduateDetailsForm.value.graduateDate == "") {
-      this.toast.showtoastrError("Please ensure all fields are filled in ", "Missing details");
-
-    } else {
-      this.graduateProfile.firstName = this.graduateDetailsForm.value.firstName!;
-      this.graduateProfile.surname = this.graduateDetailsForm.value.lastName!;
-      this.graduateProfile.preferredName = this.graduateDetailsForm.value.preferredName!;
-      this.graduateProfile.email = this.graduateDetailsForm.value.primaryEmail!;
-      this.graduateProfile.secondaryEmail = this.graduateDetailsForm.value.secondaryEmail!;
-      this.graduateProfile.country = this.graduateDetailsForm.value.country!;
-      //this.graduateProfile.studyPermit = Boolean(this.graduateDetailsForm.value.studyPermit!);
-      this.graduateProfile.password = this.graduateDetailsForm.value.password!;
+  setActiveCountry(country: any): void
+  {
+    (country === "173: South Africa (+27)") 
+    ? this.isSouthAfricaSelected = true 
+    : this.isSouthAfricaSelected = false;
+  }
   
-      this.experience.jobTitle = this.graduateDetailsForm.value.jobTitle!;
-      this.experience.assumedRole = this.graduateDetailsForm.value.assumedRole!;
-      this.experience.startDate = this.graduateDetailsForm.value.startDate!;
-      this.experience.endDate = this.graduateDetailsForm.value.endDate!;
-  
-      this.qualification.qualificationName = this.graduateDetailsForm.value.qualificationName!;
-      this.qualification.qualificationDescription = this.graduateDetailsForm.value.qualificationDescription!;
-      this.qualification.graduateDate = new Date(this.graduateDetailsForm.value.graduateDate!);
-      this.graduateDetails(this.graduateProfile);
-      setTimeout(() => {
-      }, 1800);
-      this.toast.showtoastrSuccess("Graduate details successfully submitted", "Submission success");
-    }
-
-  }
-
   // Choose gender using select dropdown
-  changeGender(e: any) {
+  changeGender(e: any)
+  {
     console.log(e.value)
     this.graduateDetailsForm.setValue(e.target.value, {
       onlySelf: true
@@ -223,24 +213,28 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   //get gender when user selects it
-  get genderType() {
+  get genderType()
+  {
     return this.graduateDetailsForm.get('gender');
 
   }
 
   // Choose license using select dropdown
-  selectLicense(e: any) {
+  selectLicense(e: any)
+  {
     console.log(e.value)
     this.graduateDetailsForm.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  get licenseType() {
+  get licenseType()
+  {
     return this.graduateDetailsForm.get('license');
   }
 
-  selectCountry(e: any) {
+  selectCountry(e: any)
+  {
     console.log(e.value)
     this.graduateDetailsForm.setValue(e.target.value, {
       onlySelf: true
@@ -248,28 +242,50 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   //get the selected country
-  get country() {
+  get country()
+  {
     return this.graduateDetailsForm.get('country');
   }
 
-  selectStudyPermit(e: any) {
+  selectStudyPermit(e: any)
+  {
     console.log(e.value)
     this.graduateDetailsForm.setValue(e.target.value, {
       onlySelf: true
     })
   }
 
-  get studyPermit() {
+  get studyPermit()
+  {
     return this.graduateDetailsForm.get('studyPermit');
   }
 
+  getGraduate(graduateId: string): void
+  {
+    this.graduateService.getGraduate(graduateId).subscribe(
+    {
+      next: (response: Graduate) => {
+        this.graduate = response;
+      },
+
+      error: (errorResponse: any) => {
+        this.toast.showtoastrError(errorResponse.error.error, "Request status");
+        setTimeout(() => {
+        }, 2000);
+      },
+    });
+  }
+
   //personal information of the graduate
-  graduateDetails(graduateProfile: Graduate): void {
-    this.graduateProfileService.save(graduateProfile).subscribe({
-      error: (error) => {
+  saveGraduateDetails(graduateProfile: Graduate): void
+  {
+    this.graduateService.save(graduateProfile).subscribe({
+      error: (error) =>
+      {
         this.toast.showtoastrError(error, "Request status");
         console.log(error);
-        setTimeout(() => {
+        setTimeout(() =>
+        {
         }, 1500);
       },
 
@@ -278,24 +294,30 @@ export class GraduateProfileComponent implements OnInit {
   }
 
   //work experience details of graduate
-  graduateWorkExperience(workExperience: Experience): void {
+  graduateWorkExperience(workExperience: Experience): void
+  {
     this.experienceService.addExperience(workExperience).subscribe({
-      error: (error) => {
+      error: (error) =>
+      {
         this.toast.showtoastrError(error, "Request status");
         console.log(error);
-        setTimeout(() => {
+        setTimeout(() =>
+        {
         }, 1500);
       },
       complete: () => this.toast.showtoastrSuccess("Save Request Successful.", "Request Status")
     });
   }
 
-  graduateQualification(graduateQualification: Qualification): void {
+  graduateQualification(graduateQualification: Qualification): void
+  {
     this.qualificationService.addQualification(graduateQualification).subscribe({
-      error: (error) => {
+      error: (error) =>
+      {
         this.toast.showtoastrError(error, "Request status");
         console.log(error);
-        setTimeout(() => {
+        setTimeout(() =>
+        {
         }, 1500);
       },
       complete: () => this.toast.showtoastrSuccess("Save Request Successful.", "Request Status")
@@ -303,34 +325,68 @@ export class GraduateProfileComponent implements OnInit {
 
   }
 
-  browseResume(event: any): void {
+  browseResume(event: any): void
+  {
     event.preventDefault();
     document.getElementById("resumé")?.click();
   }
 
-  browseId(event: any): void {
+  browseId(event: any): void
+  {
     event.preventDefault();
     document.getElementById("idDocument")?.click();
   }
 
-  browseAcademicRecord(event: any): void {
+  browseAcademicRecord(event: any): void
+  {
     event.preventDefault();
     document.getElementById("academicRecord")?.click();
 
   }
 
-  browseMatricResults(event: any): void {
+  browseMatricResults(event: any): void
+  {
     event.preventDefault();
     document.getElementById("matricResults")?.click();
   }
 
-  browsePermit(event: any): void {
+  browsePermit(event: any): void
+  {
     event.preventDefault();
     document.getElementById("studyPermit")?.click();
 
   }
 
-  removeQualificationFormSection(event: any): void {
+  populateGraduateFormFields()
+  {
+    this.graduateDetailsForm.setValue({
+      firstName: this.graduate.firstName,
+      lastName: this.graduate.surname,
+      preferredName: this.graduate.preferredName,
+      secondaryEmail: this.graduate.secondaryEmail,
+      primaryEmail: this.graduate.email,
+      license: this.graduate.motorVehicleLicense,
+      country: this.graduate.country,
+      cellphone: this.graduate.cellphone,
+      jobTitle: "",
+      companyName: "",
+      assumedRole: "",
+      startDate: "",
+      endDate: "",
+      qualificationName: "",
+      qualificationDescription: "",
+      graduateDate: Date.now.toString(),
+      middleName: null,
+      gender: null,
+      studyPermit: null,
+      password: null,
+      confirmPassword: null,
+      additionalFiles: null
+    });
+  }
+
+  removeQualificationFormSection(event: any): void
+  {
     // Prevents the default behaviour of the button
     event.preventDefault();
 
@@ -338,7 +394,8 @@ export class GraduateProfileComponent implements OnInit {
     event.stopImmediatePropagation();
 
     // Check if the click event occured from the button 
-    if (event.target.tagName === "button".toUpperCase()) {
+    if (event.target.tagName === "button".toUpperCase())
+    {
       /** 
        * Get the id number from the button's id which is equivalent to the id
        * numuber of it outter parent element (div)
@@ -354,7 +411,8 @@ export class GraduateProfileComponent implements OnInit {
 
       // SEE LINE 149
     }
-    else if (event.target.tagName === "i".toUpperCase()) {
+    else if (event.target.tagName === "i".toUpperCase())
+    {
       let button: HTMLElement = event.srcElement.parentElement;
       let idNumberOfTheButton: string = button.id.charAt(button.id.length - 1);
       let parentDiv = document.getElementById(`${this.qualificationWidgetId}-${idNumberOfTheButton}`);
@@ -362,7 +420,8 @@ export class GraduateProfileComponent implements OnInit {
     }
   }
 
-  removeExperieceFormSection(event: any): void {
+  removeExperieceFormSection(event: any): void
+  {
     // Prevents the default behaviour of the button
     event.preventDefault();
 
@@ -370,7 +429,8 @@ export class GraduateProfileComponent implements OnInit {
     event.stopImmediatePropagation();
 
     // Check if the click event occured from the button 
-    if (event.target.tagName === "button".toUpperCase()) {
+    if (event.target.tagName === "button".toUpperCase())
+    {
       /** 
        * Get the id number from the button's id which is equivalent to the id
        * numuber of it outter parent element (div)
@@ -386,7 +446,8 @@ export class GraduateProfileComponent implements OnInit {
 
       // SEE LINE 149
     }
-    else if (event.target.tagName === "i".toUpperCase()) {
+    else if (event.target.tagName === "i".toUpperCase())
+    {
       let button: HTMLElement = event.srcElement.parentElement;
       let idNumberOfTheButton: string = button.id.charAt(button.id.length - 1);
       let parentDiv = document.getElementById(`${this.xpWidgetId}-${idNumberOfTheButton}`);
@@ -395,7 +456,8 @@ export class GraduateProfileComponent implements OnInit {
 
   }
 
-  addMoreWorkExperience(event: any): void {
+  addMoreWorkExperience(event: any): void
+  {
     event.preventDefault();
 
     const dynamicWidgetParent = document.getElementById("grad-profile-dynamic-fields-wrapper-id");
@@ -539,7 +601,8 @@ export class GraduateProfileComponent implements OnInit {
 
   }
 
-  addMoreQualifications(event: any): void {
+  addMoreQualifications(event: any): void
+  {
     event.preventDefault();
     const dynamicWidgetParent = document.getElementById("grad-profile-dynamic-qualification-fields-wrapper-id");
 
@@ -638,3 +701,5 @@ export class GraduateProfileComponent implements OnInit {
   }
 
 }
+
+

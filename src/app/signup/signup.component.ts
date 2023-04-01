@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrUtility } from '../utility/toast.utility';
 import { GraduateProfileService } from '../service/graduate-profile.service';
 import { Graduate } from '../model/graduate';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -34,7 +35,7 @@ export class SignupComponent implements OnInit {
     cellphone: '',
     qualifications: [],
     experiences: [],
-    userId: 0,
+    userId: '',
     userRole: '',
     cv: {
       cvId: 0,
@@ -44,7 +45,7 @@ export class SignupComponent implements OnInit {
     }
   };
 
-  constructor(private graduateService: GraduateProfileService, private toast: ToastrUtility) {
+  constructor(private route: Router, private graduateService: GraduateProfileService, private toast: ToastrUtility) {
   }
 
   ngOnInit(): void {
@@ -72,15 +73,15 @@ export class SignupComponent implements OnInit {
 
   signUp(graduate: Graduate): void {
     console.log("run");
-    this.graduateService.save(graduate).subscribe({
-      error: (error) => {
-        this.toast.showtoastrError(error, "Request status");
-        console.log(error);
+    this.graduateService.signup(graduate).subscribe({
+      next: (response) => {
+        this.route.navigate(['/login'], {queryParams: {signupSuccess: true,}});
+      },
+      error: (errorResponse: any) => {
+        this.toast.showtoastrError(errorResponse.error.error, "Request status");
         setTimeout(() => {
         }, 1500);
       },
-
-      complete: () => this.toast.showtoastrSuccess("Save Request Successful.", "Request Status")
     });
   }
 

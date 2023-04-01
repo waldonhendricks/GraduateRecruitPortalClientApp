@@ -8,16 +8,30 @@
             <i class="bi-list"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a style="color: #292929; " class="nav-link me-lg-3 cput-grad-nav-links" routerLink="/login" routerLinkActive="active">Login</a></li>
+            <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0"> 
+                <li *ngIf="isUserNotLoggedIn else showLoginNavItems" class="nav-item">
+                    <a style="color: #292929; "class="nav-link me-lg-3 cput-grad-nav-links" routerLink="/login" routerLinkActive="active">
+                        Login
+                    </a>
+                </li>
+                <ng-template #showLoginNavItems>
+                    <li class="nav-item"><a style="color: #292929; " class="nav-link me-lg-3 cput-grad-nav-links" routerLink="/graduate-profile" routerLinkActive="active">Profile</a></li>                 
+                </ng-template>
+                
                 <li class="nav-item"><a style="color: #292929;" class="nav-link me-lg-3 cput-grad-nav-links" routerLink="/direct-vacancy" routerLinkActive="active">Vacancy</a></li>
 
                 <li class="nav-item"><a style="color: #292929;" class="nav-link me-lg-3 cput-grad-nav-links" routerLink="/contact-us" routerLinkActive="active">Contact Us</a></li>
                 <li class="nav-item"><a style="color: #292929;" class="nav-link me-lg-3 cput-grad-nav-links" href="#download">About Us</a></li>
             </ul>
-            <button class="grad-cput-btn" data-bs-target="#feedbackModal">
+
+            <button *ngIf="isUserNotLoggedIn else showLogoutBtn" class="grad-cput-btn" data-bs-target="#feedbackModal">
                 <span><a href="/signup">Signup</a></span>
             </button>
+            <ng-template #showLogoutBtn>
+                <button (click)="logout()" class="grad-cput-btn" data-bs-target="#feedbackModal">
+                    <span><a href="/login">Logout</a></span>
+                </button>                 
+            </ng-template>
         </div>
     </div>
 </nav>

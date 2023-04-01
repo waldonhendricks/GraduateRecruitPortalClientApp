@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrUtility } from '../utility/toast.utility';
-import { VacancyPostService } from '../service/vacancy-post.service'
+import { VacancyService } from '../service/vacancy.service'
 import { Vacancy } from '../model/vacancy';
 import { Department } from '../model/department';
 
@@ -29,7 +29,9 @@ export class VacancyPostComponent implements OnInit {
     jobRole: '',
     isApproved: false,
     location: '',
-    file: ''
+    jobDescription: '',
+    jobResponsibilities: [],
+    jobRequirements: []
   }
 
   CourseDepartment: any = ['Informatics and Design - Architectural Technology and Interior Design', 'Informatics and Design - Urban and Regional Planning', 'Informatics and Design - Information Technology', 'Informatics and Design - Applied Design',
@@ -43,7 +45,7 @@ export class VacancyPostComponent implements OnInit {
     'Engineering & the Built Environment - Chemical Engineering', 'Engineering & the Built Environment - Civil Engineering & Geomatics', 'Engineering & the Built Environment - Clothing & Textile Technology', 'Engineering & the Built Environment - Electrical, Electronic and Computer Engineering',
     'Engineering & the Built Environment - Industrial & Systems Engineering', 'Engineering & the Built Environment - Maritime Studies', 'Engineering & the Built Environment - Mechanical and Mechatronic Engineering'];
 
-  constructor(private toast: ToastrUtility, private vacancyPostService: VacancyPostService, public formBuilder: FormBuilder) {
+  constructor(private toast: ToastrUtility, private vacancyPostService: VacancyService, public formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
@@ -61,28 +63,11 @@ export class VacancyPostComponent implements OnInit {
     }
 
     this.department.departmentName = this.vacancyPostForm.value.departmentName!;
-    this.vacancy.file = this.vacancyPostForm.value.file!;
 
-    this.departmentDetails(this.department);
-    setTimeout(() => {
-    }, 1800);
 
     this.vacancyDetails(this.vacancy);
     setTimeout(() => {
     }, 1800);
-
-  }
-
-  departmentDetails(department: Department): void {
-    this.vacancyPostService.saveDepartment(department).subscribe({
-      error: (error) => {
-        this.toast.showtoastrError(error, "Request status");
-        console.log(error);
-        setTimeout(() => {
-        }, 1500);
-      },
-      complete: () => this.toast.showtoastrSuccess("Save Request Successful.", "Request Status")
-    })
 
   }
 

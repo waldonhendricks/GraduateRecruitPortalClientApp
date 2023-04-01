@@ -23,17 +23,6 @@
                     </div>
 
                     <div class="col grad-profile-inputs-widget">
-                        <label for="middleName">Middle Name</label>
-                        <input type="text" class="form-control" aria-label="Middle name" formControlName="middleName">
-                        <div class="invalid-feedback"
-                            *ngIf="graduateDetailsForm.controls['middleName'].errors?.['pattern']">
-                            <sup>*</sup>Please enter your middle name (Text only)
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col grad-profile-inputs-widget">
                         <label for="Surname">Surname</label>
                         <input type="text" class="form-control" aria-label="Surname" formControlName="lastName"
                             required>
@@ -42,7 +31,9 @@
                             <sup>*</sup>Please enter your lastname (Text only)
                         </div>
                     </div>
+                </div>
 
+                <div class="row">              
                     <div class="col grad-profile-inputs-widget">
                         <label for="preffered name">Preferred name</label>
                         <input type="text" class="form-control" aria-label="Preferred name"
@@ -52,19 +43,18 @@
                             <sup>*</sup>Please enter your lastname (Text only)
                         </div>
                     </div>
+
+                    <div class="col grad-profile-inputs-widget">
+                        <label for="middleName">Cellphone</label>
+                        <input type="text" class="form-control" aria-label="Middle name" formControlName="cellphone">
+                        <div class="invalid-feedback"
+                            *ngIf="graduateDetailsForm.controls['cellphone'].errors?.['pattern']">
+                            <sup>*</sup>Please enter your cellphone
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row">
-                    <div class="col grad-profile-inputs-widget">
-                        <label for="secondary-email">Secondary Email</label>
-                        <input type="email" class="form-control" aria-label="Secondary Email"
-                            formControlName="secondaryEmail" required>
-                        <div class="invalid-feedback"
-                            *ngIf="graduateDetailsForm.controls['secondaryEmail'].errors?.['required'] || graduateDetailsForm.controls['secondaryEmail'].errors?.['email'] ">
-                            <sup>*</sup>Please provide your personal (not company email address) email
-                        </div>
-                    </div>
-
                     <div class="col grad-profile-inputs-widget">
                         <label for="primary-email">Primary Email</label>
                         <input type="email" class="form-control" aria-label="Primary email"
@@ -74,6 +64,16 @@
                             <sup>*</sup>Please provide your student email
                         </div>
                     </div>
+
+                    <div class="col grad-profile-inputs-widget">
+                        <label for="secondary-email">Secondary Email</label>
+                        <input type="email" class="form-control" aria-label="Secondary Email"
+                            formControlName="secondaryEmail" required>
+                        <div class="invalid-feedback"
+                            *ngIf="graduateDetailsForm.controls['secondaryEmail'].errors?.['required'] || graduateDetailsForm.controls['secondaryEmail'].errors?.['email'] ">
+                            <sup>*</sup>Please provide your personal (not company email address) email
+                        </div>
+                    </div>                 
                 </div>
 
                 <div class="row">
@@ -114,7 +114,7 @@
                 <div class="row">
                     <div class="col grad-profile-inputs-widget">
                         <label for="country">Select Country</label>
-                        <select class="select2 form-control select2-hidden-accessible"
+                        <select #countriesDropDown (change)="setActiveCountry(countriesDropDown.value)" class="select2 form-control select2-hidden-accessible"
                             data-select2-placeholder="select country" aria-hidden="true" formControlName="country"
                             required>
                             <option tabindex="-1" value="">-select country-</option>
@@ -128,25 +128,27 @@
                     </div>
 
                     <div class="col grad-profile-inputs-widget">
-                        <label for="study-permit">Select study permit</label>
-                        <select class="select2 form-control select2-hidden-accessible"
-                            data-select2-placeholder="study-permit?" aria-hidden="true" formControlName="studyPermit"
-                            required>
-                            <option tabindex="-1" value="">-select whether you own a study permit or not-</option>
-                            <option *ngFor="let studyPermit of StudyPermit" [ngValue]="studyPermit">{{studyPermit}}
-                            </option>
-                        </select>
-                        <!-- error block -->
-                        <div class="invalid-feedback"
-                            *ngIf="graduateDetailsForm.controls['studyPermit'].errors?.['required']">
-                            <sup>*</sup>Please indicate if you own a study permit
+                        <div *ngIf="!isSouthAfricaSelected">
+                            <label for="study-permit">Select study permit</label>
+                            <select class="select2 form-control select2-hidden-accessible"
+                                data-select2-placeholder="study-permit?" aria-hidden="true" formControlName="studyPermit"
+                                required>
+                                <option tabindex="-1" value="">-select whether you own a study permit or not-</option>
+                                <option *ngFor="let studyPermit of StudyPermit" [ngValue]="studyPermit">{{studyPermit}}
+                                </option>
+                            </select>
+                            <!-- error block -->
+                            <div class="invalid-feedback"
+                                *ngIf="graduateDetailsForm.controls['studyPermit'].errors?.['required']">
+                                <sup>*</sup>Please indicate if you own a study permit
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Authorization Information -->
+        <!-- Authorization Information 
         <div class="grad-profile-fields-wrapper">
             <div class="grad-profile-fields-heading">
                 <h3>Authorization Information</h3>
@@ -184,7 +186,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Work Experience -->
         <div class="grad-profile-fields-wrapper">

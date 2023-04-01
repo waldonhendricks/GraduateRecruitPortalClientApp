@@ -19,6 +19,6 @@ export class GraduateInformationService {
   } 
 
   public getDocuments():Observable<Array<any>>{
-  return this.http.get<Array<any>>(`${this.apiServerURL}/graduate/find-all`);
+    return this.http.get<Array<any>>(`${this.apiServerURL}/graduate/find-all`);
   }
 }

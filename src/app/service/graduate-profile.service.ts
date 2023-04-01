@@ -17,7 +17,17 @@ export class GraduateProfileService{
 
     public save(profile: Graduate): Observable<Graduate>
     {
+        return this.http.post<Graduate>(`${this.apiServerURL}/graduate/save`,profile);
+    }
+
+    public signup(profile: Graduate): Observable<Graduate>
+    {
         return this.http.post<Graduate>(`${this.apiServerURL}/graduate/signup`,profile);
+    }
+    
+    public getGraduate(graduateId: string): Observable<Graduate>
+    {
+        return this.http.get<Graduate>(`${this.apiServerURL}/graduate/read/${graduateId}`);
     }
 
     public login(graduate: Graduate): Observable<UserSession>

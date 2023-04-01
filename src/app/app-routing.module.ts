@@ -18,6 +18,7 @@ import { VacancyPdfViewComponent } from './vacancy-pdf-view/vacancy-pdf-view.com
 import { RecruitmentListComponent } from './recruitment-list/recruitment-list.component';
 import { BrowseCandidatesComponent } from './browse-candidates/browse-candidates.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './utility/authGuard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'graduate-homepage', pathMatch: 'full' },
@@ -27,8 +28,8 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'component-development', component: ComponentDevelopmentComponent },
-  { path: 'graduate-profile', component: GraduateProfileComponent },
-  { path: 'direct-vacancy', component: DirectVacancyComponent },
+  { path: 'graduate-profile', component: GraduateProfileComponent, canActivate: [AuthGuard] },
+  { path: 'direct-vacancy', component: DirectVacancyComponent, },
   { path: 'vacancy-information', component: VacancyInformationComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'vacancy-ad', component: VacancyAdsComponent },

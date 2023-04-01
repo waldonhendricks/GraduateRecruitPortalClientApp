@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Graduate } from '../model/graduate';
 import { GraduateProfileService } from '../service/graduate-profile.service';
@@ -26,7 +27,7 @@ export class LoginComponent
     },
     qualifications: [],
     experiences: [],
-    userId: 0,
+    userId: '',
     firstName: '',
     surname: '',
     email: '',
@@ -52,7 +53,8 @@ export class LoginComponent
   }
 
   constructor (private cookieService: CookieService, 
-    private graduateService: GraduateProfileService, private toast: ToastrUtility)
+    private graduateService: GraduateProfileService, private toast: ToastrUtility,
+    private route: Router)
   {
 
   }
@@ -70,16 +72,9 @@ export class LoginComponent
         // This is just an assumption ne.
         if (response.sessionToken !== "") 
         {
-          /**
-           * Suppose our server responds and inside the response the Server
-           * gave us a SessionId for the newly logged in user.
-           * which is found inside of the response object.
-           * 
-           * response.sessionId = 898dega9sdf4q354421sf4g5s1a54d
-           */
-          // 898dega9sdf4q354421sf4g5s1a54d
           this.cookieService.set("GRAD_PORTAL_USER_SESSION-TOKEN", response.sessionToken);
           this.cookieService.set("GRAD_PORTAL_USER-ID", response.userId);
+          this.route.navigate(['/graduate-homepage'], {queryParams: {logInSuccess: true, t: response.sessionToken}});
         }
       },
       complete: () => this.toast.showtoastrSuccess("Login Request Successful.", "Request Status")

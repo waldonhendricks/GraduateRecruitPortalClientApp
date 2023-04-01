@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { Vacancy } from '../model/vacancy';
+import { VacancyService } from '../service/vacancy.service';
+import { ToastrUtility } from '../utility/toast.utility';
 
 @Component({
   selector: 'app-direct-vacancy',
@@ -8,5 +10,41 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class DirectVacancyComponent
 {
+  vacancy: Vacancy = {
+    vacacyId: '',
+    vacancyTitle: '',
+    jobType: '',
+    jobRole: '',
+    isApproved: false,
+    location: '',
+    jobDescription: '',
+    jobResponsibilities: [],
+    jobRequirements: []
+  }
 
+  vacancies: Array<Vacancy> = [];
+
+  constructor(private vacancyService: VacancyService, private toast: ToastrUtility)
+  {}
+
+  ngOnInit(): void
+  {
+    this.getVacancies();
+  }
+
+  getVacancies() : void
+  {
+    this.vacancyService.getVacancies().subscribe(
+    {
+      next: (response: Array<Vacancy>) => {
+        this.vacancies = response;
+      },
+      error: (errorResponse: any) => {
+        this.toast.showtoastrError(errorResponse.error.error, "Request status");
+        console.log(errorResponse.error.error);
+        setTimeout(() => {
+        }, 2000);
+      }
+    })
+  }
 }

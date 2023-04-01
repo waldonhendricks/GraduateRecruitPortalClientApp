@@ -17,7 +17,17 @@
             <a id="grad-portal-direct-vacancy-refresh-btn" class="grad-cput-small-btn" href="#">Refresh</a>
         </div>
 
-        <div class="card w-100 grad-portal-graduate-app-direct-vacancy-widget">
+        <div *ngFor="let vacancy of vacancies" class="card w-100 grad-portal-graduate-app-direct-vacancy-widget">
+            <div class="card-body">
+                <h1 class="card-title">{{vacancy.jobRole}}</h1>
+                <p class="card-text">{{vacancy.location}}</p>
+                <h4>{{vacancy.jobType}}</h4>
+                <p class="card-text">{{vacancy.jobDescription}}</p>
+                <a routerLink="/vacancy-information" routerLinkActive="active" class="grad-cput-small-btn grad-portal-direct-vacancy-btn">View</a>
+            </div>
+        </div>
+
+        <!-- <div class="card w-100 grad-portal-graduate-app-direct-vacancy-widget">
             <div class="card-body">
                 <h1 class="card-title">Junior DevOps Engineer</h1>
                 <p class="card-text">Wembley Square 2, 134 Solan Rd, Gardens, Cape Town, 8001</p>
@@ -26,7 +36,7 @@
                     releases, combining an understandin…</p>
                 <a routerLink="/vacancy-information" routerLinkActive="active" class="grad-cput-small-btn grad-portal-direct-vacancy-btn">Apply</a>
             </div>
-        </div>
+        </div> -->
 
         <div class="grad-portal-graduate-app-direct-vacancy-pager-btn-wrapper">
             <button class="grad-cput-small-btn grad-portal-graduate-app-direct-vacancy-pager-btn">
