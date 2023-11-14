@@ -1,5 +1,5 @@
 import { JobRequirement } from "./jobRequirement";
-import { JobResponsibility } from "./JobResponsibility";
+import { JobResponsibility } from "./jobResponsibility";
 
 export interface Vacancy{
     vacacyId: string;
